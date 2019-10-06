@@ -23,11 +23,11 @@
 }
 
 .swal-button--confirm, .swal-button--edit {
-    background-color: #cf000f;
+    background-color: #E31B23;
     font-size: 12px;
-    border: 1px solid #e2000f;
+    border: 1px solid #ee000f;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-    box-shadow: 0 2px 6px #ff0012;
+    box-shadow: 0 2px 6px #ff1f27;
 }
 
 
@@ -37,7 +37,7 @@
 
 
 .swal-button--confirm:active, .swal-button--edit:active {
-    background-color: #e2000f;
+    background-color: #ee000f;
 }
 
 .swal-button--delete {

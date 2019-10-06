@@ -13,7 +13,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
     width: 8px !important;
-    background: rgba(237, 28, 36, 0.5);
+    background: rgba(227, 27, 35, 0.5);
     border-radius: 5px;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -21,14 +21,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background: rgba(237, 28, 36, 0.8);
+    background: rgba(227, 27, 35, 0.8);
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
 
 body::-webkit-scrollbar-thumb:active {
-    background: rgb(237, 28, 36);
+    background: rgb(227, 27, 35);
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
@@ -90,7 +90,7 @@ body::-webkit-scrollbar-thumb:active {
 .to-top:hover,
 .to-top:focus {
     height: 40px;
-    color: transparent;
+    color: #212223;
 }
 
 .show-to-top {
@@ -113,7 +113,7 @@ body::-webkit-scrollbar-thumb:active {
 .myProgress .bar {
     height: 100%;
     width: 10%;
-    background: #ED1C24;
+    background: #E31B23;
     transition: background 0.15s ease;
 }
 
@@ -158,7 +158,7 @@ body a:hover {
 #m_nav_container {
     width: 100%;
     height: 82px;
-    background-color: #ED1C24;
+    background-color: #E31B23;
     position: fixed;
     display: none;
     top: 0px;
@@ -222,7 +222,7 @@ body a:hover {
 .m_nav_ham {
     width: 20px;
     height: 2px;
-    background: #ED1C24;
+    background: #E31B23;
     margin: 5px auto;
 }
 
@@ -247,7 +247,7 @@ body a:hover {
 }
 
 .button_open {
-    background: #333;
+    background: #fff;
 }
 
 .w3_agileits_ham {
@@ -263,7 +263,7 @@ body a:hover {
 }
 
 .link--kumya:hover i, .menu__list .active a i {
-    color: #ED1C24;
+    color: #E31B23;
 }
 
 ul.dropdown-menu.agile_short_dropdown {
@@ -347,7 +347,7 @@ ul.dropdown-menu.agile_short_dropdown li a {
 }
 
 ul.dropdown-menu {
-    background: #ED1C24 !important;
+    background: #E31B23 !important;
     box-shadow: 0 0 0;
     border: none;
     top: 3em;
@@ -361,7 +361,7 @@ ul.dropdown-menu {
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
     text-decoration: none;
     background-color: transparent !important;
-    color: #ED1C24 !important;
+    color: #E31B23 !important;
     font-weight: 600;
 }
 
@@ -403,6 +403,14 @@ h1 {
     line-height: 3.5;
     font-size: 1em;
     letter-spacing: 2px;
+}
+
+.w3_agileits_header_text h3 a {
+    color: #fff
+}
+
+.w3_agileits_header_text h3 a:hover {
+    color: #E31B23;
 }
 
 .agileits_social_list li {
@@ -448,8 +456,8 @@ a.agile_twitter i:hover {
     transition: 0.5s all;
 }
 
-a.w3_agile_dribble i:hover {
-    color: #ea4c89;
+a.w3_agile_instagram i:hover {
+    color: #bc2a8d;
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
@@ -457,8 +465,8 @@ a.w3_agile_dribble i:hover {
     transition: 0.5s all;
 }
 
-a.w3_agile_vimeo i:hover {
-    color: #1ab7ea;
+a.w3_agile_youtube i:hover {
+    color: #c4302b;
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
@@ -529,7 +537,7 @@ a.w3_agile_vimeo i:hover {
     font-size: .3em;
     color: #fff;
     letter-spacing: 4px;
-    background: #ED1C24;
+    background: #E31B23;
     padding: 4px 10px;
     vertical-align: top;
     font-weight: 100;
@@ -546,7 +554,7 @@ a.w3_agile_vimeo i:hover {
 }
 
 .thim-click-to-bottom i {
-    color: #ED1C24;
+    color: #E31B23;
     padding: 1em .6em;
     border: 2px dotted #fff;
     border-radius: 20px;
@@ -591,8 +599,12 @@ h5.w3l-posi {
     font-weight: 500;
 }
 
+h5.w3l-posi a:hover, h5.w3l-posi a:focus {
+    text-decoration: none;
+}
+
 h5.w3l-posi span {
-    color: #ED1C24;
+    color: #E31B23;
     background: #fff;
     padding: .5em .8em;
 }
@@ -601,7 +613,7 @@ h5.w3l-posi span {
 /*-- model --*/
 .modal-content h5 {
     font-size: 1.4em;
-    color: #ED1C24;
+    color: #E31B23;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-top: 1em;
@@ -705,7 +717,7 @@ ul.agile_forms {
 }
 
 ul.agile_forms li a {
-    background: #ED1C24;
+    background: #E31B23;
     color: #fff;
     font-size: 0.9em;
     padding: 8px 1em;
@@ -732,27 +744,7 @@ ul.agile_forms li {
 /*-- //banner --*/
 /*-- banner-top --*/
 .w3layouts-banner-top {
-    background: url(../images/3.jpg) no-repeat 0px 0px;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    min-height: 800px;
-}
-
-.w3layouts-banner-top1 {
-    background: url(../images/2.jpg) no-repeat 0px 0px;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    min-height: 800px;
-}
-
-.w3layouts-banner-top2 {
-    background: url(../images/1.jpg) no-repeat 0px 0px;
+    background: no-repeat 0 0;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -781,7 +773,7 @@ ul.agile_forms li {
 
 .agileits_w3layouts_more a:before, .agileits_w3layouts_more a:after {
     content: '';
-    background: #ED1C24;
+    background: #E31B23;
     width: 100%;
     height: 2px;
     position: absolute;
@@ -853,7 +845,7 @@ ul.agile_forms li {
 }
 
 .ftr-text p a:hover {
-    color: #ED1C24;
+    color: #E31B23;
 }
 
 .ftr-text p a i {
@@ -866,14 +858,14 @@ ul.agile_forms li {
 }
 
 h3.w3l-title {
-    color: #ED1C24;
+    color: #E31B23;
     font-size: 4em;
     position: relative;
 }
 
 h3.w3l-title:after {
     content: '';
-    background: #ED1C24;
+    background: #E31B23;
     height: 2px;
     width: 7%;
     position: absolute;
@@ -1064,7 +1056,7 @@ h3.w3l-title.stat-title.spe:after {
     border-radius: 50%;
     line-height: 60px;
     text-align: center;
-    background: #ED1C24;
+    background: #E31B23;
     color: #fff;
 }
 
@@ -1074,7 +1066,7 @@ h3.w3l-title.stat-title.spe:after {
 
 .what-agile-info {
     margin-top: 30px;
-    border-left: 3px solid #ED1C24;
+    border-left: 3px solid #E31B23;
     padding: 0 0px 0 20px;
 }
 
@@ -1102,7 +1094,7 @@ p.counter {
 
 .agileinfo_stats_grid h3 {
     font-size: 1.2em;
-    color: #ED1C24;
+    color: #E31B23;
 }
 
 .w3_agileits_head1 {
@@ -1124,7 +1116,7 @@ p.counter {
 
 .agileinfo_stats.mid-w3l-stat:before, .agileinfo_stats.mid-w3l-stat:after {
     content: '';
-    background: #ED1C24;
+    background: #E31B23;
     height: 3px;
     width: 27%;
     position: absolute;
@@ -1151,7 +1143,7 @@ p.w3l-par-st {
 }
 
 .w3_testimonials_grid_right img {
-    border: 3px solid #ED1C24;
+    border: 3px solid #E31B23;
     border-radius: 50%;
     margin: 0 auto;
 }
@@ -1173,7 +1165,7 @@ p.w3l-par-st {
 
 .agileits_w3layouts_footer_grid h3 {
     font-size: 1.8em;
-    color: #ED1C24;
+    color: #E31B23;
     margin-bottom: 1.4em;
     letter-spacing: 1px;
 }
@@ -1249,10 +1241,10 @@ p.w3l-par-st {
 }
 
 .w3social-icons ul li a:hover {
-    color: #ED1C24;
-    -webkit-box-shadow: 0px 0px 13px 2px #ED1C24;
-    -moz-box-shadow: 0px 0px 13px 2px #ED1C24;
-    box-shadow: 0px 0px 13px 2px #ED1C24;
+    color: #E31B23;
+    -webkit-box-shadow: 0px 0px 13px 2px #E31B23;
+    -moz-box-shadow: 0px 0px 13px 2px #E31B23;
+    box-shadow: 0px 0px 13px 2px #E31B23;
 }
 
 /*-- //social-icons --*/
@@ -1269,7 +1261,7 @@ p.w3l-par-st {
 }
 
 .wthree_copy_right p a {
-    color: #ED1C24;
+    color: #E31B23;
     text-decoration: noen;
 }
 
@@ -1280,7 +1272,7 @@ p.w3l-par-st {
 /*-- //footer --*/
 /*-- Inner-Pages --*/
 .banner-2 {
-    background: url(../images/2.jpg) no-repeat 0px 0px;
+    background: no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1420,7 +1412,7 @@ p.w3l-par-st {
     outline: none;
     color: #FFF;
     height: 50px;
-    border: 2px solid #ED1C24;
+    border: 2px solid #E31B23;
     margin: 0 0 20px;
     background: #000;
     resize: none;
@@ -1445,7 +1437,7 @@ textarea:active, textarea:focus {
 .more_btn {
     margin-top: 4em;
     padding: 1em 3em;
-    border: 2px solid #ED1C24;
+    border: 2px solid #E31B23;
     background: #000;
     font-size: 1.1em;
     color: #FFF;
@@ -1561,7 +1553,7 @@ textarea:active, textarea:focus {
 
 h3.icon-subheading {
     font-size: 28px;
-    color: #ED1C24 !important;
+    color: #E31B23 !important;
     margin: 30px 0 15px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -1757,7 +1749,7 @@ li.list-group-item1 {
 
 .grid_5 h3, .grid_5 h2, .grid_5 h1, .grid_5 h4, .grid_5 h5, h3.hdg, h3.bars {
     margin-bottom: 1em;
-    color: #ED1C24;
+    color: #E31B23;
     font-weight: 600;
     font-size: 30px;
     letter-spacing: 2px;
@@ -1781,7 +1773,7 @@ li.list-group-item1 {
 }
 
 .badge-success {
-    background-color: #ED1C24;
+    background-color: #E31B23;
 }
 
 .badge-warning {
@@ -2033,7 +2025,7 @@ h2.typoh2 {
 
 
 .cntl-bar-fill {
-    background-color: #ED1C24;
+    background-color: #E31B23;
     position: absolute;
     left: 0;
     right: 0;
@@ -2074,7 +2066,7 @@ h2.typoh2 {
     width: 40%;
     padding: 2%;
     background-color: rgba(238, 238, 238, 0.25);
-    border-bottom: solid 3px #ED1C24;
+    border-bottom: solid 3px #E31B23;
     float: left;
     opacity: 0;
     position: relative;
@@ -2096,7 +2088,7 @@ h2.typoh2 {
 
 .w3ls_cntl_image_pos {
     padding: 1.5em;
-    background: #ED1C24;
+    background: #E31B23;
     position: absolute;
     top: -15%;
     left: 10%;
@@ -2123,7 +2115,7 @@ h2.typoh2 {
     font-size: 1.2em;
     font-weight: normal;
     margin-bottom: .5em;
-    color: #ED1C24;
+    color: #E31B23;
 }
 
 .cntl-content p {
@@ -2324,7 +2316,7 @@ animations
 }
 
 .team-agile {
-    background: #ED1C24;
+    background: #E31B23;
     padding: 0.5em 1.5em;
     position: absolute;
     bottom: 0;
@@ -2425,7 +2417,7 @@ ul.top-links li a i.fa {
 }
 
 ul.top-links li a i.fa:hover {
-    color: #ED1C24;
+    color: #E31B23;
 }
 
 .w3_navigation {
@@ -2457,7 +2449,7 @@ ul.top-links li a i.fa:hover {
     margin: 0 auto;
     text-align: center;
     position: relative;
-    border: 2px solid #ED1C24;
+    border: 2px solid #E31B23;
 }
 
 .chrt_grid .icon img {
@@ -2471,7 +2463,7 @@ ul.top-links li a i.fa:hover {
     width: 102%;
     height: 102%;
     border-radius: 50%;
-    background: #ED1C24;
+    background: #E31B23;
     position: absolute;
     top: -1px;
     left: -1px;

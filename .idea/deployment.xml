@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="salwa.co.id">
+  <component name="PublishConfigData">
     <serverData>
-      <paths name="salwa.co.id">
+      <paths name="ppf.co.id">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="rabbit-media.net">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

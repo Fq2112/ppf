@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+}
+
+.comparison ul {
+    display: flex;
+    top: 0;
+    z-index: 10;
+    padding-bottom: 14px;
+}
+
+.comparison li {
+    list-style: none;
+    flex: 1;
+}
+
+.comparison li:last-child {
+    border-right: 1px solid #DDD;
+}
+
+.comparison button {
+    width: 100%;
+    border: 1px solid #DDD;
+    border-right: 0;
+    border-top: 0;
+    padding: 10px;
+    background: #FFF;
+    font-size: 11px;
+    font-weight: bold;
+    height: 60px;
+    color: #999
+}
+
+.comparison li.active button {
+    background: #F5F5F5;
+    color: #000;
+}
+
+.comparison table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.comparison th {
+    background: #F5F5F5;
+    display: none;
+}
+
+.comparison td, .comparison th {
+    height: 53px;
+    border: 1px solid #DDD;
+    padding: 10px;
+    empty-cells: show;
+}
+
+.comparison td + .comparison td, .comparison th + .comparison th {
+    text-align: center;
+    display: none;
+}
+
+.comparison td.default {
+    display: table-cell;
+}
+
+.comparison .bg-red {
+    border-top: 3px solid #E31B23;
+}
+
+.comparison .bg-gray {
+    border-top: 3px solid #777;
+}
+
+.comparison .sep {
+    background: #F5F5F5;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.comparison .txt-l {
+    font-size: 18px;
+    font-weight: bold;
+    color: #E31B23;
+    letter-spacing: 3px;
+}
+
+.comparison .txt-top {
+    position: relative;
+    top: -9px;
+    left: -2px;
+}
+
+.comparison .tick {
+    font-size: 18px;
+    color: #2CA01C;
+}
+
+.comparison .hide {
+    border: 0;
+    background: none;
+}
+
+@media (min-width: 640px) {
+    .comparison ul {
+        display: none;
+    }
+
+    .comparison td, .comparison th {
+        display: table-cell !important;
+        width: 330px;
+    }
+
+    .comparison td + .comparison td, .comparison th + .comparison th {
+        width: auto;
+    }
+}
