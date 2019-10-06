@@ -85,9 +85,10 @@
                         <div class="container">
                             <div class="agileits-banner-info">
                                 <p>Welcome to Our Site</p>
-                                <h3>Paint Protection Film</h3>
+                                <h3>PPF (Paint Protection Film)</h3>
                                 <div class="agileits_w3layouts_more menu__item">
-                                    <a href="{{route('show.product-overview')}}" class="menu__link">Learn More</a>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#ppfModal"
+                                       class="menu__link">Learn More</a>
                                 </div>
                                 <div class="thim-click-to-bottom">
                                     <a href="#about" class="scroll">
@@ -108,7 +109,7 @@
                         <div class="container">
                             <div class="agileits-banner-info">
                                 <p>Welcome to Our Site</p>
-                                <h3>Avery Dennison PPF</h3>
+                                <h3>Avery Dennison PPF (SPF-XI)</h3>
                                 <div class="agileits_w3layouts_more menu__item">
                                     <a href="{{route('show.product-overview')}}" class="menu__link">Learn More</a>
                                 </div>
@@ -133,7 +134,7 @@
                                 <p>Welcome to Our Site</p>
                                 <h3>Sole Distributor in indonesia</h3>
                                 <div class="agileits_w3layouts_more menu__item">
-                                    <a href="{{route('show.product-overview')}}" class="menu__link">Learn More</a>
+                                    <a href="#about" class="scroll menu__link">Learn More</a>
                                 </div>
                                 <div class="thim-click-to-bottom">
                                     <a href="#about" class="scroll">
@@ -172,7 +173,7 @@
                         Balikpapan, Makassar, Medan, Palembang.</p>
                 </div>
                 <div data-aos="fade-left" class="col-md-7 agile-about-right">
-                    <img src="{{asset('images/home/avspf2.png')}}" alt="Avery Dennison PPF">
+                    <img src="{{asset('images/home/avspf2.png')}}" alt="Avery Dennison PPF (SPF-XI)">
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -220,7 +221,7 @@
                          class="img-responsive" alt="Product Excellence">
                     <div data-aos="fade-down" class="what-agile-info">
                         <h4>Product Excellence</h4>
-                        <p align="justify">Get ready with the Avery Dennison PPF product's excellence against the
+                        <p align="justify">Get ready with the excellence of Avery Dennison PPF (SPF-XI) against the
                             similar PPF products!</p>
                     </div>
                     <div data-aos="fade-down" class="what-top1">
@@ -229,7 +230,8 @@
                         </div>
                         <div class="what-right">
                             <h4>Originality Guarantee</h4>
-                            <p align="justify">The original Avery Dennison PPF has a unique holographic emblem sticker
+                            <p align="justify">The original Avery Dennison PPF (SPF-XI) has a unique holographic emblem
+                                sticker
                                 that is not easily imitated.</p>
                         </div>
                         <div class="clearfix"></div>
@@ -240,7 +242,8 @@
                         </div>
                         <div class="what-right">
                             <h4>Durability Guarantee</h4>
-                            <p align="justify">Avery Dennison PPF has the durability for product quality between 4 to 10
+                            <p align="justify">Avery Dennison PPF (SPF-XI) has the durability for product quality
+                                between 4 to 10
                                 years since the installation on the car, depends on the usage level.</p>
                         </div>
                         <div class="clearfix"></div>
@@ -253,7 +256,8 @@
                         </div>
                         <div class="what-right">
                             <h4>Luxury & Premium</h4>
-                            <p align="justify">Avery Dennison PPF has materials that provide a more luxurious and
+                            <p align="justify">Avery Dennison PPF (SPF-XI) has materials that provide a more luxurious
+                                and
                                 premium quality appearance to the vehicle unit.</p>
                         </div>
                         <div class="clearfix"></div>
@@ -264,7 +268,8 @@
                         </div>
                         <div class="what-right">
                             <h4>Instant Healing</h4>
-                            <p align="justify">Avery Dennison PPF has a special material that can eliminate soft
+                            <p align="justify">Avery Dennison PPF (SPF-XI) has a special material that can eliminate
+                                soft
                                 scratches by itself at room temperature without any preheating.</p>
                         </div>
                         <div class="clearfix"></div>
@@ -275,7 +280,8 @@
                         </div>
                         <div class="what-right">
                             <h4>Layer Thickness</h4>
-                            <p align="justify">Avery Dennison PPF has a dimension of layer thickness 6.5 mil which gives
+                            <p align="justify">Avery Dennison PPF (SPF-XI) has a dimension of layer thickness 6.5 mil
+                                which gives
                                 superior protection to car paint better than car paint.</p>
                         </div>
                         <div class="clearfix"></div>
@@ -286,7 +292,8 @@
                         </div>
                         <div class="what-right">
                             <h4>Easy Installation</h4>
-                            <p align="justify">Avery Dennison PPF has the advantage because it's easier to adjust the
+                            <p align="justify">Avery Dennison PPF (SPF-XI) has the advantage because it's easier to
+                                adjust the
                                 vehicle shape design and the installation method.</p>
                         </div>
                         <div class="clearfix"></div>
@@ -297,7 +304,8 @@
                         </div>
                         <div class="what-right">
                             <h4>Self Cleaning</h4>
-                            <p align="justify">Avery Dennison PPF has a coating material that causes dirt to not easily
+                            <p align="justify">Avery Dennison PPF (SPF-XI) has a coating material that causes dirt to
+                                not easily
                                 stick and does not imprint on the coating.</p>
                         </div>
                         <div class="clearfix"></div>
@@ -470,6 +478,26 @@
     </div>
 
     <!-- Modals -->
+    <div class="modal fade" id="ppfModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <img src="{{asset('images/home/exc_1.jpg')}}" alt="PPF" class="img-responsive">
+                    <h5>PPF (Paint Protection Film)</h5>
+                    <p align="justify">Paint protection film (PPF, also called clear bra, clear film or clear paint
+                        film) is a thermoplastic urethane often self healing film applied to painted surfaces of a new
+                        or used car in order to protect the paint from stone chips, bug splatters, and minor abrasions.
+                        This film is also used on airplanes, RVs, cell phones, electronics, screens, motorcycles and
+                        many other areas. Paint protection film is OEM approved by virtually all car
+                        manufacturers.<br><br>Paint protection film is installed on a limited basis by manufacturers on
+                        various pieces of cars at the factory (e.g. the rear arches of Porsches). This film is most
+                        commonly applied to high impact areas of vehicles. The film is generally installed by certified
+                        trained professionals who receive supplies from outside distributors and dealers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="spfModal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -487,7 +515,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="certModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" style="width: 40%">
             <div class="modal-content">
