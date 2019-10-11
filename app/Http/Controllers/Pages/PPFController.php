@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pages;
 
+use App\Models\Blog;
 use App\Models\Gallery;
 use App\Models\Installers;
 use App\Models\Country;
@@ -17,13 +18,14 @@ class PPFController extends Controller
         $client = new Instagram(env('IG_CLIENT_TOKEN'));
         $posts = collect($client->media())->sortBy('created_time')->reverse();
         $countries = Country::all();
+        $blog = Blog::orderByDesc('id')->take(5)->get();
 
-        return view('pages.home', compact('posts', 'countries'));
+        return view('pages.main.home', compact('posts', 'countries', 'blog'));
     }
 
     public function showProductOverview()
     {
-        return view('pages.product-overview');
+        return view('pages.main.product-overview');
     }
 
     public function showGallery(Request $request)
@@ -35,7 +37,7 @@ class PPFController extends Controller
         $type = $request->type;
         $page = $request->page;
 
-        return view('pages.gallery', compact('gallery', 'keyword', 'photos', 'videos', 'type', 'page'));
+        return view('pages.main.gallery', compact('gallery', 'keyword', 'photos', 'videos', 'type', 'page'));
     }
 
     public function getDataGallery(Request $request)
@@ -51,12 +53,23 @@ class PPFController extends Controller
         return $gallery;
     }
 
+    public function getTitleGallery($title)
+    {
+        $galleries = Gallery::where('title', 'LIKE', '%' . $title . '%')->get();
+
+        foreach ($galleries as $gallery) {
+            $gallery->label = strtoupper($gallery->type) . ' - ' . $gallery->title;
+        }
+
+        return $galleries;
+    }
+
     public function showInstallers()
     {
         $installers = Installers::orderBy('name')->get();
         $countries = Country::all();
 
-        return view('pages.installers', compact('installers', 'countries'));
+        return view('pages.main.installers', compact('installers', 'countries'));
     }
 
     public function getCityInstallers($city)
@@ -147,7 +160,7 @@ class PPFController extends Controller
 
     public function showContact()
     {
-        return view('pages.contact');
+        return view('pages.main.contact');
     }
 
     public function submitContact(Request $request)

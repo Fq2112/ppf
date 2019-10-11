@@ -1,0 +1,161 @@
+.share, .share:before, .share:after, .share .fab {
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.share {
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    z-index: 2;
+}
+
+.share:before, .share:after {
+    content: '';
+    will-change: transform;
+}
+
+.share:before {
+    background: url('../images/share.svg') center/28px no-repeat;
+z-index: 5;
+transition: 0.3s;
+}
+
+.share:after {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    transition: 0.39s;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.share.active:before {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.share.active:after {
+    width: 3000px;
+    height: 3000px;
+}
+
+.share .fab {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    -webkit-animation: 0.3s down forwards;
+    animation: 0.3s down forwards;
+    opacity: 0;
+    will-change: animation;
+}
+
+.share .email {
+    background: #848484 url('../images/email.svg') center/28px no-repeat;
+top: -264px;
+}
+
+.share .whatsapp {
+    background: #57bb63 url('../images/whatsapp.svg') center/28px no-repeat;
+top: -198px
+}
+
+.share .facebook {
+    background: #46629E url('../images/facebook.svg') center/28px no-repeat;
+top: -132px;
+}
+
+.share .linkedin {
+    background: #007ab9 url('../images/linkedin.svg') center/28px no-repeat;
+top: -66px;
+}
+
+.share .twitter {
+    background: #1DA1F2 url('../images/twitter.svg') center/28px no-repeat;
+}
+
+.share .fab.active {
+    -webkit-animation: 0.48s up forwards;
+    animation: 0.48s up forwards;
+}
+
+.share .email.active {
+    -webkit-animation-delay: .77s;
+    animation-delay: .77s;
+}
+
+.share .whatsapp.active {
+    -webkit-animation-delay: .58s;
+    animation-delay: .58s;
+}
+
+.share .facebook.active {
+    -webkit-animation-delay: .39s;
+    animation-delay: .39s;
+}
+
+.share .linkedin.active {
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s;
+}
+
+.share .fab.no {
+    -webkit-animation: none;
+    animation: none;
+}
+
+@-webkit-keyframes up {
+    50% {
+        -webkit-transform: translateY(-170%);
+        transform: translateY(-170%);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(-130%);
+        transform: translateY(-130%);
+    }
+}
+
+@keyframes up {
+    50% {
+        -webkit-transform: translateY(-170%);
+        transform: translateY(-170%);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(-130%);
+        transform: translateY(-130%);
+    }
+}
+
+@-webkit-keyframes down {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(-130%);
+        transform: translateY(-130%);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        top: 0;
+    }
+}
+
+@keyframes down {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(-130%);
+        transform: translateY(-130%);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        top: 0;
+    }
+}

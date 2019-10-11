@@ -1,18 +1,34 @@
 @extends('layouts.mst')
 @section('title', 'Home | '.env('APP_TITLE'))
 @push('styles')
+    <link rel="stylesheet" href="{{asset('vendor/swiper/dist/css/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/owlcarousel/dist/assets/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/owlcarousel/dist/assets/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/lightgallery/dist/css/lightgallery.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/ig-feed.css')}}">
+    <link rel="stylesheet" href="{{asset('css/blog-swiper.css')}}">
     <style>
+        .what-grid1 {
+            padding-left: 0;
+        }
+
         h3.w3l-title.cert-title:after {
             left: 65%;
+        }
+
+        #blog .agile-about-left h5 {
+            padding-right: 2em;
+            font-size: 1.9em;
         }
 
         @media (max-width: 1080px) {
             h3.w3l-title.cert-title:after {
                 left: 70%;
+            }
+
+            #blog .agile-about-left h5 {
+                padding-right: 1.5em;
+                font-size: 1.9em;
             }
         }
 
@@ -20,11 +36,25 @@
             h3.w3l-title.cert-title:after {
                 left: 37%;
             }
+
+            #blog .agile-about-left h5 {
+                padding-right: 0;
+                font-size: 1.9em;
+            }
         }
 
         @media (max-width: 736px) {
             h3.w3l-title.cert-title:after {
                 left: 33%;
+            }
+
+            #blog .agile-about-left h5 {
+                padding-right: 0;
+                font-size: 1.9em;
+            }
+
+            .blog-slider {
+                margin-bottom: 1em;
             }
         }
 
@@ -32,11 +62,29 @@
             h3.w3l-title.cert-title:after {
                 left: 40%;
             }
+
+            #blog .agile-about-left h5 {
+                padding-right: 0;
+                font-size: 1.7em;
+            }
+
+            .blog-slider {
+                margin-bottom: 1em;
+            }
         }
 
         @media (max-width: 480px) {
             h3.w3l-title.cert-title:after {
                 left: 42%;
+            }
+
+            #blog .agile-about-left h5 {
+                padding-right: 0;
+                font-size: 1.6em;
+            }
+
+            .blog-slider {
+                margin-bottom: 1em;
             }
         }
 
@@ -44,17 +92,44 @@
             h3.w3l-title.cert-title:after {
                 left: 45%;
             }
+
+            #blog .agile-about-left h5 {
+                padding-right: 0;
+                font-size: 1.5em;
+            }
+
+            .blog-slider {
+                margin-bottom: 1em;
+            }
         }
 
         @media (max-width: 384px) {
             h3.w3l-title.cert-title:after {
                 left: 49%;
             }
+
+            #blog .agile-about-left h5 {
+                padding-right: 0;
+                font-size: 1.4em;
+            }
+
+            .blog-slider {
+                margin-bottom: 1em;
+            }
         }
 
         @media (max-width: 320px) {
             h3.w3l-title.cert-title:after {
                 left: 53%;
+            }
+
+            #blog .agile-about-left h5 {
+                padding-right: 0;
+                font-size: 1.1em;
+            }
+
+            .blog-slider {
+                margin-bottom: 1em;
             }
         }
 
@@ -87,8 +162,7 @@
                                 <p>Welcome to Our Site</p>
                                 <h3>PPF (Paint Protection Film)</h3>
                                 <div class="agileits_w3layouts_more menu__item">
-                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#ppfModal"
-                                       class="menu__link">Learn More</a>
+                                    <a href="#blog" class="scroll menu__link">Learn More</a>
                                 </div>
                                 <div class="thim-click-to-bottom">
                                     <a href="#about" class="scroll">
@@ -428,6 +502,75 @@
         </div>
     </div>
 
+    <!-- blog -->
+    <div class="about" style="padding-top: 2em" id="blog">
+        <div class="container">
+            <div class="w3-agileits-about-grids vertical-center">
+                <div class="col-md-5 agile-about-left">
+                    <h3 data-aos="fade-right" class="w3l-title title">Our Blog</h3>
+                    <h5 data-aos="fade-right" style="text-align: justify;">We're also provide you with a recent news
+                        related to PPF or any automobile things. Click SHOW MORE button below if you don't wanna miss
+                        anything about it!</h5>
+                </div>
+                <div data-aos="fade-left" class="col-md-7 agile-about-right">
+                    <div class="blog-slider">
+                        <div class="blog-slider__wrp swiper-wrapper">
+                            @foreach($blog as $row)
+                                @php
+                                    $date = \Carbon\Carbon::parse($row->created_at);
+                                    $url = route('detail.blog', ['author' => $row->getUser->username,
+                                    'y' => $date->format('Y'), 'm' => $date->format('m'), 'd' => $date->format('d'),
+                                    'title' => $row->title_uri]);
+                                @endphp
+                                <div class="blog-slider__item swiper-slide">
+                                    <div class="blog-slider__img">
+                                        <img src="{{$row->thumbnail}}" alt="Thumbnail">
+                                    </div>
+                                    <div class="blog-slider__content">
+                                        <span class="blog-slider__code">{{$date->format('F d, Y')}}<br>
+                                            <sub>by <a href="{{route('detail.blog', ['author' => $row->getUser->username])}}">{{$row->getUser->username}}</a></sub>
+                                        </span>
+                                        <div class="blog-slider__title">{{$row->title}}</div>
+                                        <div class="blog-slider__text">{!!\Illuminate\Support\Str::words($row->content, 20, '...')!!}</div>
+                                        <a href="{{$url}}" class="blog-slider__button">READ MORE</a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="blog-slider__pagination"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div data-aos="fade-down" class="bubble-button" style="text-align: center;margin-top: 3.5em;">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+                            <feColorMatrix in="blur" mode="matrix"
+                                           values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"/>
+                            <feComposite in="SourceGraphic" in2="goo"/>
+                        </filter>
+                    </defs>
+                </svg>
+                <span class="button--bubble__container ld ld-breath">
+                    <a href="{{route('show.blog')}}" class="button button--bubble">
+                        <strong>SHOW MORE&ensp;<i class="fa fa-blog"></i></strong></a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
     <!-- instagram-feed -->
     <div class="middle-w3l" style="padding: 4em 0;">
         <div id="ig-feed" class="owl-carousel">
@@ -478,26 +621,6 @@
     </div>
 
     <!-- Modals -->
-    <div class="modal fade" id="ppfModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <img src="{{asset('images/home/exc_1.jpg')}}" alt="PPF" class="img-responsive">
-                    <h5>PPF (Paint Protection Film)</h5>
-                    <p align="justify">Paint protection film (PPF, also called clear bra, clear film or clear paint
-                        film) is a thermoplastic urethane often self healing film applied to painted surfaces of a new
-                        or used car in order to protect the paint from stone chips, bug splatters, and minor abrasions.
-                        This film is also used on airplanes, RVs, cell phones, electronics, screens, motorcycles and
-                        many other areas. Paint protection film is OEM approved by virtually all car
-                        manufacturers.<br><br>Paint protection film is installed on a limited basis by manufacturers on
-                        various pieces of cars at the factory (e.g. the rear arches of Porsches). This film is most
-                        commonly applied to high impact areas of vehicles. The film is generally installed by certified
-                        trained professionals who receive supplies from outside distributors and dealers.</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="modal fade" id="spfModal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -608,6 +731,7 @@
     </div>
 @endsection
 @push('scripts')
+    <script src="{{asset('vendor/swiper/dist/js/swiper.min.js')}}"></script>
     <script src="{{asset('vendor/owlcarousel/dist/owl.carousel.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/lib/picturefill.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
@@ -657,6 +781,20 @@
                     $img.fadeIn("slow");
                 });
             }, 5000);
+
+        var swiper = new Swiper('.blog-slider', {
+            spaceBetween: 30,
+            effect: 'fade',
+            loop: true,
+            mousewheel: {
+                invert: false,
+            },
+            // autoHeight: true,
+            pagination: {
+                el: '.blog-slider__pagination',
+                clickable: true,
+            }
+        });
 
         $('.button--bubble').each(function () {
             var $circlesTopLeft = $(this).parent().find('.circle.top-left');

@@ -1,191 +1,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scaleable=no">
-    <title>Certification Request: {{$company}}</title>
+    <title>Reset Password</title>
     <style type="text/css">
-        /*Bootstrap*/
-        .alert {
-            padding: 15px;
-            margin: 0 1.5em 1em 1.5em;
-            border: 1px solid transparent;
-            border-radius: 4px;
-        }
-
-        .alert h4 {
-            margin-top: 0;
-            color: inherit;
-        }
-
-        .alert .alert-link {
-            font-weight: bold;
-        }
-
-        .alert > p,
-        .alert > ul {
-            margin-bottom: 0;
-        }
-
-        .alert > p + p {
-            margin-top: 5px;
-        }
-
-        .alert-dismissable,
-        .alert-dismissible {
-            padding-right: 35px;
-        }
-
-        .alert-dismissable .close,
-        .alert-dismissible .close {
-            position: relative;
-            top: -2px;
-            right: -21px;
-            color: inherit;
-        }
-
-        .alert-success {
-            background-color: #dff0d8;
-            border-color: #d6e9c6;
-            color: #3c763d;
-        }
-
-        .alert-success hr {
-            border-top-color: #c9e2b3;
-        }
-
-        .alert-success .alert-link {
-            color: #2b542c;
-        }
-
-        .alert-info {
-            background-color: #d9edf7;
-            border-color: #bce8f1;
-            color: #31708f;
-        }
-
-        .alert-info hr {
-            border-top-color: #a6e1ec;
-        }
-
-        .alert-info .alert-link {
-            color: #245269;
-        }
-
-        .alert-warning {
-            background-color: #fcf8e3;
-            border-color: #faebcc;
-            color: #8a6d3b;
-        }
-
-        .alert-warning hr {
-            border-top-color: #f7e1b5;
-        }
-
-        .alert-warning .alert-link {
-            color: #66512c;
-        }
-
-        .alert-danger {
-            background-color: #f2dede;
-            border-color: #ebccd1;
-            color: #a94442;
-        }
-
-        .alert-danger hr {
-            border-top-color: #e4b9c0;
-        }
-
-        .alert-danger .alert-link {
-            color: #843534;
-        }
-
-        .text-left {
-            text-align: left;
-        }
-
-        .text-right {
-            text-align: right;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        blockquote {
-            padding: 10px 20px;
-            margin: 0 0 20px;
-            font-size: 17.5px;
-            border-left: 5px solid #eeeeee;
-        }
-
-        blockquote p:last-child,
-        blockquote ul:last-child,
-        blockquote ol:last-child {
-            margin-bottom: 0;
-        }
-
-        blockquote footer,
-        blockquote small,
-        blockquote .small {
-            display: block;
-            font-size: 80%;
-            line-height: 1.42857;
-            color: #777777;
-        }
-
-        blockquote footer:before,
-        blockquote small:before,
-        blockquote .small:before {
-            content: '\2014 \00A0';
-        }
-
-        .blockquote-reverse,
-        blockquote.pull-right {
-            padding-right: 15px;
-            padding-left: 0;
-            border-right: 5px solid #eeeeee;
-            border-left: 0;
-            text-align: right;
-        }
-
-        .blockquote-reverse footer:before,
-        .blockquote-reverse small:before,
-        .blockquote-reverse .small:before,
-        blockquote.pull-right footer:before,
-        blockquote.pull-right small:before,
-        blockquote.pull-right .small:before {
-            content: '';
-        }
-
-        .blockquote-reverse footer:after,
-        .blockquote-reverse small:after,
-        .blockquote-reverse .small:after,
-        blockquote.pull-right footer:after,
-        blockquote.pull-right small:after,
-        blockquote.pull-right .small:after {
-            content: '\00A0 \2014';
-        }
-
-        .list-inline {
-            padding-left: 0;
-            list-style: none;
-            margin-left: -5px;
-        }
-
-        .list-inline > li {
-            display: inline-block;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-
-        /*end:Bootstrap*/
-
-        .hr-divider {
-            margin: 0 0 .5em 0;
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, .4), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
-        }
-
         #activate {
             color: #FFFFFF;
             background: #5bd3d1;
@@ -201,6 +18,7 @@
             line-height: 50px;
             text-align: center;
             text-decoration: none;
+            font-family: helvetica, arial;
         }
 
         .zoom {
@@ -208,17 +26,12 @@
         }
 
         .zoom:hover {
-            -ms-transform: scale(1.1);
-            -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-        }
-
-        small {
-            font-size: 16px;
+            -ms-transform: scale(1.3); /* IE 9 */
+            -webkit-transform: scale(1.3); /* Safari 3-8 */
+            transform: scale(1.3);
         }
 
         div, p, a, li, td {
-            color: #666;
             -webkit-text-size-adjust: none;
         }
 
@@ -241,14 +54,13 @@
 
         table {
             border-collapse: collapse;
-            font-size: 16px;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: helvetica, arial, sans-serif;
-            -webkit-text-size-adjust: none;
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
         }
 
         .appleLinksWhite a {
@@ -353,12 +165,12 @@
     <tbody>
     <tr>
         <td align="center">
-            <table width="700" border="0" align="center" cellspacing="0" cellpadding="0" class="full-width"
-                   style="margin:0 auto;">
+            <table width="700" border="0" align="center" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF"
+                   class="full-width" style="margin:0 auto;">
                 <tbody>
                 <tr>
                     <td width="700" align="center">
-                        <table width="700" border="0" align="center" cellpadding="0" cellspacing="0"
+                        <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"
                                class="full-width" style="margin:0 auto;">
                             <tbody>
                             <tr>
@@ -366,31 +178,27 @@
                                 <td width="2" bgcolor="#f9f9f9"></td>
                                 <td width="2" bgcolor="#f7f7f7"></td>
                                 <td width="2" bgcolor="#f3f3f3"></td>
-                                <td width="660" valign="top" bgcolor="#fff">
-                                    <table bgcolor="#fff" border="0" cellspacing="0" cellpadding="0" class="full-width"
-                                           style="border-top: 2px solid #f3f3f3">
+                                <td width="660" valign="top" bgcolor="#FFFFFF">
+                                    <table width="660" border="0" cellspacing="0" cellpadding="0" class="full-width"
+                                           bgcolor="#FFFFFF" style="border-top: 2px solid #f3f3f3">
                                         <tbody>
                                         <tr>
                                             <td align="center" width="660">
-                                                <a name="Logo" style="display:block" href="{{route('home')}}" target="_blank">
+                                                <a name="Logo" style="display:block" href="{{route('home')}}"
+                                                   target="_blank">
                                                     <img src="{{asset('images/logo/red_horizontal.png')}}" border="0"
                                                          style="display:block;width: 40%;margin: 1em" class="logo"></a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div style="border-top: 1px solid #e0e0e0; height: 2px"
+                                                <div style="border-top: 1px solid #e0e0e0; width: 660px; height: 2px"
                                                      class="full-width"></div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div style="font-size:30px;line-height:30px;">&nbsp;</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="center" valign="top" style="font-family:helvetica,arial,sans-serif; color:#646464; font-size:14px; line-height:22px;">
-                                                <span style="font-size:20px; font-weight:bold; line-height:26px;text-align: justify">Please follow up this certification request with the following details.</span>
+                                                <div style="font-size:30px;line-height:29px;">&nbsp;</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -399,41 +207,17 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <table border="0" cellpadding="10" cellspacing="0" style="margin: 0 auto;text-align: justify">
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$fname.' '.$lname}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Email</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td><a href="mailto:{{$email}}" style="text-transform: none">{{$email}}</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Phone</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td><a href="tel:{{$phone}}" style="text-transform: none">{{$phone}}</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Certification Type</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$type}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Company</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$company}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Country</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$country != "" ? $country : 'Rather not say'}}</td>
-                                                    </tr>
-                                                </table>
+                                            <td align="center" valign="top"
+                                                style="font-family:helvetica,arial,sans-serif; color:#646464; font-size:14px; line-height:22px;">
+                                                <span
+                                                    style="font-size:22px; font-weight:bold; line-height:26px;">Hello!</span>
                                             </td>
                                         </tr>
+                                        </tbody>
+                                    </table>
+                                    <table width="660" border="0" align="center" cellspacing="0" cellpadding="0"
+                                           bgcolor="#FFFFFF" class="full-width">
+                                        <tbody>
                                         <tr>
                                             <td>
                                                 <div style="font-size:20px;line-height:20px;">&nbsp;</div>
@@ -441,29 +225,126 @@
                                         </tr>
                                         </tbody>
                                     </table>
-                                    <table bgcolor="#fff" border="0" cellpadding="0" cellspacing="0" width="660"
-                                           align="center">
+
+                                    <!-- BEGIN Body Content -->
+
+                                    <table width="660" border="0" align="center" cellspacing="0" cellpadding="0"
+                                           bgcolor="#FFFFFF" class="full-width">
+                                        <tbody>
+                                        <tr>
+                                            <td align="center" valign="top" style="font-family:helvetica,arial,sans-serif;
+                color:#646464; font-size:16px; line-height:22px;
+                padding-left:20px; padding-right:20px" class="body">
+                                                We sent this email because we received a password reset request. If you
+                                                didn't submit the request, please ignore this email and contact us as
+                                                soon as possible.
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!-- Body Content END-->
+
+                                    <table width="660" border="0" align="center" cellspacing="0" cellpadding="0"
+                                           bgcolor="#FFFFFF" class="full-width">
+                                        <tbody>
                                         <tr>
                                             <td>
                                                 <div style="font-size:20px;line-height:20px;">&nbsp;</div>
                                             </td>
                                         </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table width="660" border="0" align="center" cellspacing="0" cellpadding="0"
+                                           bgcolor="#FFFFFF" class="full-width">
+                                        <tbody>
+
+                                        <tr>
+                                            <td align="center" width="600" class="full-width"
+                                                style="padding-left: 20px; padding-right:20px" valign="top">
+                                                <a class="zoom" id="activate"
+                                                   href="{{url(route('password.reset', $data, false))}}"
+                                                   target="_blank">RESET PASSWORD</a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table width="660" border="0" align="center" cellspacing="0" cellpadding="0"
+                                           bgcolor="#FFFFFF" class="full-width">
+
+                                        <tbody>
                                         <tr>
                                             <td>
-                                                <div style="font-size:20px;line-height:20px;">&nbsp;</div>
+                                                <div style="font-size:20px;line-height:19px;">&nbsp;</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="660">
+                                                <div style="border-bottom: 1px solid #e0e0e0; width: 660px; height:2px;"
+                                                     class="full-width"></div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div style="font-size:20px;line-height:20px;">&nbsp;</div>
+                                                <div style="font-size:20px;line-height:40px;">&nbsp;</div>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>
+                                                <table width="660" border="0" align="center" cellspacing="0"
+                                                       cellpadding="0" bgcolor="#FFFFFF" class="full-width"
+                                                       style="color: #949494">
+                                                    <tbody>
+
+                                                    <tr>
+                                                        <td align="center">
+                       <span style="font-family : helvetica, arial; font-weight : bold; font-size: 16px; ">
+                            Where is my new password?
+                        </span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            <div style="font-size:15px;line-height:15px;">&nbsp;</div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="center">
+                                                            <span class="pw-note" style="font-family: helvetica, arial;
+                                                         font-size: 15px;
+                                                         line-height: 22px;
+                                                         display: block;">
+                                                                We will not make you remember other passwords or certain
+                                                                codes.<br>Just click the link and enter the new password
+                                                                as you wish.</span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="show">
+                                                            <div style="font-size:20px;line-height:0px;" class="line40">
+                                                                &nbsp;
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
                                     </table>
                                 </td>
                                 <td width="2" bgcolor="#f3f3f3"></td>
                                 <td width="2" bgcolor="#f7f7f7"></td>
                                 <td width="2" bgcolor="#f9f9f9"></td>
                                 <td width="14" bgcolor="#fafafa"></td>
+                            </tr>
+                            </tbody>
                         </table>
                     </td>
                 </tr>
@@ -518,7 +399,8 @@
                                         <tr>
                                             <td valign="top" width="20" class="hide">&nbsp;</td>
                                             <td align="center" valign="top" width="660" bgcolor="#1a1c21">
-                                                <a name="Logo_1" style="display:block;" href="{{route('home')}}" target="_blank">
+                                                <a name="Logo_1" style="display:block;" href="{{route('home')}}"
+                                                   target="_blank">
                                                     <img src="{{asset('images/logo/white_horizontal.png')}}" alt="logo"
                                                          border="0" style="display:block;width: 15%;"></a>
                                             </td>
@@ -632,10 +514,14 @@
                                                                    width="700" class="full-width" bgcolor="#1a1c21">
                                                                 <tbody>
                                                                 <tr>
-                                                                    <td align="center" style="font-family:Helvetica, arial,helv,sans-serif;font-size:16px;color:#F9F9F9; font-weight:bold;" bgcolor="#1a1c21">
+                                                                    <td align="center"
+                                                                        style="font-family:Helvetica, arial,helv,sans-serif;font-size:16px;color:#F9F9F9; font-weight:bold;"
+                                                                        bgcolor="#1a1c21">
                                                                         <a name="Privacy Policy"
                                                                            href="https://www.averydennison.com/en/home/legal-and-privacy-notices.html"
-                                                                           class="footerlinks" style="color:#F9F9F9; text-decoration:none;" target="_blank">Legal and Privacy Notices</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                           class="footerlinks"
+                                                                           style="color:#F9F9F9; text-decoration:none;"
+                                                                           target="_blank">Legal and Privacy Notices</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                                                     </td>
                                                                 </tr>
                                                                 </tbody>
@@ -716,7 +602,8 @@
                                                                         style="font-family:Helvetica, arial,helv,sans-serif;font-size:10px; color:#949494; font-weight:bold; padding-left:20px; padding-right:20px"
                                                                         bgcolor="#1a1c21">
                                                                         <span class="appleLinksWhite">© {{now()->format('Y').' '.env('APP_TITLE')}}. All rights reserved. Raya Kenjeran 469, Surabaya &ndash; 60134, East Java, Indonesia.</span>
-                                                                        <br><div id="stat-div"
+                                                                        <br>
+                                                                        <div id="stat-div"
                                                                              style="visibility:hidden !important;"
                                                                              height="0px">
                                                                             <img id="stat-link"

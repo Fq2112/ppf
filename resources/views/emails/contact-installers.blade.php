@@ -630,10 +630,7 @@
                                                                     <td align="center" style="font-family:Helvetica, arial,helv,sans-serif;font-size:16px;color:#F9F9F9; font-weight:bold;" bgcolor="#1a1c21">
                                                                         <a name="Privacy Policy"
                                                                            href="https://www.averydennison.com/en/home/legal-and-privacy-notices.html"
-                                                                           class="footerlinks" style="color:#F9F9F9; text-decoration:none;" target="_blank">Privacy Policy</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <a name="Terms" class="footerlinks" style="color:#F9F9F9; text-decoration:none;"
-                                                                           href="https://www.averydennison.com/en/home/legal-and-privacy-notices.html"
-                                                                           target="_blank">Terms of Service</a>
+                                                                           class="footerlinks" style="color:#F9F9F9; text-decoration:none;" target="_blank">Legal and Privacy Notices</a>
                                                                     </td>
                                                                 </tr>
                                                                 </tbody>

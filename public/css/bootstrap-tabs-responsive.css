@@ -31,16 +31,6 @@
     color: #777;
 }
 
-#myTabContent table a{
-    color: #777;
-    text-transform: none;
-}
-
-#myTabContent table a:hover, #myTabContent table a:focus, #myTabContent table a:active {
-    color: #E31B23;
-    text-transform: none;
-}
-
 @media screen and (max-width: 479px) {
     .nav-tabs-responsive > li {
         display: none;

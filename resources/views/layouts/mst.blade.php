@@ -203,6 +203,11 @@
             color: #E31B23;
             background-color: #fff;
         }
+
+        .button:hover, .button:focus, .button:active,
+        .button--bubble:active + .button--bubble__effect-container {
+            text-decoration: none;
+        }
     </style>
     @stack('styles')
 </head>
@@ -263,24 +268,33 @@
 <div class="footer">
     <div class="container">
         <div class="agileits_w3layouts_footer_grids">
-            <div data-aos="fade-down" class="col-md-4 agileits_w3layouts_footer_grid">
+            <div data-aos="fade-down" class="col-md-3 agileits_w3layouts_footer_grid">
                 <h3>Call Us</h3>
                 <ul>
                     <li><span>Phone :</span> <a href="tel:+6281615007777">+62 816 1500 7777</a></li>
-                    <li><span>Whatsapp :</span> <a href="https://wa.me/6281615007777">+62 816 1500 7777</a></li>
+                    <li><span>WhatsApp :</span> <a href="https://wa.me/6281615007777" target="_blank">081615007777</a>
+                    </li>
                 </ul>
             </div>
-            <div data-aos="fade-down" class="col-md-4 agileits_w3layouts_footer_grid">
+            <div data-aos="fade-down" class="col-md-3 agileits_w3layouts_footer_grid">
                 <h3>Visit Us</h3>
-                <p>Raya Kenjeran 469, Surabaya &ndash; 60134 <i>East Java, Indonesia.</i></p>
+                <p>Raya Kenjeran 469, Surabaya <i>East Java, Indonesia &ndash; 60134.</i></p>
             </div>
-            <div data-aos="fade-down" class="col-md-4 agileits_w3layouts_footer_grid">
+            <div data-aos="fade-down" class="col-md-3 agileits_w3layouts_footer_grid">
                 <h3>Write Us</h3>
                 <ul>
                     <li><span>Email :</span> <a href="mailto:info@ppf.co.id"
                                                 style="text-transform: none">info@ppf.co.id</a></li>
                     <li><span>Enquiry :</span> <a href="mailto:sindhu@ppf.co.id" style="text-transform: none">sindhu@ppf.co.id</a>
                     </li>
+                </ul>
+            </div>
+            <div data-aos="fade-down" class="col-md-3 agileits_w3layouts_footer_grid">
+                <h3>Get in Touch</h3>
+                <ul>
+                    <li><a href="{{route('show.contact')}}">Contact Us</a></li>
+                    <li><a href="https://averydennison.com/en/home/legal-and-privacy-notices.html" target="_blank"
+                           style="text-transform: none">Legal and Privacy Notices</a></li>
                 </ul>
             </div>
             <div class="clearfix"></div>
@@ -333,7 +347,9 @@
     </div>
 </div>--}}
 
-<a href="#" onclick="scrollToTop()" class="to-top" title="Go to top">Top</a>
+@if(!\Illuminate\Support\Facades\Request::is('blog*'))
+    <a href="#" onclick="scrollToTop()" class="to-top" title="Go to top">Top</a>
+@endif
 <div class="myProgress">
     <div class="bar"></div>
 </div>
@@ -472,20 +488,20 @@
             $('html,body').animate({scrollTop: $(this.hash).offset().top}, 800);
         });
 
-        $(document).on('click',function(e) {
+        $(document).on('click', function (e) {
             $('.translate_wrapper, .more_lang').removeClass('active');
         });
 
-        $('.translate_wrapper .current_lang').on('click',function(e){
+        $('.translate_wrapper .current_lang').on('click', function (e) {
             e.stopPropagation();
             $(this).parent().toggleClass('active');
 
-            setTimeout(function(){
+            setTimeout(function () {
                 $('.more_lang').toggleClass('active');
             }, 5);
         });
 
-        $('.more_lang .lang').on('click',function(){
+        $('.more_lang .lang').on('click', function () {
             $(this).addClass('selected').siblings().removeClass('selected');
             $('.more_lang').removeClass('active');
 

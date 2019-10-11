@@ -49,16 +49,21 @@
             transform: scale(1.2);
         }
 
-        #myTabContent ul li a{
+        .what-grid1 {
+            padding-left: 0;
+        }
+        
+        #myTabContent table a, #myTabContent ul li a{
             color: #777;
-            text-transform: none;
+            text-decoration: none;
             transition: all .3s ease-in-out;
         }
 
+        #myTabContent table a:hover, #myTabContent table a:focus, #myTabContent table a:active,
         #myTabContent ul li a:hover, #myTabContent ul li a:focus, #myTabContent ul li a:active {
             color: #E31B23;
             font-weight: 600;
-            text-transform: none;
+            text-decoration: none;
         }
     </style>
 @endpush
@@ -135,7 +140,7 @@
                                         <tr>
                                             <th style="color: #E31B23">Roll Size</th>
                                             <td>&nbsp;:&nbsp;</td>
-                                            <td>59.8” x 49.2 ft</td>
+                                            <td>1.52m x 15m</td>
                                         </tr>
                                         <tr>
                                             <th style="color: #E31B23">Durability</th>

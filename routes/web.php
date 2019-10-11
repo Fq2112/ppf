@@ -35,6 +35,11 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
             'as' => 'get.data.gallery'
         ]);
 
+        Route::get('{title}', [
+            'uses' => 'PPFController@getTitleGallery',
+            'as' => 'get.title.gallery'
+        ]);
+
     });
 
     Route::group(['prefix' => 'installers'], function () {
@@ -75,8 +80,28 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
 
     });
 
-    Route::get('{lang}', function (){
-        return view('errors.maintenance');
+    Route::group(['prefix' => 'blog'], function () {
+
+        Route::get('/', [
+            'uses' => 'BlogController@showBlog',
+            'as' => 'show.blog'
+        ]);
+
+        Route::get('data', [
+            'uses' => 'BlogController@getDataBlog',
+            'as' => 'get.data.blog'
+        ]);
+
+        Route::get('title/{title}', [
+            'uses' => 'BlogController@getTitleBlog',
+            'as' => 'get.title.blog'
+        ]);
+
+        Route::get('{author}/{y?}/{m?}/{d?}/{title?}', [
+            'uses' => 'BlogController@showDetailBlog',
+            'as' => 'detail.blog'
+        ]);
+
     });
 
 });

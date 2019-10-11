@@ -1,94 +1,30 @@
 @extends('layouts.mst')
-@section('title', 'Gallery | '.env('APP_TITLE'))
+@section('title', 'Blog | '.env('APP_TITLE'))
 @push('styles')
+    <link rel="stylesheet" href="{{asset('vendor/jquery-ui/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-tabs-responsive.css')}}">
-    <link rel="stylesheet" href="{{asset('vendor/lightgallery/dist/css/lightgallery.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/blog-grid-list.css')}}">
     <style>
         .banner-2 {
-            background: url({{asset('images/banner/gallery.jpg')}});
+            background: url({{asset('images/banner/blog.jpg')}});
         }
 
-        #form-loadGallery .dropdown {
-            transform-style: preserve-3d;
-            transform: translate3d(0, 0, 10px) !important;
+        ul.ui-autocomplete {
+            color: #E31B23;
+            border-radius: 1rem;
         }
 
-        #form-loadGallery .dropdown-menu {
-            height: auto !important;
-            position: relative !important;
-            transform: translate3d(0, 0, 10px) !important;
-            min-width: 100% !important;
-            background: #fff !important;
-            border: 1px solid #ccc;
-            text-align: justify !important;
-        }
-
-        #form-loadGallery .dropdown-menu > .active > a,
-        #form-loadGallery .dropdown-menu > .active > a:hover,
-        #form-loadGallery .dropdown-menu > .active > a:focus {
+        ul.ui-autocomplete .ui-menu-item .ui-state-active,
+        ul.ui-autocomplete .ui-menu-item .ui-state-active:hover,
+        ul.ui-autocomplete .ui-menu-item .ui-state-active:focus {
             background: #E31B23;
-        }
-
-        #form-loadGallery ul.typeahead {
-            top: -10px !important;
-            left: 0 !important;
-        }
-
-        #form-loadGallery ul.typeahead .dropdown-menu > .active > a,
-        #form-loadGallery ul.typeahead .dropdown-menu > .active > a:hover,
-        #form-loadGallery ul.typeahead .dropdown-menu > .active > a:focus {
-            background: #E31B23 !important;
-        }
-
-        #form-loadGallery ul.typeahead .dropdown-menu li:hover,
-        #form-loadGallery ul.typeahead .dropdown-menu li:focus {
-            background: #eee !important;
+            color: #fff;
+            border: 1px solid #E31B23;
         }
 
         #myTab li.active .badge {
             background: #E31B23;
             color: #fff;
-        }
-
-        .content-area {
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            margin: 1em auto;
-        }
-
-        .custom-overlay {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            background: rgba(0, 0, 0, .7);
-            opacity: 0;
-            transition: all 400ms ease-in-out;
-            height: 100%;
-        }
-
-        .custom-overlay:hover {
-            opacity: 1;
-        }
-
-        .custom-text {
-            position: absolute;
-            top: 50%;
-            left: 10px;
-            right: 10px;
-            transform: translateY(-50%);
-            color: #fff;
-        }
-
-        .content-area img {
-            transition: transform .5s ease;
-        }
-
-        .content-area:hover img {
-            transform: scale(1.2);
         }
 
         .pagination > li > a,
@@ -116,72 +52,31 @@
             border-color: #E31B23;
         }
 
-        h3.w3l-title.gallery-title:after {
-            left: calc(65% - 5%);
+        #myTabContent table a {
+            color: #777;
+            text-decoration: none;
+            transition: all .3s ease-in-out;
         }
 
-        @media (max-width: 1080px) {
-            h3.w3l-title.gallery-title:after {
-                left: calc(70% - 5%);
-            }
-        }
-
-        @media (max-width: 991px) {
-            h3.w3l-title.gallery-title:after {
-                left: calc(37% - 5%);
-            }
-        }
-
-        @media (max-width: 736px) {
-            h3.w3l-title.gallery-title:after {
-                left: calc(33% - 5%);
-            }
-        }
-
-        @media (max-width: 568px) {
-            h3.w3l-title.gallery-title:after {
-                left: calc(40% - 5%);
-            }
-        }
-
-        @media (max-width: 480px) {
-            h3.w3l-title.gallery-title:after {
-                left: calc(42% - 5%);
-            }
-        }
-
-        @media (max-width: 414px) {
-            h3.w3l-title.gallery-title:after {
-                left: calc(45% - 5%);
-            }
-        }
-
-        @media (max-width: 384px) {
-            h3.w3l-title.gallery-title:after {
-                left: calc(49% - 5%);
-            }
-        }
-
-        @media (max-width: 320px) {
-            h3.w3l-title.gallery-title:after {
-                left: calc(53% - 5%);
-            }
+        #myTabContent table a:hover, #myTabContent table a:focus, #myTabContent table a:active {
+            color: #E31B23;
+            font-weight: 600;
+            text-decoration: none;
         }
     </style>
 @endpush
 @section('content')
-    <!-- our-gallery -->
+    <!-- our-blog -->
     <div class="about">
         <div class="container">
             <div class="w3-agileits-about-grids">
                 <div class="col-md-5 agile-about-left">
-                    <h3 data-aos="fade-right" class="w3l-title gallery-title">Our Gallery</h3>
-                    <form data-aos="zoom-out" id="form-loadGallery">
-                        <input type="hidden" name="type" id="type">
-                        <div class="form-group has-feedback dropdown">
-                            <input id="keyword" type="text" name="q" class="form-control typeahead" autocomplete="off"
-                                   value="{{$keyword}}" placeholder="Search&hellip;" data-provide="typeahead"
-                                   style="border-radius: 1rem;margin: 1em auto">
+                    <h3 data-aos="fade-right" class="w3l-title title">Our Blog</h3>
+                    <form data-aos="zoom-out" id="form-loadBlog">
+                        <input type="hidden" name="category" id="category">
+                        <div class="form-group has-feedback">
+                            <input id="keyword" type="text" name="q" class="form-control" autocomplete="off"
+                                   value="{{$keyword}}" placeholder="Search&hellip;" style="border-radius: 1rem;margin: 1em auto">
                             <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         </div>
                     </form>
@@ -194,25 +89,20 @@
                         <ul data-aos="zoom-in-up" id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
                             <li role="presentation" class="active">
                                 <a class="nav-item nav-link" href="#all" id="all-tab" role="tab" data-toggle="tab"
-                                   aria-controls="all" aria-expanded="true" onclick="filterGallery('all')">
+                                   aria-controls="all" aria-expanded="true" onclick="filterBlog('all')">
                                     <i class="fa fa-sort-alpha-up"></i>&ensp;SHOW ALL&ensp;<span
-                                        class="badge badge-secondary">{{count($gallery)}}</span>
+                                        class="badge badge-secondary">{{\App\Models\Blog::count()}}</span>
                                 </a>
                             </li>
-                            <li role="presentation" class="next">
-                                <a class="nav-item nav-link" href="#photos" id="photos-tab" role="tab" data-toggle="tab"
-                                   aria-controls="photos" aria-expanded="true" onclick="filterGallery('photos')">
-                                    <i class="fa fa-images"></i>&ensp;PHOTOS&ensp;<span
-                                        class="badge badge-secondary">{{count($photos)}}</span>
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a class="nav-item nav-link" href="#videos" id="videos-tab" role="tab" data-toggle="tab"
-                                   aria-controls="videos" aria-expanded="true" onclick="filterGallery('videos')">
-                                    <i class="fa fa-film"></i>&ensp;videos&ensp;<span
-                                        class="badge badge-secondary">{{count($videos)}}</span>
-                                </a>
-                            </li>
+                            @foreach($categories as $row)
+                                <li role="presentation" class="next">
+                                    <a class="nav-item nav-link" href="#{{$row->id}}" id="{{$row->id}}-tab" role="tab"
+                                       data-toggle="tab" aria-controls="{{$row->id}}" aria-expanded="true"
+                                       onclick="filterBlog('{{$row->id}}')">{{strtoupper($row->name)}}&ensp;
+                                        <span class="badge badge-secondary">{{count($row->getBlog)}}</span>
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                         <div id="myTabContent" class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in" id="all" aria-labelledby="all-tab">
@@ -220,7 +110,7 @@
                                     <img src="{{asset('images/loading.gif')}}" id="image"
                                          class="img-responsive ld ld-breath">
                                 </div>
-                                <div class="row" id="lightgallery"></div>
+                                <div class="row" id="blog"></div>
                                 <div class="row text-right">
                                     <div class="col-12 myPagination">
                                         <ul class="pagination justify-content-end" data-aos="fade-left"></ul>
@@ -235,11 +125,7 @@
     </div>
 @endsection
 @push('scripts')
-    <script src="{{asset('vendor/bootstrap3-typeahead.min.js')}}"></script>
-    <script src="{{asset('vendor/masonry/masonry.pkgd.min.js')}}"></script>
-    <script src="{{asset('vendor/lightgallery/lib/picturefill.min.js')}}"></script>
-    <script src="{{asset('vendor/lightgallery/dist/js/lightgallery-all.min.js')}}"></script>
-    <script src="{{asset('vendor/lightgallery/modules/lg-video.min.js')}}"></script>
+    <script src="{{asset('vendor/jquery-ui/jquery-ui.min.js')}}"></script>
     <script>
         $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function (e) {
             var $target = $(e.target);
@@ -269,44 +155,45 @@
 
         $(function () {
             $('#image').hide();
-            $('#lightgallery, .myPagination').show();
+            $('#blog, .myPagination').show();
             $("#" + window.location.hash + "-tab").addClass('show active');
+            $("#all-tab").parent().next().find('a').click();
 
-            @if($type != '')
-            $("#{{$type}}-tab").click();
+            @if($category != '')
+            $("#{{$category}}-tab").click();
             @else
             $("#all-tab").click();
             @endif
         });
 
-        $keyword.typeahead({
-            source: [
-                    @foreach($gallery as $row)
-                {
-                    id: "{{$row->id}}", title: "{{$row->title}}", type: "{{$row->type}}"
-                },
-                @endforeach
-            ],
-            items: 5,
-            displayText: function (item) {
-                $keyword.val(decodeHtml(item.title));
-                $("#" + item.type + "-tab").click();
-                loadGallery();
-
-                return decodeHtml(item.title);
+        $keyword.autocomplete({
+            source: function (request, response) {
+                $.getJSON('{{route('get.title.blog', ['title' => ''])}}/' + $keyword.val(), {
+                    name: request.term,
+                }, function (data) {
+                    response(data);
+                });
+            },
+            focus: function (event, ui) {
+                event.preventDefault();
+            },
+            select: function (event, ui) {
+                event.preventDefault();
+                $keyword.val(ui.item.title);
+                $("#" + ui.item.category_id + "-tab").click();
             }
         });
 
         $keyword.on('keyup', function () {
             if (!$keyword.val()) {
                 $("#all-tab").click();
-                loadGallery();
+                loadBlog();
             }
         });
 
-        $("#form-loadGallery").on('submit', function (e) {
+        $("#form-loadBlog").on('submit', function (e) {
             e.preventDefault();
-            loadGallery();
+            loadBlog();
         });
 
         function decodeHtml(html) {
@@ -315,30 +202,30 @@
             return txt.value;
         }
 
-        function filterGallery(id) {
+        function filterBlog(id) {
             $("#nav-tab a").removeClass('show active');
             $("#myTabContent .tab-pane").addClass('show active');
 
             $("#" + id + "-tab").addClass('show active');
 
-            $("#type").val(id);
-            loadGallery();
+            $("#category").val(id);
+            loadBlog();
         }
 
-        function loadGallery() {
+        function loadBlog() {
             clearTimeout(this.delay);
             this.delay = setTimeout(function () {
                 $.ajax({
-                    url: "{{route('get.data.gallery')}}",
+                    url: "{{route('get.data.blog')}}",
                     type: "GET",
-                    data: $("#form-loadGallery").serialize(),
+                    data: $("#form-loadBlog").serialize(),
                     beforeSend: function () {
                         $('#image').show();
-                        $('#lightgallery, .myPagination').hide();
+                        $('#blog, .myPagination').hide();
                     },
                     complete: function () {
                         $('#image').hide();
-                        $('#lightgallery, .myPagination').show();
+                        $('#blog, .myPagination').show();
                     },
                     success: function (data) {
                         successLoad(data);
@@ -361,27 +248,27 @@
                 hellip_next = $(this).closest('.hellip_next').prev().find('a').text();
 
             if (page > 0) {
-                $url = "{{url('/gallery/data')}}" + '?page=' + page;
+                $url = "{{url('/blog/data')}}" + '?page=' + page;
             }
             if ($(this).hasClass('prev')) {
-                $url = "{{url('/gallery/data')}}" + '?page=' + parseInt(active - 1);
+                $url = "{{url('/blog/data')}}" + '?page=' + parseInt(active - 1);
             }
             if ($(this).hasClass('next')) {
-                $url = "{{url('/gallery/data')}}" + '?page=' + parseInt(+active + +1);
+                $url = "{{url('/blog/data')}}" + '?page=' + parseInt(+active + +1);
             }
             if ($(this).hasClass('hellip_prev')) {
-                $url = "{{url('/gallery/data')}}" + '?page=' + parseInt(hellip_prev - 1);
+                $url = "{{url('/blog/data')}}" + '?page=' + parseInt(hellip_prev - 1);
                 page = parseInt(hellip_prev - 1);
             }
             if ($(this).hasClass('hellip_next')) {
-                $url = "{{url('/gallery/data')}}" + '?page=' + parseInt(+hellip_next + +1);
+                $url = "{{url('/blog/data')}}" + '?page=' + parseInt(+hellip_next + +1);
                 page = parseInt(+hellip_next + +1);
             }
             if ($(this).hasClass('first')) {
-                $url = "{{url('/gallery/data')}}" + '?page=1';
+                $url = "{{url('/blog/data')}}" + '?page=1';
             }
             if ($(this).hasClass('last')) {
-                $url = "{{url('/gallery/data')}}" + '?page=' + last_page;
+                $url = "{{url('/blog/data')}}" + '?page=' + last_page;
             }
 
             clearTimeout(this.delay);
@@ -389,14 +276,14 @@
                 $.ajax({
                     url: $url,
                     type: "GET",
-                    data: $("#form-loadGallery").serialize(),
+                    data: $("#form-loadBlog").serialize(),
                     beforeSend: function () {
                         $('#image').show();
-                        $('#lightgallery, .myPagination').hide();
+                        $('#blog, .myPagination').hide();
                     },
                     complete: function () {
                         $('#image').hide();
-                        $('#lightgallery, .myPagination').show();
+                        $('#blog, .myPagination').show();
                     },
                     success: function (data) {
                         successLoad(data, page);
@@ -415,16 +302,14 @@
 
             $.each(data.data, function (i, val) {
                 $result +=
-                    '<div data-aos="zoom-out" class="col-lg-3 col-md-6 col-sm-12 item" ' +
-                    'data-src="' + val.file + '" data-sub-html="<h4>' + val.title + '</h4><p>' + val.caption + '</p>">' +
-                    '<div class="content-area">' +
-                    '<img src="' + val.thumbnail + '" alt="Thumbnail" class="img-responsive">' +
-                    '<div class="custom-overlay">' +
-                    '<div class="custom-text">' +
-                    '<b>' + val.title + '</b>' +
-                    '</div></div></div></div>';
+                    '<div data-aos="zoom-out" class="blog-item">' +
+                    '<a href="'+val._url+'"><div class="icon"><img src="'+val.thumbnail+'" alt="Thumbnail"></div>' +
+                    '<div class="content"><p class="blog-category">'+val.category+'<span class="blog-date">' +
+                    '<i class="fa fa-calendar-alt"></i>'+val.date+'</span><br><sub class="blog-author">by <span>'+val.author+'</span></sub></p>' +
+                    '<div class="title">'+val.title+'</div><div class="rounded"></div>' + val._content +'</div>' +
+                    '<div class="item-arrow"><i class="fa fa-long-arrow-alt-right" aria-hidden="true"></i></div></a></div>';
             });
-            $("#lightgallery").empty().append($result);
+            $("#blog").empty().append($result);
 
             if (data.last_page >= 1) {
                 if (data.current_page > 4) {
@@ -483,42 +368,12 @@
             if (page != "" && page != undefined) {
                 $page = '&page=' + page;
             }
-            window.history.replaceState("", "", '{{url('/gallery')}}?q=' + $keyword.val() + '&type=' + $("#type").val() + $page);
-
-            setTimeout(function () {
-                $('.use-nicescroll').getNiceScroll().resize();
-                reloadGallery();
-            }, 600);
+            window.history.replaceState("", "", '{{url('/blog')}}?q=' + $keyword.val() + '&category=' + $("#category").val() + $page);
             return false;
         }
 
-        function reloadGallery() {
-            var gallery = $("#lightgallery");
-
-            // init
-            gallery.masonry({
-                itemSelector: '.item'
-            });
-            gallery.lightGallery({
-                selector: '.item',
-                loadYoutubeThumbnail: true,
-                youtubeThumbSize: 'default',
-            });
-
-            // destroy
-            gallery.masonry('destroy');
-            gallery.removeData('masonry');
-            gallery.data("lightGallery").destroy(true);
-
-            // re-init
-            gallery.masonry({
-                itemSelector: '.item'
-            });
-            gallery.lightGallery({
-                selector: '.item',
-                loadYoutubeThumbnail: true,
-                youtubeThumbSize: 'default',
-            });
-        }
+        $(document).on('mouseover','.use-nicescroll', function () {
+            $(this).getNiceScroll().resize();
+        });
     </script>
 @endpush

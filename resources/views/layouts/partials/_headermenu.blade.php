@@ -11,7 +11,7 @@
     <li class="m_nav_item {{Illuminate\Support\Facades\Request::is('installers*') ? 'active' : ''}}" id="moble_nav_item_4">
         <a href="{{route('show.installers')}}" class="link link--kumya">
             <i class="fa fa-tools" aria-hidden="true"></i><span data-letters="Installers">Installers</span></a></li>
-    <li class="m_nav_item {{Illuminate\Support\Facades\Request::is('contact*') ? 'active' : ''}}" id="moble_nav_item_5">
-        <a href="{{route('show.contact')}}" class="link link--kumya">
-            <i class="fa fa-address-book" aria-hidden="true"></i><span data-letters="Contact">Contact</span></a></li>
+    <li class="m_nav_item {{Illuminate\Support\Facades\Request::is('blog*') ? 'active' : ''}}" id="moble_nav_item_5">
+        <a href="{{route('show.blog')}}" class="link link--kumya">
+            <i class="fa fa-blog" aria-hidden="true"></i><span data-letters="Blog">blog</span></a></li>
 </ul>
