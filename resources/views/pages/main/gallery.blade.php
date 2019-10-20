@@ -402,11 +402,15 @@
             var $result = '', pagination = '', $page = '';
 
             $.each(data.data, function (i, val) {
+                var thumbnail = val.type == 'photos' ? '{{asset('storage/gallery')}}/' + val.file :
+                    '{{asset('storage/gallery/thumbnail')}}/' + val.thumbnail,
+                    file = val.type == 'photos' ? '{{asset('storage/gallery')}}/' + val.file : val.file;
+
                 $result +=
                     '<div data-aos="zoom-out" class="col-md-3 item" ' +
-                    'data-src="' + val.file + '" data-sub-html="<h4>' + val.title + '</h4><p>' + val.caption + '</p>">' +
+                    'data-src="' + file + '" data-sub-html="<h4>' + val.title + '</h4><p>' + val.caption + '</p>">' +
                     '<div class="content-area">' +
-                    '<img src="' + val.thumbnail + '" alt="Thumbnail" class="img-responsive">' +
+                    '<img src="' + thumbnail + '" alt="Thumbnail" class="img-responsive">' +
                     '<div class="custom-overlay">' +
                     '<div class="custom-text">' +
                     '<b>' + val.title + '</b>' +

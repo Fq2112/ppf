@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pages;
 
+use App\Models\Contact;
 use App\Models\Blog;
 use App\Models\Gallery;
 use App\Models\Installers;
@@ -20,11 +21,13 @@ class PPFController extends Controller
         $countries = Country::all();
         $blog = Blog::orderByDesc('id')->take(5)->get();
 
+        \App\Models\Visitor::hit();
         return view('pages.main.home', compact('posts', 'countries', 'blog'));
     }
 
     public function showProductOverview()
     {
+        \App\Models\Visitor::hit();
         return view('pages.main.product-overview');
     }
 
@@ -37,6 +40,7 @@ class PPFController extends Controller
         $type = $request->type;
         $page = $request->page;
 
+        \App\Models\Visitor::hit();
         return view('pages.main.gallery', compact('gallery', 'keyword', 'photos', 'videos', 'type', 'page'));
     }
 
@@ -69,6 +73,7 @@ class PPFController extends Controller
         $installers = Installers::orderBy('name')->get();
         $countries = Country::all();
 
+        \App\Models\Visitor::hit();
         return view('pages.main.installers', compact('installers', 'countries'));
     }
 
@@ -81,6 +86,10 @@ class PPFController extends Controller
                 $string = str_replace(' City', '', $city);
             } elseif (strpos($city, 'Regency') !== false) {
                 $string = str_replace(' Regency', '', $city);
+            } elseif (strpos($city, 'Kabupaten') !== false) {
+                $string = str_replace('Kabupaten ', '', $city);
+            } else {
+                $string = '';
             }
 
             $installer = Installers::where('city', 'LIKE', '%' . $string . '%')->orderBy('name')->get();
@@ -160,6 +169,7 @@ class PPFController extends Controller
 
     public function showContact()
     {
+        \App\Models\Visitor::hit();
         return view('pages.main.contact');
     }
 
@@ -178,6 +188,13 @@ class PPFController extends Controller
             'subject' => $request->subject,
             'bodymessage' => $request->message
         );
+
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message
+        ]);
 
         Mail::send('emails.contact', $data, function ($message) use ($data) {
             $message->from($data['email'], $data['name']);

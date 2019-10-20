@@ -127,24 +127,30 @@
             </div>
             <div class="what-grids">
                 <div class="col-md-6 what-grid1">
-                    <div data-aos="zoom-out" class="content-area">
-                        <img src="{{$blog->thumbnail}}" class="img-responsive" alt="Thumbnail">
-                        <div class="custom-overlay">
-                            <div class="custom-text">
-                                <svg id="play" class="play" data-toggle="tooltip" title="Click here to play!"
-                                     data-placement="bottom" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px"
-                                     width="100px"
-                                     viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                    @if($blog->getBlogGallery->count() > 0)
+                        <div data-aos="zoom-out" class="content-area">
+                            <img src="{{asset('storage/blog/thumbnail/'.$blog->thumbnail)}}" class="img-responsive"
+                                 alt="Thumbnail">
+                            <div class="custom-overlay">
+                                <div class="custom-text">
+                                    <svg id="play" class="play" data-toggle="tooltip" title="Click here to play!"
+                                         data-placement="bottom" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px"
+                                         width="100px"
+                                         viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
                                     <path class="stroke-solid" fill="none" stroke="#E31B23"
                                           d="M49.9,2.5C23.6,2.8,2.1,24.4,2.5,50.4C2.9,76.5,24.7,98,50.3,97.5c26.4-0.6,47.4-21.8,47.2-47.7C97.3,23.7,75.7,2.3,49.9,2.5"/>
-                                    <path class="stroke-dotted" fill="none" stroke="#E31B23"
-                                          d="M49.9,2.5C23.6,2.8,2.1,24.4,2.5,50.4C2.9,76.5,24.7,98,50.3,97.5c26.4-0.6,47.4-21.8,47.2-47.7C97.3,23.7,75.7,2.3,49.9,2.5"/>
-                                    <path class="icon" fill="#E31B23"
-                                          d="M38,69c-1,0.5-1.8,0-1.8-1.1V32.1c0-1.1,0.8-1.6,1.8-1.1l34,18c1,0.5,1,1.4,0,1.9L38,69z"/></svg>
+                                        <path class="stroke-dotted" fill="none" stroke="#E31B23"
+                                              d="M49.9,2.5C23.6,2.8,2.1,24.4,2.5,50.4C2.9,76.5,24.7,98,50.3,97.5c26.4-0.6,47.4-21.8,47.2-47.7C97.3,23.7,75.7,2.3,49.9,2.5"/>
+                                        <path class="icon" fill="#E31B23"
+                                              d="M38,69c-1,0.5-1.8,0-1.8-1.1V32.1c0-1.1,0.8-1.6,1.8-1.1l34,18c1,0.5,1,1.4,0,1.9L38,69z"/></svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @else
+                        <img data-aos="zoom-out" src="{{asset('storage/blog/thumbnail/'.$blog->thumbnail)}}"
+                             class="img-responsive" alt="Thumbnail">
+                    @endif
                     <div data-aos="fade-down" class="what-agile-info">
                         <p class="blog-category" align="justify">{{$blog->getBlogCategory->name}}<span>{{\Carbon\Carbon::parse
                         ($blog->created_at)->format('F d, Y')}}</span></p>
@@ -173,7 +179,7 @@
                 @endphp
                 <a href="{{$url}}" data-aos="zoom-out" class="item">
                     <div class="content-area">
-                        <img src="{{$post->thumbnail}}" alt="Thumbnail">
+                        <img src="{{asset('storage/blog/thumbnail/'.$post->thumbnail)}}" alt="Thumbnail">
                         <div class="custom-overlay">
                             <div class="custom-text">
                                 <h4>{{$post->title}}</h4>
@@ -222,10 +228,10 @@
             $(this).lightGallery({
                 dynamic: true,
                 dynamicEl: [
-                        @foreach($blog->files as $file)
+                        @foreach($blog->getBlogGallery as $row)
                     {
-                        "src": '{{$file}}',
-                        'thumb': '{{$file}}',
+                        "src": '{{$row->type == 'photos' ? asset('storage/blog/'.$row->files) : $row->files}}',
+                        'thumb': '{{$row->type == 'photos' ? asset('storage/blog/'.$row->files) : $row->files}}',
                     },
                     @endforeach
                 ]

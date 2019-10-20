@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Support\Facades\GlobalAuth;
-use Illuminate\Support\Facades\Input;
 
 class LoginController extends Controller
 {
@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/dashboard';
+    protected $redirectTo = '/scott.royce/dashboard';
 
     /**
      * Create a new controller instance.
@@ -39,6 +39,16 @@ class LoginController extends Controller
     }
 
     /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        return view('pages.admins.auth');
+    }
+
+    /**
      * Perform login process for users & admins
      *
      * @param Request $request
@@ -46,14 +56,19 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        if (GlobalAuth::login(['username' => $request->username, 'password' => $request->password])) {
-            if (session()->has('intended')) {
-                session()->forget('intended');
-                $this->redirectTo = session('intended');
+        $user = User::where('username', $request->useremail)->orwhere('email', $request->useremail)->first();
+        if(!is_null($user)){
+            if (GlobalAuth::login(['email' => $user->email, 'password' => $request->password])) {
+                if (session()->has('intended')) {
+                    session()->forget('intended');
+//                $this->redirectTo = session('intended');
+                }
+
+                return redirect()->route('admin.dashboard')->with('signed', 'You`re now signed in.');
             }
-            // return back()->with('signed', 'You`re now signed in.');
         }
-        return back()->withInput(Input::all())->with([
+
+        return back()->withInput($request->all())->with([
             'error' => 'Your email or password is incorrect.'
         ]);
     }
@@ -68,6 +83,6 @@ class LoginController extends Controller
     {
         $request->session()->invalidate();
         GlobalAuth::logout();
-        return redirect()->route('login')->with('logout', 'You`re now signed out.');
+        return redirect()->route('show.login.form')->with('logout', 'You`re now signed out.');
     }
 }

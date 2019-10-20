@@ -90,7 +90,11 @@
     <h1 class="line-1 anim-typewriter">404 ERROR &ndash; PAGE NOT FOUND</h1>
 </div>
 <p>The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
-<a href="{{route('home')}}">Redirect me to the Home Page!</a>
+@if(Auth::check() && \Illuminate\Support\Facades\Request::is('scott.royce*'))
+    <a href="{{route('admin.dashboard')}}">Redirect me to the Dashboard Page!</a>
+@else
+    <a href="{{route('home')}}">Redirect me to the Home Page!</a>
+@endif
 <!-- jquery -->
 <script src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
 <script src="{{asset('vendor/checkMobileDevice.js')}}"></script>

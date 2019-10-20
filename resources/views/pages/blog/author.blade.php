@@ -65,7 +65,7 @@
                     <div class="what-top1">
                         <div data-aos="zoom-out" class="what-left">
                             <img
-                                src="{{$user->ava != "" ? $user->ava : \Faker\Factory::create()->imageUrl(300, 300, 'transport')}}"
+                                src="{{$user->ava == "" ? asset('admins/img/avatar/avatar-'.rand(1,5).'.png') : asset('storage/admins/ava/'.$user->ava)}}"
                                 class="img-thumbnail" alt="Avatar" style="border-radius: 100%">
                         </div>
                         <div class="what-right">
@@ -115,7 +115,8 @@
                                             <div data-aos="zoom-out" class="blog-item">
                                                 <a href="{{$url}}">
                                                     <div class="icon">
-                                                        <img src="{{$row->thumbnail}}" alt="Thumbnail">
+                                                        <img src="{{asset('storage/blog/thumbnail/'.$row->thumbnail)}}"
+                                                             alt="Thumbnail">
                                                     </div>
                                                     <div class="content">
                                                         <p class="blog-category">{{$row->getBlogCategory

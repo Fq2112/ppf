@@ -32,7 +32,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/scott.royce/dashboard';
 
     /**
      * Create a new controller instance.
@@ -55,7 +55,7 @@ class ResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
-        return back()->with('reset', [
+        return redirect()->route('show.login.form')->with('reset', [
             'token' => $token,
             'email' => $request->email
         ]);
@@ -84,8 +84,7 @@ class ResetPasswordController extends Controller
         $response = $this->broker($resetter)->reset(
             $this->credentials($request), function ($user, $password) use ($guard) {
             $this->resetPassword($user, $password, $guard);
-        }
-        );
+        });
 
         return $response == Password::PASSWORD_RESET
             ? $this->sendResetResponse($response)

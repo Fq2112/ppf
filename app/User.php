@@ -79,9 +79,10 @@ class CustomPassword extends ResetPassword
     public function toMail($notifiable)
     {
         $data = $this->token;
+        $email = $notifiable->getEmailForPasswordReset();
         return (new MailMessage)
             ->from(env('MAIL_USERNAME'), env('APP_TITLE'))
             ->subject('Admin Account: Reset Password')
-            ->view('emails.auth.reset', compact('data'));
+            ->view('emails.auth.reset', compact('data', 'email'));
     }
 }

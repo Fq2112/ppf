@@ -20,6 +20,7 @@ class BlogController extends Controller
         $category = $request->category;
         $page = $request->page;
 
+        \App\Models\Visitor::hit();
         return view('pages.blog.index', compact('categories', 'blog', 'keyword', 'category', 'page'));
     }
 
@@ -45,6 +46,7 @@ class BlogController extends Controller
                 'author' => $user->username,
                 'category' => BlogCategory::where('id', $row['category_id'])->first()->name,
                 'date' => Carbon::parse($row['created_at'])->formatLocalized('%b %d, %Y'),
+                '_thumbnail' => asset('storage/blog/thumbnail/'.$row['thumbnail']),
                 '_url' => $url,
                 '_content' => Str::words($row['content'], 20, '...') . '</p>'
             );
@@ -77,19 +79,21 @@ class BlogController extends Controller
                 return Carbon::parse($q->created_at)->format('F Y');
             });
 
+            \App\Models\Visitor::hit();
             return view('pages.blog.author', compact('user', 'latest', 'archive'));
 
         } else {
             $blog = Blog::where('user_id', $user->id)->whereYear('created_at', $year)
                 ->whereMonth('created_at', $month)->whereDay('created_at', $date)
                 ->where('title_uri', $title)->first();
-            $relates = Blog::where('category_id', $blog->category_id)->orderByDesc('id')->get();
+            $relates = Blog::where('category_id', $blog->category_id)->wherenotin('id', [$blog->id])->orderByDesc('id')->get();
 
             $tgl = Carbon::parse($blog->created_at);
             $uri = route('detail.blog', ['author' => $user->username, 'y' => $tgl->format('Y'),
                 'm' => $tgl->format('m'), 'd' => $tgl->format('d'),
                 'title' => $blog->title_uri]);
 
+            \App\Models\Visitor::hit();
             return view('pages.blog.detail', compact('user', 'blog', 'relates', 'uri'));
         }
     }

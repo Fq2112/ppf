@@ -21,7 +21,7 @@
 
     @if (count($errors) > 0)
     @foreach ($errors->all() as $error)
-    iziToast.success({
+    iziToast.error({
         title: 'Error!',
         message: '{{$error}}',
         position: 'topRight'

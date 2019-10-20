@@ -16,11 +16,12 @@ class InstallerSeeder extends Seeder
         $faker = Factory::create();
 
         Installers::create([
+            'logo' => 'versamedia.png',
             'name' => 'VersaMedia',
             'phone' => '+6281330088099',
             'address' => 'Jl. Kemayoran Baru No.3, Krembangan, Surabaya, Jawa Timur – 60175.',
             'email' => 'versamedia@hotmail.com',
-            'city' => 'Surabaya',
+            'city' => 'Surabaya City',
             'link' => 'https://instagram.com/versamedia',
             'lat' => '-7.2431537',
             'long' => '112.7314676'

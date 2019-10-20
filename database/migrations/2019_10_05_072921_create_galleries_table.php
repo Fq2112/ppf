@@ -18,8 +18,8 @@ class CreateGalleriesTable extends Migration
             $table->string('type');
             $table->string('title');
             $table->text('caption');
-            $table->text('thumbnail');
-            $table->text('file');
+            $table->text('thumbnail')->nullable();
+            $table->text('file')->nullable();
             $table->timestamps();
         });
     }

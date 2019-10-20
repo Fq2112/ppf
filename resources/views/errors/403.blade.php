@@ -23,7 +23,7 @@
             opacity: 0.23;
         }
 
-        .title-typewriter{
+        .title-typewriter {
             width: 398px;
             margin: 19.25em auto 0 auto;
         }
@@ -90,7 +90,11 @@
     <h1 class="line-1 anim-typewriter">403 ERROR &ndash; FORBIDDEN ACCESS</h1>
 </div>
 <p>Your client does not have permission to get URL /adsense from this server.</p>
-<a href="{{route('home')}}">Redirect me to the Home Page!</a>
+@if(Auth::check() && \Illuminate\Support\Facades\Request::is('scott.royce*'))
+    <a href="{{route('admin.dashboard')}}">Redirect me to the Dashboard Page!</a>
+@else
+    <a href="{{route('home')}}">Redirect me to the Home Page!</a>
+@endif
 <!-- jquery -->
 <script src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
 <script src="{{asset('vendor/checkMobileDevice.js')}}"></script>

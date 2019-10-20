@@ -228,6 +228,18 @@
             color: #fff;
             outline: none !important;
         }
+
+        .download-card__content-box a {
+            text-decoration: none;
+            color: #333;
+            transition: all .3s ease-in-out;
+        }
+
+        .download-card__content-box a:hover, .download-card__content-box a:focus {
+            text-decoration: none;
+            color: #E31B23;
+            box-shadow: none;
+        }
     </style>
 @endpush
 @section('content')
@@ -579,7 +591,7 @@
                     '<div id="iw-container">' +
                     '<div class="iw-title">{{$ins->name}}</div>' +
                     '<div class="iw-content">' +
-                    '<img class="img-responsive" src="{{$ins->logo != "" ? $ins->logo : asset('images/logo/icon.png')}}" alt="{{$ins->name}} logo">' +
+                    '<img class="img-responsive" src="{{$ins->logo != "" ? asset('storage/installers/'. $ins->logo) : asset('images/logo/icon.png')}}" alt="{{$ins->name}} logo">' +
                     '<div class="iw-subTitle">Contacts</div>' +
                     '<p>{{$ins->address}}<br>Phone: <a href="tel:{{$ins->phone}}">{{$ins->phone}}</a><br>' +
                     'Email: <a href="mailto:{{$ins->email}}">{{$ins->email}}</a></p>' +
@@ -737,7 +749,7 @@
                     success: function (data) {
                         var content = '';
                         $.each(data, function (i, val) {
-                            var logo = val.logo != null ? val.logo : '{{asset('images/logo/icon.png')}}',
+                            var logo = val.logo != null ? '{{asset('storage/installers')}}/' + val.logo : '{{asset('images/logo/icon.png')}}',
                                 link = val.link != null ? val.link : 'javascript:void(0)';
 
                             content +=

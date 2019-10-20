@@ -303,7 +303,7 @@
             $.each(data.data, function (i, val) {
                 $result +=
                     '<div data-aos="zoom-out" class="blog-item">' +
-                    '<a href="'+val._url+'"><div class="icon"><img src="'+val.thumbnail+'" alt="Thumbnail"></div>' +
+                    '<a href="'+val._url+'"><div class="icon"><img src="'+val._thumbnail+'" alt="Thumbnail"></div>' +
                     '<div class="content"><p class="blog-category">'+val.category+'<span class="blog-date">' +
                     '<i class="fa fa-calendar-alt"></i>'+val.date+'</span><br><sub class="blog-author">by <span>'+val.author+'</span></sub></p>' +
                     '<div class="title">'+val.title+'</div><div class="rounded"></div>' + val._content +'</div>' +

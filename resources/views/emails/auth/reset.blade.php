@@ -5,7 +5,7 @@
     <style type="text/css">
         #activate {
             color: #FFFFFF;
-            background: #5bd3d1;
+            background: #E31B23;
             -moz-border-radius: 9px;
             -webkit-border-radius: 9px;
             border-radius: 9px;
@@ -264,7 +264,7 @@
                                             <td align="center" width="600" class="full-width"
                                                 style="padding-left: 20px; padding-right:20px" valign="top">
                                                 <a class="zoom" id="activate"
-                                                   href="{{url(route('password.reset', $data, false))}}"
+                                                   href="{{route('password.request', ['token' => $data, 'email' => $email])}}"
                                                    target="_blank">RESET PASSWORD</a>
                                             </td>
                                         </tr>

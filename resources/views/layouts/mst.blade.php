@@ -320,7 +320,7 @@
 </div>
 <div class="wthree_copy_right">
     <div class="container">
-        <p>© {{now()->format('Y')}} Avery Dennison PPF (SPF-XI) Indonesia. All rights reserved | Designed & Developed by
+        <p>© {{now()->format('Y')}} Premier Autostyling. All rights reserved | Designed & Developed by
             <a href="http://rabbit-media.net" target="_blank">Rabbit Media</a></p>
     </div>
 </div>
