@@ -60,6 +60,80 @@
             color: #fff;
         }
 
+        ul.dropdown-menu.agile_short_dropdown {
+            width: 210px;
+            background: #fff !important;
+        }
+
+        ul.dropdown-menu.agile_short_dropdown li a,
+        ul.dropdown-menu.agile_short_dropdown li a:hover,
+        ul.dropdown-menu.agile_short_dropdown li a:focus,
+        ul.dropdown-menu.agile_short_dropdown li a:active {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            color: #E31B23 !important;
+        }
+
+        .link--kumya--custom {
+            overflow: hidden;
+            line-height: 1;
+        }
+
+        .link--kumya--custom:hover, .menu__list .active a {
+            color: #E31B23;
+        }
+
+        .link--kumya--custom::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            right: 0;
+            z-index: -1;
+            background: #E31B23;
+            -webkit-transform: translate3d(101%, 0, 0);
+            transform: translate3d(101%, 0, 0);
+            -webkit-transition: -webkit-transform 0.5s;
+            transition: transform 0.5s;
+            -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+            transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        .link--kumya--custom:hover::after, .menu__list .active a::after {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+
+        .link--kumya--custom span {
+            display: inline-block;
+            position: relative;
+        }
+
+        .link--kumya--custom span::before {
+            content: attr(data-letters);
+            position: absolute;
+            color: #fff;
+            left: 2px;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0%;
+            -webkit-transition: width 0.5s;
+            transition: width 0.5s;
+            -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+            transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        .link--kumya--custom:hover span::before, .menu__list .active a span::before {
+            width: 100%;
+        }
+
+        @media (max-width: 320px) {
+            .link--kumya--custom span {
+                font-size: .9em;
+            }
+        }
+
         .input-group-addon {
             padding: 9px 12px;
         }

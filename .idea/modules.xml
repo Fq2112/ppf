@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ppf.iml" filepath="$PROJECT_DIR$/.idea/ppf.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../swf/.idea/swf.iml" filepath="$PROJECT_DIR$/../swf/.idea/swf.iml" />
     </modules>
   </component>
 </project>
