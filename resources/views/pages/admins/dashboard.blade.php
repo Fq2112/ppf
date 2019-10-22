@@ -148,12 +148,15 @@
                                             </a>
                                         </td>
                                         <td align="center">
-                                            <a class="btn btn-info btn-action mr-1" data-toggle="tooltip"
+                                            <a class="btn btn-info btn-action {{Auth::user()->isRoot() ? 'mr-1' : ''}}"
+                                               data-toggle="tooltip"
                                                title="Details" href="{{$url}}"><i class="fas fa-info-circle"></i></a>
-                                            <a class="btn btn-warning btn-action mr-1" data-toggle="tooltip"
-                                               title="Edit"
-                                               href="{{route('table.blog.posts', ['q' => encrypt($row->id)])}}">
-                                                <i class="fas fa-pencil-alt"></i></a>
+                                            @if(Auth::user()->isRoot() || (Auth::user()->isAdmin() && $row->user_id == Auth::id()))
+                                                <a class="btn btn-warning btn-action mr-1" data-toggle="tooltip"
+                                                   title="Edit"
+                                                   href="{{route('table.blog.posts', ['q' => encrypt($row->id)])}}">
+                                                    <i class="fas fa-pencil-alt"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -291,7 +294,7 @@
 
         function openDataGalleries(href) {
             @if(Auth::user()->isRoot())
-            window.location.href = href;
+                window.location.href = href;
             @else
             swal('ATTENTION!', 'This feature only for ROOT (Developer / Owner)', 'warning');
             @endif
@@ -299,7 +302,7 @@
 
         function openDataInstallers(href) {
             @if(Auth::user()->isRoot())
-            window.location.href = href;
+                window.location.href = href;
             @else
             swal('ATTENTION!', 'This feature only for ROOT (Developer / Owner)', 'warning');
             @endif

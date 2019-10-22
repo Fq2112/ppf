@@ -2,24 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="c494bb45-0ddb-4ac7-8b29-2703bfd73bfa" name="rabbit-media.net" url="http://rabbit-media.net">
-        <fileTransfer host="rabbit-media.net" port="21">
-          <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
-          </advancedOptions>
-          <option name="port" value="21" />
-        </fileTransfer>
-      </webServer>
       <webServer id="e65601f4-6531-4def-8355-5fbe37acf5c6" name="ppf.co.id" url="http://ppf.co.id">
         <fileTransfer host="ppf.co.id" port="21">
-          <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
-          </advancedOptions>
-          <option name="port" value="21" />
-        </fileTransfer>
-      </webServer>
-      <webServer id="db16bbb1-9356-436a-992e-724ad16e25cc" name="ucc.unesa.ac.id" url="http://ucc.unesa.ac.id">
-        <fileTransfer host="ucc.unesa.ac.id" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

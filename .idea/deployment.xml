@@ -9,20 +9,6 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="rabbit-media.net">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="ucc.unesa.ac.id">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
     </serverData>
   </component>
 </project>
