@@ -390,7 +390,7 @@
             $("#btn_create strong").html(function (i, v) {
                 return v === '<i class="fas fa-plus mr-2"></i>Create' ?
                     '<i class="fas fa-th-list mr-2"></i>View' : '<i class="fas fa-plus mr-2"></i>Create';
-            }).tooltip('show');
+            });
 
             $(".fix-label-group .bootstrap-select").addClass('p-0');
             $(".fix-label-group .bootstrap-select button").css('border-color', '#e4e6fc');
@@ -414,7 +414,7 @@
             $("#btn_create strong").html(function (i, v) {
                 return v === '<i class="fas fa-plus mr-2"></i>Create' ?
                     '<i class="fas fa-th-list mr-2"></i>View' : '<i class="fas fa-plus mr-2"></i>Create';
-            }).tooltip('show');
+            });
 
             $(".fix-label-group .bootstrap-select").addClass('p-0');
             $(".fix-label-group .bootstrap-select button").css('border-color', '#e4e6fc');

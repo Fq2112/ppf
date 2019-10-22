@@ -13,16 +13,6 @@
             top: 3em;
             right: 2em;
         }
-
-        .modal-header {
-            padding: 1rem !important;
-            border-bottom: 1px solid #e9ecef !important;
-        }
-
-        .modal-footer {
-            padding: 1rem !important;
-            border-top: 1px solid #e9ecef !important;
-        }
     </style>
 @endpush
 @section('content')
@@ -131,11 +121,16 @@
                     <div class="card-header">
                         <h4>Latest Posts</h4>
                         <div class="card-header-action">
-                            <a href="{{route('table.blog.posts')}}" class="btn btn-primary">View All</a>
+                            <a href="{{route('table.blog.posts')}}" class="btn btn-primary text-uppercase">
+                                <i class="fa fa-blog mr-1"></i>View All
+                            </a>
+                            <button type="button" class="btn btn-outline-primary text-uppercase" style="display: none">
+                                <i class="fa fa-undo mr-1"></i>Cancel
+                            </button>
                         </div>
                     </div>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
+                    <div id="div-blog" class="card-body p-0">
+                        <div id="content1" class="table-responsive">
                             <table class="table table-striped mb-0">
                                 <thead>
                                 <tr>
@@ -170,24 +165,96 @@
                                             </a>
                                         </td>
                                         <td align="center">
-                                            <a class="btn btn-info btn-action {{Auth::user()->isRoot() ? 'mr-1' : ''}}"
-                                               data-toggle="tooltip"
-                                               title="Details" href="{{$url}}"><i class="fas fa-info-circle"></i></a>
+                                            <a class="btn btn-info btn-action {{Auth::user()->isRoot() ||
+                                            (Auth::user()->isAdmin() && $row->user_id == Auth::id()) ? 'mr-1' : ''}}"
+                                               data-toggle="tooltip" title="Details" href="{{$url}}">
+                                                <i class="fas fa-info-circle"></i>
+                                            </a>
                                             @if(Auth::user()->isRoot() || (Auth::user()->isAdmin() && $row->user_id == Auth::id()))
                                                 <button class="btn btn-warning btn-action mr-1" data-toggle="tooltip"
                                                         title="Edit" type="button"
                                                         onclick="editBlogPost('{{$row->id}}')">
-                                                    <i class="fas fa-pencil-alt"></i></button>
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </button>
                                                 <a href="{{route('delete.blog.posts', ['id' => encrypt($row->id)])}}"
                                                    class="btn btn-danger delete-data" data-toggle="tooltip"
-                                                   title="Delete" data-placement="right">
-                                                    <i class="fas fa-trash-alt"></i></a>
+                                                   title="Delete"><i class="fas fa-trash-alt"></i>
+                                                </a>
                                             @endif
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
+                        </div>
+
+                        <div id="content2" style="display: none;">
+                            <form id="form-blogPost" method="post" action="{{route('update.blog.posts')}}"
+                                  enctype="multipart/form-data">
+                                {{csrf_field()}} {{method_field('PUT')}}
+                                <input type="hidden" name="id">
+                                <input type="hidden" name="user_id">
+                                <div class="row form-group">
+                                    <div class="col fix-label-group">
+                                        <label for="category_id">Category</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                        <span class="input-group-text fix-label-item" style="height: 2.25rem">
+                                            <i class="fa fa-tag"></i></span>
+                                            </div>
+                                            <select id="category_id" class="form-control selectpicker"
+                                                    title="-- Choose --"
+                                                    name="category_id" data-live-search="true" required>
+                                                @foreach(\App\Models\BlogCategory::orderBy('name')->get() as $category)
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 has-feedback">
+                                        <label for="title">Title</label>
+                                        <input id="title" type="text" maxlength="191" name="title"
+                                               class="form-control"
+                                               placeholder="Write its title here&hellip;" required>
+                                        <span class="glyphicon glyphicon-text-width form-control-feedback"></span>
+                                    </div>
+                                </div>
+                                <div class="row form-group has-feedback">
+                                    <div class="col">
+                                        <label for="_content">Content</label>
+                                        <textarea id="_content" type="text" name="_content"
+                                                  class="summernote form-control"
+                                                  placeholder="Write something about your post here&hellip;"></textarea>
+                                        <span class="glyphicon glyphicon-text-height form-control-feedback"></span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col">
+                                        <label for="thumbnail">Thumbnail</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-images"></i></span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" name="thumbnail" class="custom-file-input"
+                                                       id="thumbnail" accept="image/*" required>
+                                                <label class="custom-file-label" id="txt_thumbnail">Choose
+                                                    File</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-text text-muted">
+                                            Allowed extension: jpg, jpeg, gif, png. Allowed size: < 5 MB
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-primary btn-block text-uppercase"
+                                                style="font-weight: 900">Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -226,82 +293,6 @@
             @endif
         </div>
     </section>
-
-    <div class="modal fade" id="blogModal" tabindex="-1" role="dialog" aria-labelledby="blogModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Form</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="form-blogPost" method="post" action="{{route('update.blog.posts')}}"
-                      enctype="multipart/form-data">
-                    {{csrf_field()}} {{method_field('PUT')}}
-                    <input type="hidden" name="id">
-                    <input type="hidden" name="user_id">
-                    <div class="modal-body">
-                        <div class="row form-group">
-                            <div class="col fix-label-group">
-                                <label for="category_id">Category</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text fix-label-item" style="height: 2.25rem">
-                                            <i class="fa fa-tag"></i></span>
-                                    </div>
-                                    <select id="category_id" class="form-control selectpicker"
-                                            title="-- Choose --"
-                                            name="category_id" data-live-search="true" required>
-                                        @foreach(\App\Models\BlogCategory::orderBy('name')->get() as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-8 has-feedback">
-                                <label for="title">Title</label>
-                                <input id="title" type="text" maxlength="191" name="title" class="form-control"
-                                       placeholder="Write its title here&hellip;" required>
-                                <span class="glyphicon glyphicon-text-width form-control-feedback"></span>
-                            </div>
-                        </div>
-                        <div class="row form-group has-feedback">
-                            <div class="col">
-                                <label for="_content">Content</label>
-                                <textarea id="_content" type="text" name="_content" class="summernote form-control"
-                                          placeholder="Write something about your post here&hellip;"></textarea>
-                                <span class="glyphicon glyphicon-text-height form-control-feedback"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <label for="thumbnail">Thumbnail</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-images"></i></span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" name="thumbnail" class="custom-file-input"
-                                               id="thumbnail" accept="image/*" required>
-                                        <label class="custom-file-label" id="txt_thumbnail">Choose File</label>
-                                    </div>
-                                </div>
-                                <div class="form-text text-muted">
-                                    Allowed extension: jpg, jpeg, gif, png. Allowed size: < 5 MB
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @push('scripts')
@@ -416,6 +407,15 @@
         }
 
         function editBlogPost(id) {
+            $("#div-blog").removeClass('p-0');
+            $("#content1").toggle(300);
+            $("#content2").toggle(300);
+            $(".card-header-action a").toggle(300);
+            $(".card-header-action button").toggle(300);
+            $(".card-header h4").text(function (i, v) {
+                return v === 'Latest Posts' ? 'Edit Post' : 'Latest Posts';
+            });
+
             $(".fix-label-group .bootstrap-select").addClass('p-0');
             $(".fix-label-group .bootstrap-select button").css('border-color', '#e4e6fc');
             $("#form-blogPost input[name=id]").val(id);
@@ -428,9 +428,18 @@
                 $("#thumbnail").removeAttr('required', 'required');
                 $("#txt_thumbnail").text(data.thumbnail.length > 60 ? data.thumbnail.slice(0, 60) + "..." : data.thumbnail);
             });
-
-            $("#blogModal").modal('show');
         }
+
+        $(".card-header-action button").on('click', function () {
+            $("#div-blog").addClass('p-0');
+            $("#content1").toggle(300);
+            $("#content2").toggle(300);
+            $(".card-header-action a").toggle(300);
+            $(".card-header-action button").toggle(300);
+            $(".card-header h4").text(function (i, v) {
+                return v === 'Latest Posts' ? 'Edit Post' : 'Latest Posts';
+            });
+        });
 
         $("#thumbnail").on('change', function () {
             var files = $(this).prop("files"), names = $.map(files, function (val) {
@@ -447,6 +456,10 @@
             } else {
                 $(this)[0].submit();
             }
+        });
+
+        $(document).on('mouseover', '.use-nicescroll', function () {
+            $(this).getNiceScroll().resize();
         });
     </script>
 @endpush
