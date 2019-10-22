@@ -20,16 +20,6 @@
             right: 2em;
         }
 
-        .modal-header {
-            padding: 1rem !important;
-            border-bottom: 1px solid #e9ecef !important;
-        }
-
-        .modal-footer {
-            padding: 1rem !important;
-            border-top: 1px solid #e9ecef !important;
-        }
-
         .bootstrap-tagsinput {
             background-color: #fff !important;
             border: 1px solid #e4e6fc !important;

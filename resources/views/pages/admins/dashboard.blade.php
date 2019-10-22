@@ -2,6 +2,28 @@
 @section('title', 'PPF Admins: Dashboard | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('admins/modules/bootstrap-datepicker/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('admins/modules/summernote/summernote-bs4.css')}}">
+    <style>
+        .bootstrap-select .dropdown-menu {
+            min-width: 100% !important;
+        }
+
+        .form-control-feedback {
+            position: absolute;
+            top: 3em;
+            right: 2em;
+        }
+
+        .modal-header {
+            padding: 1rem !important;
+            border-bottom: 1px solid #e9ecef !important;
+        }
+
+        .modal-footer {
+            padding: 1rem !important;
+            border-top: 1px solid #e9ecef !important;
+        }
+    </style>
 @endpush
 @section('content')
     <section class="section">
@@ -152,10 +174,14 @@
                                                data-toggle="tooltip"
                                                title="Details" href="{{$url}}"><i class="fas fa-info-circle"></i></a>
                                             @if(Auth::user()->isRoot() || (Auth::user()->isAdmin() && $row->user_id == Auth::id()))
-                                                <a class="btn btn-warning btn-action mr-1" data-toggle="tooltip"
-                                                   title="Edit"
-                                                   href="{{route('table.blog.posts', ['q' => encrypt($row->id)])}}">
-                                                    <i class="fas fa-pencil-alt"></i></a>
+                                                <button class="btn btn-warning btn-action mr-1" data-toggle="tooltip"
+                                                        title="Edit" type="button"
+                                                        onclick="editBlogPost('{{$row->id}}')">
+                                                    <i class="fas fa-pencil-alt"></i></button>
+                                                <a href="{{route('delete.blog.posts', ['id' => encrypt($row->id)])}}"
+                                                   class="btn btn-danger delete-data" data-toggle="tooltip"
+                                                   title="Delete" data-placement="right">
+                                                    <i class="fas fa-trash-alt"></i></a>
                                             @endif
                                         </td>
                                     </tr>
@@ -200,11 +226,88 @@
             @endif
         </div>
     </section>
+
+    <div class="modal fade" id="blogModal" tabindex="-1" role="dialog" aria-labelledby="blogModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="form-blogPost" method="post" action="{{route('update.blog.posts')}}"
+                      enctype="multipart/form-data">
+                    {{csrf_field()}} {{method_field('PUT')}}
+                    <input type="hidden" name="id">
+                    <input type="hidden" name="user_id">
+                    <div class="modal-body">
+                        <div class="row form-group">
+                            <div class="col fix-label-group">
+                                <label for="category_id">Category</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text fix-label-item" style="height: 2.25rem">
+                                            <i class="fa fa-tag"></i></span>
+                                    </div>
+                                    <select id="category_id" class="form-control selectpicker"
+                                            title="-- Choose --"
+                                            name="category_id" data-live-search="true" required>
+                                        @foreach(\App\Models\BlogCategory::orderBy('name')->get() as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-8 has-feedback">
+                                <label for="title">Title</label>
+                                <input id="title" type="text" maxlength="191" name="title" class="form-control"
+                                       placeholder="Write its title here&hellip;" required>
+                                <span class="glyphicon glyphicon-text-width form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="row form-group has-feedback">
+                            <div class="col">
+                                <label for="_content">Content</label>
+                                <textarea id="_content" type="text" name="_content" class="summernote form-control"
+                                          placeholder="Write something about your post here&hellip;"></textarea>
+                                <span class="glyphicon glyphicon-text-height form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="thumbnail">Thumbnail</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-images"></i></span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" name="thumbnail" class="custom-file-input"
+                                               id="thumbnail" accept="image/*" required>
+                                        <label class="custom-file-label" id="txt_thumbnail">Choose File</label>
+                                    </div>
+                                </div>
+                                <div class="form-text text-muted">
+                                    Allowed extension: jpg, jpeg, gif, png. Allowed size: < 5 MB
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
     <script src="{{asset('admins/modules/chart.min.js')}}"></script>
     <script src="{{asset('admins/modules/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
+    <script src="{{asset('admins/modules/summernote/summernote-bs4.js')}}"></script>
     <script>
         $(function () {
             $("#period").datepicker({
@@ -311,5 +414,39 @@
         function openDataBlog(href) {
             window.location.href = href;
         }
+
+        function editBlogPost(id) {
+            $(".fix-label-group .bootstrap-select").addClass('p-0');
+            $(".fix-label-group .bootstrap-select button").css('border-color', '#e4e6fc');
+            $("#form-blogPost input[name=id]").val(id);
+
+            $.get('{{route('edit.blog.posts', ['id' => ''])}}/' + id, function (data) {
+                $("#form-blogPost input[name=user_id]").val(data.user_id);
+                $("#category_id").val(data.category_id).selectpicker('refresh');
+                $("#title").val(data.title);
+                $('#_content').summernote('code', data.content);
+                $("#thumbnail").removeAttr('required', 'required');
+                $("#txt_thumbnail").text(data.thumbnail.length > 60 ? data.thumbnail.slice(0, 60) + "..." : data.thumbnail);
+            });
+
+            $("#blogModal").modal('show');
+        }
+
+        $("#thumbnail").on('change', function () {
+            var files = $(this).prop("files"), names = $.map(files, function (val) {
+                return val.name;
+            }), text = names[0];
+            $("#txt_thumbnail").text(text.length > 60 ? text.slice(0, 60) + "..." : text);
+        });
+
+        $("#form-blogPost").on('submit', function (e) {
+            e.preventDefault();
+            if ($('#_content').summernote('isEmpty')) {
+                swal('ATTENTION!', 'Please, write something about this post!', 'warning');
+
+            } else {
+                $(this)[0].submit();
+            }
+        });
     </script>
 @endpush

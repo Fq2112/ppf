@@ -14,7 +14,7 @@ class BlogController extends Controller
 {
     public function showBlogCategoriesTable()
     {
-        $categories = BlogCategory::all();
+        $categories = BlogCategory::orderBy('name')->get();
 
         return view('pages.admins.dataMaster.blog.category-table', compact('categories'));
     }
