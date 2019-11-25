@@ -125,8 +125,7 @@
                                 <i class="fa fa-blog mr-1"></i>View All
                             </a>
                             <button type="button" class="btn btn-outline-primary text-uppercase" style="display: none">
-                                <i class="fa fa-undo mr-1"></i>Cancel
-                            </button>
+                                <i class="fa fa-undo mr-1"></i>Cancel</button>
                         </div>
                     </div>
                     <div id="div-blog" class="card-body p-0">
@@ -172,8 +171,7 @@
                                             </a>
                                             @if(Auth::user()->isRoot() || (Auth::user()->isAdmin() && $row->user_id == Auth::id()))
                                                 <button class="btn btn-warning btn-action mr-1" data-toggle="tooltip"
-                                                        title="Edit" type="button"
-                                                        onclick="editBlogPost('{{$row->id}}')">
+                                                        title="Edit" type="button" onclick="editBlogPost('{{$row->id}}')">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </button>
                                                 <a href="{{route('delete.blog.posts', ['id' => encrypt($row->id)])}}"
@@ -430,7 +428,7 @@
             });
         }
 
-        $(".card-header-action button").on('click', function () {
+        $(".card-header-action button").on('click', function(){
             $("#div-blog").addClass('p-0');
             $("#content1").toggle(300);
             $("#content2").toggle(300);

@@ -23,6 +23,10 @@ class BlogSeeder extends Seeder
         ]);
 
         BlogCategory::create([
+            'name' => 'Wrap Film'
+        ]);
+
+        BlogCategory::create([
             'name' => 'Automobiles'
         ]);
 

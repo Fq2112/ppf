@@ -11,7 +11,7 @@
 
         ul.ui-autocomplete {
             color: #E31B23;
-            border-radius: 1rem;
+            border-radius: 0 0 1rem 1rem;
         }
 
         ul.ui-autocomplete .ui-menu-item .ui-state-active,
@@ -20,6 +20,12 @@
             background: #E31B23;
             color: #fff;
             border: 1px solid #E31B23;
+        }
+
+        ul.ui-autocomplete .ui-menu-item:last-child .ui-state-active,
+        ul.ui-autocomplete .ui-menu-item:last-child .ui-state-active:hover,
+        ul.ui-autocomplete .ui-menu-item:last-child .ui-state-active:focus {
+            border-radius: 0 0 1rem 1rem;
         }
 
         #myTab li.active .badge {
@@ -50,6 +56,15 @@
         .pagination > .active > span:focus {
             background-color: #E31B23;
             border-color: #E31B23;
+        }
+
+        .pagination > .disabled > a,
+        .pagination > .disabled > a:focus,
+        .pagination > .disabled > a:hover,
+        .pagination > .disabled > span,
+        .pagination > .disabled > span:focus,
+        .pagination > .disabled > span:hover {
+            pointer-events: none;
         }
 
         #myTabContent table a {
@@ -162,6 +177,7 @@
             @if($category != '')
             $("#{{$category}}-tab").click();
             @else
+            $("#all-tab").parent().next().click();
             $("#all-tab").click();
             @endif
         });

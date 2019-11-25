@@ -351,7 +351,7 @@
 
             var marker = new google.maps.Marker({
                 map: map,
-                icon: '{{asset('images/pin.png')}}',
+                icon: '{{asset('images/marker.png')}}',
                 position: new google.maps.LatLng(lat, long),
                 anchorPoint: new google.maps.Point(0, -29)
             });
@@ -579,6 +579,11 @@
                 return val.name;
             }), text = names[0];
             $("#txt_logo").text(text.length > 60 ? text.slice(0, 60) + "..." : text);
+        });
+
+        $("#link").on("blur", function () {
+            var $uri = $(this).val().substr(0, 4) != 'http' ? 'http://' + $(this).val() : $(this).val();
+            $(this).val($uri);
         });
     </script>
 @endpush

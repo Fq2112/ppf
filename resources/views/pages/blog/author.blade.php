@@ -53,6 +53,34 @@
             text-decoration: none;
             color: #981319;
         }
+
+        .social-media-2 {
+            list-style: none;
+            display: inline-block;
+        }
+
+        .social-media-2 li {
+            display: inline-block;
+            margin: 5px 5px 0 0;
+        }
+
+        .social-media-2 li a {
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            border: 1px solid #e31b23;
+            color: #e31b23;
+            -webkit-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
+            display: block;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .social-media-2 li a:hover {
+            background-color: #e31b23;
+            color: #fff;
+        }
     </style>
 @endpush
 @section('content')
@@ -83,6 +111,19 @@
                                 <p data-aos="fade-down" align="justify"><em>The author hasn't written anything yet&hellip;</em>
                                 </p>
                             @endif
+                            <ul data-aos="fade-up" class="social-media-2">
+                                <li><a href="mailto:{{$user->email}}">
+                                        <i class="fa fa-envelope"></i></a></li>
+                                <li><a href="{{$user->facebook != "" ? 'https://fb.com/'.$user->facebook : '#'}}"
+                                       target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="{{$user->twitter != "" ? 'https://twitter.com/'.$user->twitter : '#'}}"
+                                       target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="{{$user->instagram != "" ? 'https://instagram.com/'.$user->instagram : '#'}}"
+                                       target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="{{$user->whatsapp != "" ? 'https://web.whatsapp.com/send?text=Halo, '.
+                        $user->name.'!&phone='.$user->whatsapp.'&abid='.$user->whatsapp : '#'}}" target="_blank">
+                                        <i class="fab fa-whatsapp"></i></a></li>
+                            </ul>
                         </div>
                         <div class="clearfix"></div>
                     </div>

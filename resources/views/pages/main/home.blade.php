@@ -206,7 +206,7 @@
                         <div class="container">
                             <div class="agileits-banner-info">
                                 <p>Welcome to Our Site</p>
-                                <h3>Sole Distributor in indonesia</h3>
+                                <h3>Authorized Sole Distributor in indonesia</h3>
                                 <div class="agileits_w3layouts_more menu__item">
                                     <a href="#about" class="scroll menu__link">Learn More</a>
                                 </div>
@@ -235,16 +235,16 @@
                 <div class="col-md-5 agile-about-left">
                     <h3 data-aos="fade-right" class="w3l-title title">Welcome</h3>
                     <h5 data-aos="fade-right" style="text-align: justify">Our Company, <b>Premier Autostyling</b>, is
-                        the one and only
-                        distributor of <b>Avery Dennison</b> PPF (Paint Protection Film) in <b>Indonesia</b>.</h5>
+                        the one and only authorized distributor of <b>Avery Dennison</b> PPF (Paint Protection Film) in
+                        <b>Indonesia</b>.</h5>
                     <p data-aos="fade-down" align="justify">The need for <b>PPF</b> products is now becoming a new trend
                         that continues to grow among premium, luxury, sporty, and dandy car lovers in Indonesia to
                         maintain the durability of car paint and make the car look more luxurious. <b>Premier
-                            Autostyling</b> is the <b>Sole Distributor</b> of PPF brand <b>Avery Dennison</b> in
-                        Indonesia who has been appointed directly by the Principal based in Singapore to be able to
-                        distribute optimally through cooperation with dealers in cities that have a large number of
-                        product-user markets, such as Jakarta, Bandung, Semarang, Yogyakarta, Denpasar, Banjarmasin,
-                        Balikpapan, Makassar, Medan, Palembang.</p>
+                            Autostyling</b> is the <b>Authorized Sole Distributor</b> of PPF brand <b>Avery
+                            Dennison</b> in Indonesia who has been appointed directly by the Principal based in
+                        Singapore to be able to distribute optimally through cooperation with dealers in cities that
+                        have a large number of product-user markets, such as Jakarta, Bandung, Semarang, Yogyakarta,
+                        Denpasar, Banjarmasin, Balikpapan, Makassar, Medan, Palembang.</p>
                 </div>
                 <div data-aos="fade-left" class="col-md-7 agile-about-right">
                     <img src="{{asset('images/home/avspf2.png')}}" alt="Avery Dennison PPF (SPF-XI)">
@@ -524,7 +524,7 @@
                                 @endphp
                                 <div class="blog-slider__item swiper-slide">
                                     <div class="blog-slider__img">
-                                        <img src="{{$row->thumbnail}}" alt="Thumbnail">
+                                        <img src="{{asset('storage/blog/thumbnail/'.$row->thumbnail)}}" alt="Thumbnail">
                                     </div>
                                     <div class="blog-slider__content">
                                         <span class="blog-slider__code">{{$date->format('F d, Y')}}<br>
@@ -577,7 +577,7 @@
             @foreach($posts as $post)
                 <div data-aos="zoom-out" class="item content-area"
                      data-src="{{$post->images->standard_resolution->url}}"
-                     data-sub-html="<h4><a href='{{$post->link}}' target='_blank' class='ig-link'><i class='fa fa-external-link-alt'></i>&ensp;ORIGINAL POST</a></h4><p style='color: #fff;'>{{\Illuminate\Support\Str::words($post->caption->text, 20, '...')}}</h4>">
+                     data-sub-html="<h4><a href='{{$post->link}}' target='_blank' class='ig-link'><i class='fa fa-external-link-alt'></i>&ensp;ORIGINAL POST</a></h4><p style='color: #fff;'>{{\Illuminate\Support\Str::words($post->caption->text, 20, '...')}}</p>">
                     <img src="{{$post->images->standard_resolution->url}}" alt="{{$post->user->username}}'s Feed">
                     <div class="custom-overlay">
                         <div class="custom-text">
@@ -743,6 +743,7 @@
     <script>
         $(function () {
             window.mobilecheck() ? $(".w3-agileits-about-grids").removeClass('vertical-center') : '';
+            window.mobilecheck() ? $("#certModal .modal-dialog").css('width', 'unset') : $("#certModal .modal-dialog").css('width', '40%');
 
             $('.owl-carousel').owlCarousel({
                 loop: false,

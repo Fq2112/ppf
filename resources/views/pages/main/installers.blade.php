@@ -90,10 +90,6 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         }
 
-        #pac-input:focus {
-            border-color: #E31B23;
-        }
-
         h3.w3l-title.cert-title:after {
             left: 65%;
         }
@@ -576,7 +572,7 @@
         marker = new google.maps.Marker({
             position: new google.maps.LatLng('{{$ins->lat}}', '{{$ins->long}}'),
             map: map,
-            icon: '{{asset('images/pin.png')}}',
+            icon: '{{asset('images/marker.png')}}',
             anchorPoint: new google.maps.Point(0, -29),
         });
 
@@ -608,9 +604,6 @@
                 $("#form-contact-installer input[name='ins_email']").val('{{$ins->email}}');
                 $("#map").css('height', map_height_form);
                 $('html,body').animate({scrollTop: $("#ins-contacts").parent().offset().top}, 500);
-                setTimeout(function () {
-                    $('.use-nicescroll, .nicescroll').getNiceScroll().resize()
-                }, 600);
             }
         })(marker, i));
 
@@ -717,6 +710,8 @@
         var map_height = '', map_height_form = '';
         $(function () {
             window.mobilecheck() ? $(".w3-agileits-about-grids").removeClass('vertical-center') : '';
+            window.mobilecheck() ? $("#certModal .modal-dialog").css('width', 'unset') : $("#certModal .modal-dialog").css('width', '40%');
+
             map_height = window.mobilecheck() ? '475px': '575px';
             map_height_form = window.mobilecheck() ? '475px': '712px';
 
@@ -800,9 +795,6 @@
 
             $("#map").css('height', map_height_form);
             $('html,body').animate({scrollTop: $("#ins-contacts").parent().offset().top}, 500);
-            setTimeout(function () {
-                $('.use-nicescroll, .nicescroll').getNiceScroll().resize()
-            }, 600);
         }
 
         $("#form-contact-installer .close").on('click', function () {
@@ -816,9 +808,6 @@
 
             $("#map").css('height', map_height);
             $('html,body').animate({scrollTop: $("#ins-contacts").parent().offset().top}, 500);
-            setTimeout(function () {
-                $('.use-nicescroll, .nicescroll').getNiceScroll().resize()
-            }, 600);
         });
 
         $('.button--bubble').each(function () {
@@ -871,6 +860,10 @@
             });
         });
 
+        $(document).on('mouseover','.use-nicescroll', function () {
+            $(this).getNiceScroll().resize();
+        });
+        
         @if(session('certification'))
         swal('Successfully submitted!', '{{session('certification')}}', 'success');
         @elseif(session('contact'))

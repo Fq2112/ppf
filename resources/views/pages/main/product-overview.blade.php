@@ -120,7 +120,7 @@
                                 </li>
                                 <li role="presentation">
                                     <a href="#download" role="tab" id="download-tab" data-toggle="tab" aria-controls="download">
-                                        <span class="text">DOWNLOAD</span>
+                                        <span class="text">DOWNLOADS</span>
                                     </a>
                                 </li>
                             </ul>

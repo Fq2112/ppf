@@ -71,12 +71,13 @@
             margin-right: 10px;
         }
 
-        .blog-author a {
+        .blog-category a, .blog-author a {
             color: #E31B23;
             text-decoration: none;
             transition: all .3s ease-in-out;
         }
 
+        .blog-category a:hover, .blog-category a:focus, .blog-category a:active,
         .blog-author a:hover, .blog-author a:focus, .blog-author a:active {
             color: #9b1219;
             text-decoration: none;
@@ -152,7 +153,8 @@
                              class="img-responsive" alt="Thumbnail">
                     @endif
                     <div data-aos="fade-down" class="what-agile-info">
-                        <p class="blog-category" align="justify">{{$blog->getBlogCategory->name}}<span>{{\Carbon\Carbon::parse
+                        <p class="blog-category" align="justify"><a href="{{route('show.blog', ['category' =>
+                        $blog->category_id])}}">{{$blog->getBlogCategory->name}}</a><span>{{\Carbon\Carbon::parse
                         ($blog->created_at)->format('F d, Y')}}</span></p>
                         <h4>{{$blog->title}}</h4>
                         <p class="blog-author" align="justify">by <a href="{{route('detail.blog', [

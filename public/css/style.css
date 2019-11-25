@@ -7,7 +7,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar {
-    width: 8px !important;
+    width: 0 !important;
     background-color: #F5F5F5;
 }
 

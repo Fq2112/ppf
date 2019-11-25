@@ -60,6 +60,94 @@
             color: #fff;
         }
 
+        .images-preloader {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 10000000;
+            background-color: #fff;
+        }
+
+        .images-preloader .preloader4 {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 50px;
+            width: 50px;
+            margin: -25px 0 0 -25px;
+            border-radius: 50%;
+        }
+
+        .images-preloader .preloader4:before,
+        .images-preloader .preloader4:after {
+            content: "";
+            border: 3px solid #e31b23;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 0;
+        }
+
+        .images-preloader .preloader4:before {
+            transform: scale(1, 1);
+            opacity: 1;
+            -webkit-animation: outside .6s infinite linear;
+            animation: outside .6s infinite linear
+        }
+
+        .images-preloader .preloader4:after {
+            transform: scale(0, 0);
+            opacity: 0;
+            -webkit-animation: inside .6s infinite linear;
+            animation: inside .6s infinite linear
+        }
+
+        @-webkit-keyframes inside {
+            from {
+                -webkit-transform: scale(.5, .5);
+                opacity: 0
+            }
+            to {
+                -webkit-transform: scale(1, 1);
+                opacity: 1
+            }
+        }
+
+        @keyframes inside {
+            from {
+                transform: scale(.5, .5);
+                opacity: 0
+            }
+            to {
+                transform: scale(1, 1);
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes outside {
+            from {
+                -webkit-transform: scale(1, 1);
+                opacity: 1
+            }
+            to {
+                -webkit-transform: scale(1.5, 1.5);
+                opacity: 0
+            }
+        }
+
+        @keyframes outside {
+            from {
+                -webkit-transform: scale(1, 1);
+                opacity: 1
+            }
+            to {
+                -webkit-transform: scale(1.5, 1.5);
+                opacity: 0
+            }
+        }
+
         ul.dropdown-menu.agile_short_dropdown {
             width: 210px;
             background: #fff !important;
@@ -282,10 +370,26 @@
         .button--bubble:active + .button--bubble__effect-container {
             text-decoration: none;
         }
+
+        #myTab a {
+            border: 1px solid transparent;
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+            background: transparent;
+        }
+
+        #myTab li.active a {
+            border-color: transparent transparent #777;
+            border-bottom: 4px solid #E31B23 !important;
+        }
     </style>
     @stack('styles')
 </head>
 <body class="use-nicescroll">
+<!-- preloader -->
+<div class="images-preloader">
+    <div class="preloader4"></div>
+</div>
 <!-- content -->
 <div class="banner-silder {{!Illuminate\Support\Facades\Request::is('/*') ? 'banner-2' : ''}}">
     <!-- header -->
@@ -589,6 +693,8 @@
     });
 
     window.onload = function () {
+        $('.images-preloader').fadeOut();
+
         $(".use-nicescroll").niceScroll({
             cursorcolor: "rgb(227,27,35)",
             cursorwidth: "8px",
