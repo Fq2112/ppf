@@ -23,6 +23,20 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
         'as' => 'show.product-overview'
     ]);
 
+    Route::group(['prefix' => 'warranty'], function () {
+
+        Route::get('/', [
+            'uses' => 'PPFController@showWarranty',
+            'as' => 'show.warranty'
+        ]);
+
+        Route::post('submit', [
+            'uses' => 'PPFController@submitWarranty',
+            'as' => 'submit.warranty'
+        ]);
+
+    });
+
     Route::group(['prefix' => 'gallery'], function () {
 
         Route::get('/', [
