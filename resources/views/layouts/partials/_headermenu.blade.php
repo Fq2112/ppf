@@ -8,12 +8,13 @@
         <ul class="dropdown-menu agile_short_dropdown">
             <li><a class="link link--kumya--custom" href="{{route('show.product-overview')}}">
                     <span data-letters="PPF (SPF-XI)">PPF (SPF-XI)</span></a></li>
-            <li><a class="link link--kumya--custom" href="http://supremewrap.co.id" target="_blank">
+            <li><a class="link {{Illuminate\Support\Facades\Request::is('product-overview*') ? '' : 'link--kumya--custom'}}" href="http://supremewrap.co.id" target="_blank">
                     <span data-letters="Supreme Wrap Film">Supreme Wrap Film</span></a></li>
         </ul>
     </li>
     <li class="m_nav_item {{Illuminate\Support\Facades\Request::is('warranty*') ? 'active' : ''}}" id="moble_nav_item_3">
-        <a href="{{route('show.warranty')}}" class="link link--kumya">
+        <a href="https://graphicsap.averydennison.com/en/home/contact/register-supreme-ppf-warranty.html"
+           target="_blank" class="link link--kumya">
             <i class="fa fa-shield-alt" aria-hidden="true"></i><span data-letters="Warranty">Warranty</span></a></li>
     <li class="m_nav_item {{Illuminate\Support\Facades\Request::is('gallery*') ? 'active' : ''}}" id="moble_nav_item_4">
         <a href="{{route('show.gallery')}}" class="link link--kumya">

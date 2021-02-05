@@ -401,7 +401,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="col-xs-4 w3_agileits_header_text">
-                <h3>Call Us: <a href="tel:+6281615007777">+62 816 1500 7777</a></h3>
+                    <h3><a href="tel:+6281615007777"><i class="fa fa-phone fa-flip-horizontal"></i>&ensp;+62 816 1500 7777</a></h3>
             </div>
             <div class="col-xs-4 agileinfo_social_icons">
                 <ul class="agileits_social_list">
@@ -498,8 +498,8 @@
 </div>
 <div class="wthree_copy_right">
     <div class="container">
-        <p>© {{now()->format('Y')}} Premier Autostyling. All rights reserved | Designed & Developed by
-            <a href="http://rabbit-media.net" target="_blank">Rabbit Media</a></p>
+        <p>© {{now()->format('Y')}} Premier Autostyling. All rights reserved. {{--| Designed & Developed by
+            <a href="http://rabbit-media.net" target="_blank">Rabbit Media</a>--}}</p>
     </div>
 </div>
 
@@ -747,6 +747,10 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
     })();
+
+    $(document).on('mouseover', '.use-nicescroll', function () {
+        $(this).getNiceScroll().resize();
+    });
 </script>
 @stack('scripts')
 </body>
