@@ -285,7 +285,7 @@
 
         $keyword.autocomplete({
             source: function (request, response) {
-                $.getJSON('{{route('get.title.gallery', ['title' => ''])}}/' + $keyword.val(), {
+                $.getJSON('{{route('get.title.gallery')}}?title=' + $keyword.val(), {
                     name: request.term,
                 }, function (data) {
                     response(data);

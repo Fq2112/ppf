@@ -115,9 +115,9 @@ class PPFController extends Controller
         return $gallery;
     }
 
-    public function getTitleGallery($title)
+    public function getTitleGallery(Request $request)
     {
-        $galleries = Gallery::where('title', 'LIKE', '%' . $title . '%')->get();
+        $galleries = Gallery::where('title', 'LIKE', '%' . $request->title . '%')->get();
 
         foreach ($galleries as $gallery) {
             $gallery->label = strtoupper($gallery->type) . ' - ' . $gallery->title;
@@ -135,8 +135,9 @@ class PPFController extends Controller
         return view('pages.main.installers', compact('installers', 'countries'));
     }
 
-    public function getCityInstallers($city)
+    public function getCityInstallers(Request $request)
     {
+        $city = $request->city;
         if ($city != 'undefined') {
             if (strpos($city, 'Kota') !== false) {
                 $string = str_replace('Kota ', '', $city);

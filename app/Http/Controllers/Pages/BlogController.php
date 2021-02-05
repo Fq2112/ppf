@@ -58,9 +58,9 @@ class BlogController extends Controller
         return $blog;
     }
 
-    public function getTitleBlog($title)
+    public function getTitleBlog(Request $request)
     {
-        $blogs = Blog::where('title', 'LIKE', '%' . $title . '%')->get();
+        $blogs = Blog::where('title', 'LIKE', '%' . $request->title . '%')->get();
 
         foreach ($blogs as $blog) {
             $blog->label = $blog->getBlogCategory->name . ' - ' . $blog->title;

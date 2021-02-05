@@ -72,7 +72,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
             'as' => 'get.data.gallery'
         ]);
 
-        Route::get('{title}', [
+        Route::get('title', [
             'uses' => 'PPFController@getTitleGallery',
             'as' => 'get.title.gallery'
         ]);
@@ -86,7 +86,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
             'as' => 'show.installers'
         ]);
 
-        Route::get('{city}', [
+        Route::get('city', [
             'uses' => 'PPFController@getCityInstallers',
             'as' => 'get.city.installers'
         ]);
@@ -129,7 +129,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
             'as' => 'get.data.blog'
         ]);
 
-        Route::get('title/{title}', [
+        Route::get('title', [
             'uses' => 'BlogController@getTitleBlog',
             'as' => 'get.title.blog'
         ]);

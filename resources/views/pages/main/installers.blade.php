@@ -731,7 +731,7 @@
             clearTimeout(this.delay);
             this.delay = setTimeout(function () {
                 $.ajax({
-                    url: '{{route('get.city.installers', ['city' => ''])}}/' + city,
+                    url: '{{route('get.city.installers')}}?city=' + city,
                     type: 'GET',
                     beforeSend: function () {
                         $('#image').show();
@@ -863,7 +863,7 @@
         $(document).on('mouseover','.use-nicescroll', function () {
             $(this).getNiceScroll().resize();
         });
-        
+
         @if(session('certification'))
         swal('Successfully submitted!', '{{session('certification')}}', 'success');
         @elseif(session('contact'))
