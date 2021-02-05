@@ -154,7 +154,7 @@
         // controller
         if (setting.controller) {
             var leftArrow = $('<div>', {'class': 'jislider__left-arrow'}).click(function () {
-                animate.control(--animate.index);
+                animate.control(++animate.index);
             });
             var leftArrowTop = $('<div>', {'class': 'jislider__left-arrow__top'}).css({
                 backgroundColor: setting.color,
@@ -164,7 +164,7 @@
             });
 
             var rightArrow = $('<div>', {'class': 'jislider__right-arrow'}).click(function () {
-                animate.control(++animate.index);
+                animate.control(--animate.index);
             });
             var rightArrowTop = $('<div>', {'class': 'jislider__right-arrow__top'}).css({
                 backgroundColor: setting.color,

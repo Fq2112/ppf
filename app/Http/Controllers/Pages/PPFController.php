@@ -25,10 +25,28 @@ class PPFController extends Controller
         return view('pages.main.home', compact('countries', 'blog'));
     }
 
-    public function showProductOverview()
+    public function showSpfX5()
     {
         \App\Models\Visitor::hit();
-        return view('pages.main.product-overview');
+        return view('pages.main.product.spf-x5');
+    }
+
+    public function showSpfX3()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.main.product.spf-x3');
+    }
+
+    public function showSpfMatte()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.main.product.spf-matte');
+    }
+
+    public function showSpfNeoBlack()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.main.product.spf-neo-black');
     }
 
     public function showWarranty()

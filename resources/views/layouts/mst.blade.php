@@ -149,7 +149,7 @@
         }
 
         ul.dropdown-menu.agile_short_dropdown {
-            width: 210px;
+            width: 250px;
             background: #fff !important;
         }
 
@@ -214,6 +214,27 @@
 
         .link--kumya--custom:hover span::before, .menu__list .active a span::before {
             width: 100%;
+        }
+
+        .off.link--kumya--custom span::before {
+            width: 0 !important;
+        }
+
+        .off.link--kumya--custom::after {
+            transform: translate3d(101%, 0, 0) !important;
+        }
+
+        .off.link--kumya--custom:hover {
+            color: #E31B23 !important;
+        }
+
+        .off.link--kumya--custom:hover::after {
+            -webkit-transform: translate3d(0, 0, 0) !important;
+            transform: translate3d(0, 0, 0) !important;
+        }
+
+        .off.link--kumya--custom:hover span::before {
+            width: 100% !important;
         }
 
         @media (max-width: 320px) {

@@ -18,10 +18,33 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
         'as' => 'home'
     ]);
 
-    Route::get('product-overview', [
-        'uses' => 'PPFController@showProductOverview',
-        'as' => 'show.product-overview'
-    ]);
+    Route::group(['prefix' => 'product'], function () {
+
+        Route::group(['prefix' => 'overview'], function () {
+
+            Route::get('supreme-ppf-x5', [
+                'uses' => 'PPFController@showSpfX5',
+                'as' => 'show.product.spf-x5'
+            ]);
+
+            Route::get('supreme-ppf-x3', [
+                'uses' => 'PPFController@showSpfX3',
+                'as' => 'show.product.spf-x3'
+            ]);
+
+            Route::get('supreme-ppf-matte', [
+                'uses' => 'PPFController@showSpfMatte',
+                'as' => 'show.product.spf-matte'
+            ]);
+
+            Route::get('supreme-ppf-neo-black', [
+                'uses' => 'PPFController@showSpfNeoBlack',
+                'as' => 'show.product.spf-neo-black'
+            ]);
+
+        });
+
+    });
 
     Route::group(['prefix' => 'warranty'], function () {
 

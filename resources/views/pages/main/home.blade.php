@@ -183,9 +183,9 @@
                         <div class="container">
                             <div class="agileits-banner-info">
                                 <p>Welcome to Our Site</p>
-                                <h3>Avery Dennison PPF (SPF-XI)</h3>
+                                <h3>Avery Dennison Supreme PPF</h3>
                                 <div class="agileits_w3layouts_more menu__item">
-                                    <a href="{{route('show.product-overview')}}" class="menu__link">Learn More</a>
+                                    <a href="#" class="menu__link">Learn More</a>
                                 </div>
                                 <div class="thim-click-to-bottom">
                                     <a href="#about" class="scroll">
@@ -399,7 +399,7 @@
                     </defs>
                 </svg>
                 <span class="button--bubble__container ld ld-breath">
-                    <a href="{{route('show.product-overview')}}" class="button button--bubble">
+                    <a href="#" class="button button--bubble">
                         <strong>LEARN MORE&ensp;<i class="fa fa-search"></i></strong></a>
                     <span class="button--bubble__effect-container">
                         <span class="circle top-left"></span>
