@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{asset('css/blog-accordion.css')}}">
     <style>
         .banner-2 {
-            background: url({{asset('images/banner/blog_3.jpg')}});
+            background: url({{asset('images/banner/blog_2.jpg')}});
         }
 
         .what-grid1 {

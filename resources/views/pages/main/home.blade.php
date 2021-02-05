@@ -572,8 +572,8 @@
     </div>
 
     <!-- instagram-feed -->
-    <div class="middle-w3l" style="padding: 4em 0;">
-        <div id="ig-feed" class="owl-carousel">
+    <div class="middle-w3l" style="padding: 3em 0;">
+        {{--<div id="ig-feed" class="owl-carousel">
             @foreach($posts as $post)
                 <div data-aos="zoom-out" class="item content-area"
                      data-src="{{$post->images->standard_resolution->url}}"
@@ -591,7 +591,8 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </div>--}}
+        <div class="elfsight-app-6f559c77-3076-4c8e-bd40-6188d9784b78"></div>
         <div data-aos="fade-down" class="bubble-button" style="text-align: center;margin-top: 3.5em;margin-bottom:5em">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
                 <defs>
@@ -731,6 +732,7 @@
     </div>
 @endsection
 @push('scripts')
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <script src="{{asset('vendor/swiper/dist/js/swiper.min.js')}}"></script>
     <script src="{{asset('vendor/owlcarousel/dist/owl.carousel.min.js')}}"></script>
     <script src="{{asset('vendor/lightgallery/lib/picturefill.min.js')}}"></script>
