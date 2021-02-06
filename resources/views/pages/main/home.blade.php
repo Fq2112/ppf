@@ -21,6 +21,165 @@
             font-size: 1.9em;
         }
 
+        .accordion {
+            width: 100%;
+            max-width: 1080px;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .accordion ul {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .accordion ul li {
+            display: table-cell;
+            vertical-align: bottom;
+            position: relative;
+            width: 16.666%;
+            height: 250px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            transition: all 500ms ease;
+        }
+
+        .accordion ul li div {
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            text-align: left;
+        }
+
+        .accordion ul li div a {
+            display: block;
+            height: 250px;
+            width: 100%;
+            position: relative;
+            z-index: 3;
+            vertical-align: bottom;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            color: #fff;
+            text-decoration: none;
+            font-family: Open Sans, sans-serif;
+            transition: all 200ms ease;
+        }
+
+        .accordion ul li div a * {
+            opacity: 0;
+            margin: 0;
+            width: 100%;
+            text-overflow: ellipsis;
+            position: relative;
+            z-index: 5;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+            -webkit-transition: all 400ms ease;
+            transition: all 400ms ease;
+        }
+
+        .accordion ul li div a h2 {
+            font-family: Montserrat, sans-serif;
+            text-overflow: clip;
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+            top: 160px;
+            color: #fff;
+        }
+
+        .accordion ul li div a p {
+            top: 160px;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .accordion ul:hover li, .accordion ul:focus-within li {
+            width: 8%;
+        }
+
+        .accordion ul li:focus {
+            outline: none;
+        }
+
+        .accordion ul:hover li:hover,
+        .accordion ul li:focus, .accordion ul:focus-within li:focus {
+            width: 60%;
+        }
+
+        .accordion ul:hover li:hover a,
+        .accordion ul li:focus a, .accordion ul:focus-within li:focus a {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .accordion ul:hover li:hover a *,
+        .accordion ul li:focus a *, .accordion ul:focus-within li:focus a * {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        .accordion ul li:nth-child(1) {
+            background-image: url({{asset('images/home/supreme-ppf-x5.jpg')}});
+        }
+
+        .accordion ul li:nth-child(2) {
+            background-image: url({{asset('images/home/supreme-ppf-x3.jpg')}});
+        }
+
+        .accordion ul li:nth-child(3) {
+            background-image: url({{asset('images/home/supreme-ppf-matte.jpg')}});
+        }
+
+        .accordion ul li:nth-child(4) {
+            background-image: url({{asset('images/home/supreme-ppf-neo-black.jpg')}});
+        }
+
+        .accordion ul:hover li {
+            width: 8% !important;
+        }
+
+        .accordion ul:hover li a * {
+            opacity: 0 !important;
+        }
+
+        .accordion ul:hover li:hover {
+            width: 60% !important;
+        }
+
+        .accordion ul:hover li:hover a {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .accordion ul:hover li:hover a * {
+            opacity: 1 !important;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        @media screen and (max-width: 600px) {
+            .accordion {
+                height: auto;
+            }
+
+            .accordion ul li, .accordion ul li:hover, .accordion ul:hover li, .accordion ul:hover li:hover {
+                position: relative;
+                display: table;
+                table-layout: fixed;
+                width: 100%;
+                -webkit-transition: none;
+                transition: none;
+            }
+        }
+
         @media (max-width: 1080px) {
             h3.w3l-title.cert-title:after {
                 left: 70%;
@@ -183,9 +342,9 @@
                         <div class="container">
                             <div class="agileits-banner-info">
                                 <p>Welcome to Our Site</p>
-                                <h3>Avery Dennison Supreme PPF</h3>
+                                <h3>Avery Dennison Supreme&trade; PPF Series</h3>
                                 <div class="agileits_w3layouts_more menu__item">
-                                    <a href="#" class="menu__link">Learn More</a>
+                                    <a href="#product" data-toggle="modal" data-target="#productModal" class="menu__link">Learn More</a>
                                 </div>
                                 <div class="thim-click-to-bottom">
                                     <a href="#about" class="scroll">
@@ -247,11 +406,11 @@
                         Denpasar, Banjarmasin, Balikpapan, Makassar, Medan, Palembang.</p>
                 </div>
                 <div data-aos="fade-left" class="col-md-7 agile-about-right">
-                    <img src="{{asset('images/home/avspf2.png')}}" alt="Avery Dennison PPF (SPF-XI)">
+                    <img src="{{asset('images/home/avspf2.png')}}" alt="Avery Dennison Supreme&trade; PPF Series">
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div data-aos="fade-down" class="bubble-button" style="text-align: center;margin-top: 3.5em;">
+            {{--<div data-aos="fade-down" class="bubble-button" style="text-align: center;margin-top: 3.5em;">
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
                     <defs>
                         <filter id="goo">
@@ -263,8 +422,7 @@
                     </defs>
                 </svg>
                 <span class="button--bubble__container ld ld-breath">
-                    <a href="javascript:void(0)" data-toggle="modal" data-target="#spfModal"
-                       class="button button--bubble">
+                    <a href="#excellence" class="button button--bubble">
                         <strong>LEARN MORE&ensp;<i class="fa fa-search"></i></strong></a>
                     <span class="button--bubble__effect-container">
                         <span class="circle top-left"></span>
@@ -276,12 +434,12 @@
                         <span class="circle bottom-right"></span>
                     </span>
                 </span>
-            </div>
+            </div>--}}
         </div>
     </div>
 
     <!-- product-excellence -->
-    <div class="what-w3ls" style="padding-top: 2em">
+    <div id="excellence" class="what-w3ls" style="padding-top: 2em">
         <div class="container">
             <h3 data-aos="fade-right" class="w3l-title stat-title spe">Why Choose Us?</h3>
             <p data-aos="fade-down" style="text-align: justify;margin-top: 1em">
@@ -295,8 +453,8 @@
                          class="img-responsive" alt="Product Excellence">
                     <div data-aos="fade-down" class="what-agile-info">
                         <h4>Product Excellence</h4>
-                        <p align="justify">Get ready with the excellence of Avery Dennison PPF (SPF-XI) against the
-                            similar PPF products!</p>
+                        <p align="justify">Get ready with the excellence of Avery Dennison Supreme&trade; PPF Series against
+                            the similar PPF products!</p>
                     </div>
                     <div data-aos="fade-down" class="what-top1">
                         <div class="what-left">
@@ -304,9 +462,8 @@
                         </div>
                         <div class="what-right">
                             <h4>Originality Guarantee</h4>
-                            <p align="justify">The original Avery Dennison PPF (SPF-XI) has a unique holographic emblem
-                                sticker
-                                that is not easily imitated.</p>
+                            <p align="justify">The original Avery Dennison Supreme&trade; PPF Series has a unique holographic
+                                emblem sticker that is not easily imitated.</p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -316,9 +473,9 @@
                         </div>
                         <div class="what-right">
                             <h4>Durability Guarantee</h4>
-                            <p align="justify">Avery Dennison PPF (SPF-XI) has the durability for product quality
-                                between 4 to 10
-                                years since the installation on the car, depends on the usage level.</p>
+                            <p align="justify">Avery Dennison Supreme&trade; PPF Series has an outstanding durability and
+                                weathering protection up to 7 years since the installation on the car,
+                                depends on the usage level.</p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -330,9 +487,19 @@
                         </div>
                         <div class="what-right">
                             <h4>Luxury & Premium</h4>
-                            <p align="justify">Avery Dennison PPF (SPF-XI) has materials that provide a more luxurious
-                                and
-                                premium quality appearance to the vehicle unit.</p>
+                            <p align="justify">Avery Dennison Supreme&trade; PPF Series has materials that provide a more
+                                luxurious and premium quality appearance to the vehicle unit.</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div data-aos="fade-down" class="what-top1">
+                        <div class="what-left">
+                            <i class="fa fa-bug" aria-hidden="true"></i>
+                        </div>
+                        <div class="what-right">
+                            <h4>Stain/Scratch Resistance</h4>
+                            <p align="justify">Avery Dennison Supreme&trade; PPF Series has a coating material that causes
+                                dirt/scratches to not easily stick and does not imprint on the coating.</p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -341,22 +508,20 @@
                             <i class="fa fa-heartbeat" aria-hidden="true"></i>
                         </div>
                         <div class="what-right">
-                            <h4>Instant Healing</h4>
-                            <p align="justify">Avery Dennison PPF (SPF-XI) has a special material that can eliminate
-                                soft
-                                scratches by itself at room temperature without any preheating.</p>
+                            <h4>Self Healing</h4>
+                            <p align="justify">Avery Dennison Supreme&trade; PPF Series has a special material that can
+                                effortlessly removed with minimal heat from sun, engine, or applied heat.</p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
                     <div data-aos="fade-down" class="what-top1">
                         <div class="what-left">
-                            <i class="fa fa-layer-group" aria-hidden="true"></i>
+                            <i class="fa fa-tint" aria-hidden="true"></i>
                         </div>
                         <div class="what-right">
-                            <h4>Layer Thickness</h4>
-                            <p align="justify">Avery Dennison PPF (SPF-XI) has a dimension of layer thickness 6.5 mil
-                                which gives
-                                superior protection to car paint better than car paint.</p>
+                            <h4>Effortless Cleaning</h4>
+                            <p align="justify">Avery Dennison Supreme&trade; PPF Series has a coating material that can
+                                be cleaned easily with water thanks to advanced hydrophobic XProof&trade; top-coating.</p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -365,22 +530,10 @@
                             <i class="fa fa-tools" aria-hidden="true"></i>
                         </div>
                         <div class="what-right">
-                            <h4>Easy Installation</h4>
-                            <p align="justify">Avery Dennison PPF (SPF-XI) has the advantage because it's easier to
-                                adjust the
-                                vehicle shape design and the installation method.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div data-aos="fade-down" class="what-top1">
-                        <div class="what-left">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
-                        </div>
-                        <div class="what-right">
-                            <h4>Self Cleaning</h4>
-                            <p align="justify">Avery Dennison PPF (SPF-XI) has a coating material that causes dirt to
-                                not easily
-                                stick and does not imprint on the coating.</p>
+                            <h4>Ease Application</h4>
+                            <p align="justify">Avery Dennison Supreme&trade; PPF Series has a great conformability and
+                                optimal adhesive tack delivers high quality, professional installation on complex
+                                vehicle curves.</p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -399,7 +552,7 @@
                     </defs>
                 </svg>
                 <span class="button--bubble__container ld ld-breath">
-                    <a href="#" class="button button--bubble">
+                    <a href="#product" data-toggle="modal" data-target="#productModal" class="button button--bubble">
                         <strong>LEARN MORE&ensp;<i class="fa fa-search"></i></strong></a>
                     <span class="button--bubble__effect-container">
                         <span class="circle top-left"></span>
@@ -622,6 +775,56 @@
     </div>
 
     <!-- Modals -->
+    <div class="modal dark fade" id="productModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title text-uppercase" style="text-align: left">Our Products</h4>
+                </div>
+                <div class="modal-body" style="padding: 2em">
+                    <div class="accordion">
+                        <ul>
+                            <li tabindex="1">
+                                <div>
+                                    <a href="{{route('show.product.spf-x5')}}">
+                                        <h2>Supreme&trade; PPF X5</h2>
+                                        <p>Most advanced next-generation paint protection film</p>
+                                    </a>
+                                </div>
+                            </li>
+                            <li tabindex="2">
+                                <div>
+                                    <a href="{{route('show.product.spf-x3')}}">
+                                        <h2>Supreme&trade; PPF X3</h2>
+                                        <p>Self-healing paint protection film that provides strong stain and wear resist</p>
+                                    </a>
+                                </div>
+                            </li>
+                            <li tabindex="3">
+                                <div>
+                                    <a href="{{route('show.product.spf-matte')}}">
+                                        <h2>Supreme&trade; PPF Matte</h2>
+                                        <p>Sophisticated and unique head-turning finish for your vehicle</p>
+                                    </a>
+                                </div>
+                            </li>
+                            <li tabindex="4">
+                                <div>
+                                    <a href="{{route('show.product.spf-neo-black')}}">
+                                        <h2>Supreme&trade; PPF neo Black</h2>
+                                        <p>New innovative Hybrid paint protective wrap film</p>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="spfModal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">

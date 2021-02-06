@@ -7,13 +7,13 @@
             <i class="fa fa-car" aria-hidden="true"></i><span data-letters="Products">Products<b class="caret"></b></span></a>
         <ul class="dropdown-menu agile_short_dropdown">
             <li><a class="link link--kumya--custom {{Illuminate\Support\Facades\Request::is('product/overview/supreme-ppf-x5*') ? '' : 'off'}}" href="{{route('show.product.spf-x5')}}">
-                    <span data-letters="SUPREME PPF X5">SUPREME PPF X5</span></a></li>
+                    <span data-letters="SUPREME PPF X5">SUPREME&trade; PPF X5</span></a></li>
             <li><a class="link link--kumya--custom {{Illuminate\Support\Facades\Request::is('product/overview/supreme-ppf-x3*') ? '' : 'off'}}" href="{{route('show.product.spf-x3')}}">
-                    <span data-letters="SUPREME PPF X3">SUPREME PPF X3</span></a></li>
+                    <span data-letters="SUPREME PPF X3">SUPREME&trade; PPF X3</span></a></li>
             <li><a class="link link--kumya--custom {{Illuminate\Support\Facades\Request::is('product/overview/supreme-ppf-matte*') ? '' : 'off'}}" href="{{route('show.product.spf-matte')}}">
-                    <span data-letters="SUPREME PPF MATTE">SUPREME PPF MATTE</span></a></li>
+                    <span data-letters="SUPREME PPF MATTE">SUPREME&trade; PPF MATTE</span></a></li>
             <li><a class="link link--kumya--custom {{Illuminate\Support\Facades\Request::is('product/overview/supreme-ppf-neo-black*') ? '' : 'off'}}" href="{{route('show.product.spf-neo-black')}}">
-                    <span data-letters="SUPREME PPF NEO BLACK">SUPREME PPF NEO BLACK</span></a></li>
+                    <span data-letters="SUPREME PPF NEO BLACK">SUPREME&trade; PPF NEO BLACK</span></a></li>
             <li><a class="link link--kumya--custom off" href="http://supremewrap.co.id" target="_blank">
                     <span data-letters="Supreme Wrap Film">Supreme Wrap Film</span></a></li>
         </ul>

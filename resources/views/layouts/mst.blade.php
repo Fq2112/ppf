@@ -18,6 +18,7 @@
     <!-- css files -->
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{asset('css/modal-dark.css')}}" rel="stylesheet" type="text/css" media="all"/>
     <!-- Bootstrap-Core-CSS -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{{asset('css/bootstrap-select.css')}}" rel="stylesheet">
@@ -58,6 +59,36 @@
         ::-moz-selection {
             background: #E31B23;
             color: #fff;
+        }
+
+        #gotoTop {
+            display: none;
+            z-index: 299;
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.3);
+            font-size: 20px;
+            line-height: 36px;
+            text-align: center;
+            color: #FFF;
+            top: auto;
+            left: auto;
+            right: 30px;
+            bottom: 30px;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        body:not(.device-touch) #gotoTop {
+            transition: background-color .2s linear;
+            -webkit-transition: background-color .2s linear;
+            -o-transition: background-color .2s linear;
+        }
+
+        #gotoTop:hover {
+            background-color: #E31B23;
         }
 
         .images-preloader {
@@ -422,7 +453,8 @@
                 <div class="clearfix"></div>
             </div>
             <div class="col-xs-4 w3_agileits_header_text">
-                    <h3><a href="tel:+6281615007777"><i class="fa fa-phone fa-flip-horizontal"></i>&ensp;+62 816 1500 7777</a></h3>
+                <h3><a href="tel:+6281615007777"><i class="fa fa-phone fa-flip-horizontal"></i>&ensp;+62 816 1500
+                        7777</a></h3>
             </div>
             <div class="col-xs-4 agileinfo_social_icons">
                 <ul class="agileits_social_list">
@@ -547,7 +579,8 @@
 </div>--}}
 
 @if(!\Illuminate\Support\Facades\Request::is('blog*'))
-    <a href="#" onclick="scrollToTop()" class="to-top" title="Go to top">Top</a>
+    {{--    <a href="#" onclick="scrollToTop()" class="to-top" title="Go to top">Top</a>--}}
+    <div id="gotoTop" class="fa fa-arrow-up"></div>
 @endif
 <div class="myProgress">
     <div class="bar"></div>
@@ -588,6 +621,8 @@
 
         $('[data-toggle="tooltip"]').tooltip();
         $('[data-toggle="popover"]').popover();
+
+        scrollToTop();
     });
 
     $('#logo').hover(
@@ -613,15 +648,34 @@
     };
 
     function scrollFunction() {
-        if ($(this).scrollTop() > 100) {
+        /*if ($(this).scrollTop() > 100) {
             $('.to-top').addClass('show-to-top');
         } else {
             $('.to-top').removeClass('show-to-top');
+        }*/
+        var $goToTopEl = $('#gotoTop'),
+            elementMobile = $goToTopEl.attr('data-mobile'),
+            elementOffset = $goToTopEl.attr('data-offset');
+
+        if (!elementOffset) {
+            elementOffset = 100;
+        }
+
+        /*if (elementMobile != 'true' && ($body.hasClass('device-sm') || $body.hasClass('device-xs'))) {
+            return true;
+        }*/
+
+        if ($(window).scrollTop() > Number(elementOffset)) {
+            $goToTopEl.fadeIn();
+            $('body').addClass('gototop-active');
+        } else {
+            $goToTopEl.fadeOut();
+            $('body').removeClass('gototop-active');
         }
     }
 
-    function scrollToTop(callback) {
-        if ($('html').scrollTop()) {
+    function scrollToTop() {
+        /*if ($('html').scrollTop()) {
             $('html').animate({scrollTop: 0}, callback);
             return;
         }
@@ -629,7 +683,24 @@
             $('body').animate({scrollTop: 0}, callback);
             return;
         }
-        callback();
+        callback();*/
+        var $goToTopEl = $('#gotoTop'),
+            elementScrollSpeed = $goToTopEl.attr('data-speed'),
+            elementScrollEasing = $goToTopEl.attr('data-easing');
+
+        if (!elementScrollSpeed) {
+            elementScrollSpeed = 700;
+        }
+        if (!elementScrollEasing) {
+            elementScrollEasing = 'easeOutQuad';
+        }
+
+        $goToTopEl.off('click').on('click', function () {
+            $('body,html').stop(true).animate({
+                'scrollTop': 0
+            }, Number(elementScrollSpeed), elementScrollEasing);
+            return false;
+        });
     }
 
     function numberOnly(e, decimal) {

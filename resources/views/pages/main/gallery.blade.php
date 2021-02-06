@@ -493,9 +493,6 @@
             }
             window.history.replaceState("", "", '{{url('/gallery')}}?q=' + $keyword.val() + '&type=' + $("#type").val() + $page);
 
-            setTimeout(function () {
-                reloadGallery();
-            }, 600);
             return false;
         }
 
@@ -503,33 +500,31 @@
             $(this).getNiceScroll().resize();
         });
 
-        function reloadGallery() {
-            var gallery = $("#lightgallery");
-
+        $(document).on('mouseover', '#lightgallery', function () {
             // init
-            gallery.masonry({
+            $(this).masonry({
                 itemSelector: '.item'
             });
-            gallery.lightGallery({
+            $(this).lightGallery({
                 selector: '.item',
                 loadYoutubeThumbnail: true,
                 youtubeThumbSize: 'default',
             });
 
             // destroy
-            gallery.masonry('destroy');
-            gallery.removeData('masonry');
-            gallery.data("lightGallery").destroy(true);
+            $(this).masonry('destroy');
+            $(this).removeData('masonry');
+            $(this).data("lightGallery").destroy(true);
 
             // re-init
-            gallery.masonry({
+            $(this).masonry({
                 itemSelector: '.item'
             });
-            gallery.lightGallery({
+            $(this).lightGallery({
                 selector: '.item',
                 loadYoutubeThumbnail: true,
                 youtubeThumbSize: 'default',
             });
-        }
+        });
     </script>
 @endpush
