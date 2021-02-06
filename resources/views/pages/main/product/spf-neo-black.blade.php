@@ -493,16 +493,6 @@
             });
         });
 
-        $(".btn_download").on('click', function () {
-            $.get($(this).attr("href"), function (data) {
-                if (data == 0) {
-                    swal('ATTENTION!', 'The file you requested is unavailable!', 'warning')
-                }
-            });
-
-            return false;
-        });
-
         $('.button--bubble').each(function () {
             var $circlesTopLeft = $(this).parent().find('.circle.top-left');
             var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
