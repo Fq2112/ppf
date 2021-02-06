@@ -449,7 +449,7 @@
                 California that employs approximately 30,000 employees in more than 50 countries.</p>
             <div class="what-grids" style="margin-top: 2.5em">
                 <div class="col-md-6 what-grid1">
-                    <img data-aos="fade-right" id="img-switch" src="{{asset('images/home/exc_'.rand(1,3).'.jpg')}}"
+                    <img data-aos="fade-right" id="img-switch" src="{{asset('images/home/exc_'.rand(1,5).'.jpg')}}"
                          class="img-responsive" alt="Product Excellence">
                     <div data-aos="fade-down" class="what-agile-info">
                         <h4>Product Excellence</h4>
@@ -977,7 +977,7 @@
             $('#ig-feed').lightGallery({selector: '.content-area'});
         });
 
-        var $img = $("#img-switch"), images = ['exc_1.jpg', 'exc_2.jpg', 'exc_3.jpg'], index = 0,
+        var $img = $("#img-switch"), images = ['exc_1.jpg', 'exc_2.jpg', 'exc_3.jpg', 'exc_4.jpg', 'exc_5.jpg'], index = 0,
             maxImages = images.length - 1,
             timer = setInterval(function () {
                 var currentImage = images[index];

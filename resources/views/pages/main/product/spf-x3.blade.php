@@ -1,5 +1,5 @@
 @extends('layouts.mst')
-@section('title', 'Product Overview: Supreme™ PPF X5 | '.env('APP_TITLE'))
+@section('title', 'Product Overview: Supreme™ PPF X3 | '.env('APP_TITLE'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('vendor/lightgallery/dist/css/lightgallery.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-tabs-responsive.css')}}">
@@ -87,7 +87,7 @@
             <div class="what-grids">
                 <div class="col-md-7 what-grid1">
                     <div data-aos="zoom-out" class="content-area">
-                        <img id="img-switch" src="{{rand(0,1) ? asset('images/product/x5.jpg') : asset('images/home/exc_'.rand(1,3).'.jpg')}}"
+                        <img id="img-switch" src="{{rand(0,1) ? asset('images/product/x3.jpg') : asset('images/home/exc_'.rand(1,3).'.jpg')}}"
                              class="img-responsive" alt="Product Excellence">
                         <div class="custom-overlay">
                             <div class="custom-text">
@@ -145,9 +145,18 @@
                                                  class="media-object" alt="icon">
                                         </div>
                                         <div class="media-body">
-                                            <h4 class="media-heading">Ultimate Stain Resistance</h4>
-                                            <p>Next generation XProof Plus™ top-coating offers extreme stain resistance
-                                                from fall out, droppings and road grime.</p>
+                                            <h4 class="media-heading">Outstanding Stain Resistance</h4>
+                                            <p>Specially designed XProof&trade; top-coating offers outstanding stain resistance from pollution, dirt, grime and chemicals.</p>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-left media-middle">
+                                            <img width="60" src="{{asset('images/icons/scratch-protection.png')}}"
+                                                 class="media-object" alt="icon">
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Ultimate Daily Protection</h4>
+                                            <p>Scratch & impact resistant from road debris, stones and scratches. Removable at the end of life ensures no harm comes to the original paintwork underneath.</p>
                                         </div>
                                     </div>
                                     <div class="media">
@@ -156,9 +165,8 @@
                                                  class="media-object" alt="icon">
                                         </div>
                                         <div class="media-body">
-                                            <h4 class="media-heading">Invisible Enhanced Finish</h4>
-                                            <p>Ultra gloss, high transparency and non yellowing film to maintain
-                                                the car’s aesthetic looks and resale value.</p>
+                                            <h4 class="media-heading">Invisible Finish</h4>
+                                            <p>High gloss, virtually invisible and non yellowing film to maintain the car’s aesthetic looks and resale value.</p>
                                         </div>
                                     </div>
                                     <div class="media">
@@ -167,18 +175,8 @@
                                                  class="media-object" alt="icon">
                                         </div>
                                         <div class="media-body">
-                                            <h4 class="media-heading">Effortless Self Healing and Cleaning</h4>
-                                            <p>Stone chips, scratches and scuff marks become a thing of the past with the self-healing top coating with minimal heat from sun, engine or other source. Water and dirt repellent top-coating enables easy cleaning and low maintenance.</p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left media-middle">
-                                            <img width="60" src="{{asset('images/icons/ease-application.png')}}"
-                                                 class="media-object" alt="icon">
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Perfectly Balanced Installation</h4>
-                                            <p>With the right amount of conformability and adhesive tack, you get the best installation performance.</p>
+                                            <h4 class="media-heading">Easy Cleaning and Healing</h4>
+                                            <p>Simple self-healing with heat from sun, engine or applied heat. Easy cleaning with water thanks to advanced hydrophobic XProof&trade; top-coating.</p>
                                         </div>
                                     </div>
                                     <div class="media">
@@ -188,7 +186,7 @@
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading">Warranty You Can Trust</h4>
-                                            <p>Outstanding durability and weathering protection with 7 year warranty.</p>
+                                            <p>5 year warranty from Avery Dennison, the world’s leading manufacturer of wrap films.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -235,8 +233,8 @@
                                                 Supreme&trade; PPF Series &ndash; Product Overview</a></li>
                                         <li><a class="btn_download" data-toggle="tooltip"
                                                title="Click here to download!" data-placement="right"
-                                               href="{{route('download.data-sheet',['file' => 'po-supreme-ppf-x5.pdf'])}}">
-                                                Supreme&trade; PPF X5 &ndash; Product Overview</a></li>
+                                               href="{{route('download.data-sheet',['file' => 'po-supreme-ppf-x3.pdf'])}}">
+                                                Supreme&trade; PPF X3 &ndash; Product Overview</a></li>
                                         <li><a class="btn_download" data-toggle="tooltip"
                                                title="Click here to download!" data-placement="right"
                                                href="{{route('download.data-sheet',['file' => 'instructional-bulletin-1.15-application-instructions-for-supreme-ppf-rev_2.pdf'])}}">
@@ -260,12 +258,8 @@
                     </div>
                 </div>
                 <div class="col-md-5 what-grid1">
-                    <h4 data-aos="fade-left">Avery Dennison&reg; Supreme&trade; PPF X5</h4>
-                    <p data-aos="fade-down" align="justify">Avery Dennison&reg; Supreme&trade; PPF X5 is our most
-                        advanced next-generation paint protection film, providing ultimate performance and extreme
-                        protection, whilst enhancing the vehicle’s finish. Utilizing the most advanced Xproof Plus™
-                        top-coating technology, this film keeps your vehicle looking brand-new for longer by protecting
-                        it from rock chips, insects, stones and harsh weather.</p>
+                    <h4 data-aos="fade-left">Avery Dennison&reg; Supreme&trade; PPF X3</h4>
+                    <p data-aos="fade-down" align="justify">Avery Dennison&reg; Supreme&trade; PPF X3 is a dependable, self-healing paint protection film that provides strong stain and wear resistance. This high value film helps to preserve the car’s showroom quality finish from everyday damages such as weather, stone or rock chips, insects, and maximizes resale value.</p>
                     <div data-aos="zoom-out" class="content-area" style="margin-top: 1em">
                         <img src="{{asset('images/home/avspf2.png')}}" class="img-responsive" alt="Product Excellence">
                         <div class="custom-overlay">
@@ -325,10 +319,10 @@
                         Dennison&reg; Supreme&trade; PPF Series.</h5>
                     <article data-aos="zoom-out" class="comparison">
                         <ul>
-                            <li class="bg-red active">
+                            <li class="bg-gray">
                                 <button>Supreme&trade; PPF X5</button>
                             </li>
-                            <li class="bg-gray">
+                            <li class="bg-red active">
                                 <button>Supreme&trade; PPF X3</button>
                             </li>
                             <li class="bg-gray">
@@ -343,8 +337,8 @@
                             <thead>
                             <tr>
                                 <th class="hide"></th>
-                                <th class="bg-red default">Supreme&trade; PPF X5</th>
-                                <th class="bg-gray">Supreme&trade; PPF X3</th>
+                                <th class="bg-gray">Supreme&trade; PPF X5</th>
+                                <th class="bg-red default">Supreme&trade; PPF X3</th>
                                 <th class="bg-gray">Supreme&trade; PPF Matte</th>
                                 <th class="bg-gray">Supreme&trade; PPF neo Black</th>
                             </tr>
@@ -450,7 +444,7 @@
                 '{{asset('images/home')}}/exc_1.jpg',
                 '{{asset('images/home')}}/exc_2.jpg',
                 '{{asset('images/home')}}/exc_3.jpg',
-                '{{asset('images/product/x5.jpg')}}',
+                '{{asset('images/product/x3.jpg')}}',
             ],
             index = 0, maxImages = images.length - 1, timer = setInterval(function () {
                 var currentImage = images[index];

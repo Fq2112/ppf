@@ -44,6 +44,11 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
 
         });
 
+        Route::get('download/{file}', [
+            'uses' => 'PPFController@downloadFile',
+            'as' => 'download.data-sheet'
+        ]);
+
     });
 
     Route::group(['prefix' => 'warranty'], function () {

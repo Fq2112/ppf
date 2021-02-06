@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Gallery;
 use App\Models\Installers;
 use App\Models\Country;
+use Illuminate\Support\Facades\Response;
 use Vinkla\Instagram\Instagram;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -47,6 +48,18 @@ class PPFController extends Controller
     {
         \App\Models\Visitor::hit();
         return view('pages.main.product.spf-neo-black');
+    }
+
+    public function downloadFile(Request $request)
+    {
+        $file_path = storage_path('app/public/datasheet/' . $request->file);
+        if (file_exists($file_path)) {
+            return Response::download($file_path, $request->file, [
+                'Content-Length: ' . filesize($file_path)
+            ]);
+        } else {
+            return 0;
+        }
     }
 
     public function showWarranty()
