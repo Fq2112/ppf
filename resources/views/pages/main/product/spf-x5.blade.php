@@ -87,7 +87,7 @@
             <div class="what-grids">
                 <div class="col-md-7 what-grid1">
                     <div data-aos="zoom-out" class="content-area">
-                        <img id="img-switch" src="{{rand(0,1) ? asset('images/product/x5.jpg') : asset('images/home/exc_'.rand(1,3).'.jpg')}}"
+                        <img id="img-switch" src="{{asset('images/product/x5.jpg')}}"
                              class="img-responsive" alt="Product Excellence">
                         <div class="custom-overlay">
                             <div class="custom-text">
@@ -326,16 +326,16 @@
                     <article data-aos="zoom-out" class="comparison">
                         <ul>
                             <li class="bg-red active">
-                                <button>Supreme&trade; PPF X5</button>
+                                <button style="font-weight: 800">Supreme&trade; PPF X5</button>
                             </li>
                             <li class="bg-gray">
-                                <button>Supreme&trade; PPF X3</button>
+                                <button style="font-weight: 600">Supreme&trade; PPF X3</button>
                             </li>
                             <li class="bg-gray">
-                                <button>Supreme&trade; PPF Matte</button>
+                                <button style="font-weight: 600">Supreme&trade; PPF Matte</button>
                             </li>
                             <li class="bg-gray">
-                                <button>Supreme&trade; PPF neo Black</button>
+                                <button style="font-weight: 600">Supreme&trade; PPF neo Black</button>
                             </li>
                         </ul>
 
@@ -343,10 +343,10 @@
                             <thead>
                             <tr>
                                 <th class="hide"></th>
-                                <th class="bg-red default">Supreme&trade; PPF X5</th>
-                                <th class="bg-gray">Supreme&trade; PPF X3</th>
-                                <th class="bg-gray">Supreme&trade; PPF Matte</th>
-                                <th class="bg-gray">Supreme&trade; PPF neo Black</th>
+                                <th class="bg-red default" style="font-weight: 800">Supreme&trade; PPF X5</th>
+                                <th class="bg-gray" style="font-weight: 600">Supreme&trade; PPF X3</th>
+                                <th class="bg-gray" style="font-weight: 600">Supreme&trade; PPF Matte</th>
+                                <th class="bg-gray" style="font-weight: 600">Supreme&trade; PPF neo Black</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -357,42 +357,42 @@
                             </tr>
                             <tr>
                                 <td><b>Finish</b></td>
-                                <td align="center">High Gloss</td>
+                                <td align="center"><b>High Gloss</b></td>
                                 <td align="center">High Gloss</td>
                                 <td align="center">Satin Matte</td>
                                 <td align="center">High Gloss</td>
                             </tr>
                             <tr>
                                 <td><b>Colour</b></td>
-                                <td align="center">Ultra Clear</td>
+                                <td align="center"><b>Ultra Clear</b></td>
                                 <td align="center">Ultra Clear</td>
                                 <td align="center">Clear</td>
                                 <td align="center">Black</td>
                             </tr>
                             <tr>
                                 <td><b>Warranty</b></td>
-                                <td align="center">7 years</td>
+                                <td align="center"><b>7 years</b></td>
                                 <td align="center">5 years</td>
                                 <td align="center">3 years</td>
                                 <td align="center">3 years</td>
                             </tr>
                             <tr>
                                 <td><b>Thickness</b></td>
-                                <td align="center">165 micron</td>
+                                <td align="center"><b>165 micron</b></td>
                                 <td align="center">165 micron</td>
                                 <td align="center">165 micron</td>
                                 <td align="center">165 micron</td>
                             </tr>
                             <tr>
                                 <td><b>Cap Sheet</b></td>
-                                <td align="center">Yes</td>
+                                <td align="center"><b>Yes</b></td>
                                 <td align="center">Yes</td>
                                 <td align="center">No</td>
                                 <td align="center">Yes</td>
                             </tr>
                             <tr>
                                 <td><b>Topcoat Technology</b></td>
-                                <td align="center">XProof Plus&trade;</td>
+                                <td align="center"><b>XProof Plus&trade;</b></td>
                                 <td align="center">XProof&trade;</td>
                                 <td align="center">Self-Healing</td>
                                 <td align="center">Self-Healing</td>
