@@ -146,4 +146,13 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
 
     });
 
+    Route::group(['prefix' => 'event'], function () {
+
+        Route::get('{title}', [
+            'uses' => 'EventController@showEvent',
+            'as' => 'show.event'
+        ]);
+
+    });
+
 });
