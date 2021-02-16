@@ -58,7 +58,7 @@ class PPFController extends Controller
                 'Content-Length: ' . filesize($file_path)
             ]);
         } else {
-            return 0;
+            return back()->with('The file you requested is unavailable!');
         }
     }
 

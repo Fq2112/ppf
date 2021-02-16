@@ -87,23 +87,8 @@
             <div class="what-grids">
                 <div class="col-md-7 what-grid1">
                     <div data-aos="zoom-out" class="content-area">
-                        <img id="img-switch" src="{{rand(0,1) ? asset('images/product/x3.jpg') : asset('images/home/exc_'.rand(1,3).'.jpg')}}"
-                             class="img-responsive" alt="Product Excellence">
-                        <div class="custom-overlay">
-                            <div class="custom-text">
-                                <svg id="play-1" class="play" data-toggle="tooltip" title="Click here to play!"
-                                     data-placement="bottom" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px"
-                                     width="100px"
-                                     viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-                                    <path class="stroke-solid" fill="none" stroke="#E31B23"
-                                          d="M49.9,2.5C23.6,2.8,2.1,24.4,2.5,50.4C2.9,76.5,24.7,98,50.3,97.5c26.4-0.6,47.4-21.8,47.2-47.7C97.3,23.7,75.7,2.3,49.9,2.5"/>
-                                    <path class="stroke-dotted" fill="none" stroke="#E31B23"
-                                          d="M49.9,2.5C23.6,2.8,2.1,24.4,2.5,50.4C2.9,76.5,24.7,98,50.3,97.5c26.4-0.6,47.4-21.8,47.2-47.7C97.3,23.7,75.7,2.3,49.9,2.5"/>
-                                    <path class="icon" fill="#E31B23"
-                                          d="M38,69c-1,0.5-1.8,0-1.8-1.1V32.1c0-1.1,0.8-1.6,1.8-1.1l34,18c1,0.5,1,1.4,0,1.9L38,69z"/></svg>
-                            </div>
-                        </div>
+                        <video class="img-responsive"
+                               src="{{asset('video/Supreme™ PPF X3 - Avery Dennison - Graphics.mp4')}}" autoplay loop controls></video>
                     </div>
                     <div data-aos="fade-down" class="what-agile-info">
                         <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
@@ -320,16 +305,16 @@
                     <article data-aos="zoom-out" class="comparison">
                         <ul>
                             <li class="bg-gray">
-                                <button>Supreme&trade; PPF X5</button>
+                                <button style="font-weight: 600">Supreme&trade; PPF X5</button>
                             </li>
                             <li class="bg-red active">
-                                <button>Supreme&trade; PPF X3</button>
+                                <button style="font-weight: 800">Supreme&trade; PPF X3</button>
                             </li>
                             <li class="bg-gray">
-                                <button>Supreme&trade; PPF Matte</button>
+                                <button style="font-weight: 600">Supreme&trade; PPF Matte</button>
                             </li>
                             <li class="bg-gray">
-                                <button>Supreme&trade; PPF neo Black</button>
+                                <button style="font-weight: 600">Supreme&trade; PPF neo Black</button>
                             </li>
                         </ul>
 
@@ -337,10 +322,10 @@
                             <thead>
                             <tr>
                                 <th class="hide"></th>
-                                <th class="bg-gray">Supreme&trade; PPF X5</th>
-                                <th class="bg-red default">Supreme&trade; PPF X3</th>
-                                <th class="bg-gray">Supreme&trade; PPF Matte</th>
-                                <th class="bg-gray">Supreme&trade; PPF neo Black</th>
+                                <th class="bg-gray" style="font-weight: 600">Supreme&trade; PPF X5</th>
+                                <th class="bg-red default" style="font-weight: 800">Supreme&trade; PPF X3</th>
+                                <th class="bg-gray" style="font-weight: 600">Supreme&trade; PPF Matte</th>
+                                <th class="bg-gray" style="font-weight: 600">Supreme&trade; PPF neo Black</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -352,42 +337,42 @@
                             <tr>
                                 <td><b>Finish</b></td>
                                 <td align="center">High Gloss</td>
-                                <td align="center">High Gloss</td>
+                                <td align="center"><b>High Gloss</b></td>
                                 <td align="center">Satin Matte</td>
                                 <td align="center">High Gloss</td>
                             </tr>
                             <tr>
                                 <td><b>Colour</b></td>
                                 <td align="center">Ultra Clear</td>
-                                <td align="center">Ultra Clear</td>
+                                <td align="center"><b>Ultra Clear</b></td>
                                 <td align="center">Clear</td>
                                 <td align="center">Black</td>
                             </tr>
                             <tr>
                                 <td><b>Warranty</b></td>
                                 <td align="center">7 years</td>
-                                <td align="center">5 years</td>
+                                <td align="center"><b>5 years</b></td>
                                 <td align="center">3 years</td>
                                 <td align="center">3 years</td>
                             </tr>
                             <tr>
                                 <td><b>Thickness</b></td>
                                 <td align="center">165 micron</td>
-                                <td align="center">165 micron</td>
+                                <td align="center"><b>165 micron</b></td>
                                 <td align="center">165 micron</td>
                                 <td align="center">165 micron</td>
                             </tr>
                             <tr>
                                 <td><b>Cap Sheet</b></td>
                                 <td align="center">Yes</td>
-                                <td align="center">Yes</td>
+                                <td align="center"><b>Yes</b></td>
                                 <td align="center">No</td>
                                 <td align="center">Yes</td>
                             </tr>
                             <tr>
                                 <td><b>Topcoat Technology</b></td>
                                 <td align="center">XProof Plus&trade;</td>
-                                <td align="center">XProof&trade;</td>
+                                <td align="center"><b>XProof&trade;</b></td>
                                 <td align="center">Self-Healing</td>
                                 <td align="center">Self-Healing</td>
                             </tr>
@@ -455,21 +440,6 @@
                 });
             }, 5000);
 
-        $('#play-1').on('click', function () {
-            $(this).lightGallery({
-                dynamic: true,
-                dynamicEl: [
-                    {
-                        "src": 'https://youtu.be/KO0kT2AxsFE',
-                        'thumb': 'https://youtu.be/KO0kT2AxsFE',
-                    },
-                    {
-                        "src": 'https://youtu.be/IttrUzQnbGI',
-                        'thumb': 'https://youtu.be/IttrUzQnbGI',
-                    }]
-            });
-        });
-
         $('#play-2').on('click', function () {
             $(this).lightGallery({
                 dynamic: true,
@@ -477,22 +447,8 @@
                     {
                         "src": 'https://youtu.be/IttrUzQnbGI',
                         'thumb': 'https://youtu.be/IttrUzQnbGI',
-                    },
-                    {
-                        "src": 'https://youtu.be/KO0kT2AxsFE',
-                        'thumb': 'https://youtu.be/KO0kT2AxsFE',
                     }]
             });
-        });
-
-        $(".btn_download").on('click', function () {
-            $.get($(this).attr("href"), function (data) {
-                if (data == 0) {
-                    swal('ATTENTION!', 'The file you requested is unavailable!', 'warning')
-                }
-            });
-
-            return false;
         });
 
         $('.button--bubble').each(function () {
