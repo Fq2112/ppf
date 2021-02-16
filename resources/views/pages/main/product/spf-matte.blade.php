@@ -318,8 +318,8 @@
             <div class="w3-agileits-about-grids vertical-center">
                 <div class="col-md-12 agile-about-left">
                     <h3 data-aos="fade-right" class="w3l-title work-title">Comparison</h3>
-                    <h5 data-aos="fade-down" style="text-align: justify">Here is a feature comparison chart of the Avery
-                        Dennison&reg; Supreme&trade; PPF Series.</h5>
+                    <h5 data-aos="fade-down" style="text-align: justify">Here is the feature comparison chart between
+                        the Avery Dennison&reg; Supreme&trade; PPF Series.</h5>
                     <article data-aos="zoom-out" class="comparison">
                         <ul>
                             <li class="bg-gray">
@@ -393,6 +393,174 @@
                                 <td align="center">XProof&trade;</td>
                                 <td align="center"><b>Self-Healing</b></td>
                                 <td align="center">Self-Healing</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </article>
+
+                    <h5 data-aos="fade-down" style="text-align: justify;margin-top: 1.5em">And here is the feature
+                        comparison chart of the Avery Dennison&reg; brand against the others.</h5>
+                    <article data-aos="zoom-out" class="comparison">
+                        <ul>
+                            <li class="bg-red active">
+                                <button>Avery Dennison Supreme&trade; PPF Series</button>
+                            </li>
+                            <li class="bg-gray">
+                                <button>Major Brand 1</button>
+                            </li>
+                            <li class="bg-gray">
+                                <button>Major Brand 2</button>
+                            </li>
+                            <li class="bg-gray">
+                                <button>High-end Luxury Brand</button>
+                            </li>
+                            <li class="bg-gray">
+                                <button>High-end Brand</button>
+                            </li>
+                        </ul>
+
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="hide"></th>
+                                <th class="bg-red default">Avery Dennison SPF-XI</th>
+                                <th class="bg-gray">Major Brand 1</th>
+                                <th class="bg-gray">Major Brand 2</th>
+                                <th class="bg-gray">High-end Luxury Brand</th>
+                                <th class="bg-gray">High-end Brand</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td colspan="6" class="sep">
+                                    Ratings based on internal testing, highest score is 5 stars and lowerst score is 1 star.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Elongation at Break</td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i class="far fa-star"></i><i
+                                            class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Gloss/60°C (5000 hours)</td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Appearance</td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i><i
+                                            class="far fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Scratch</td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Application Temperature</td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i class="far fa-star"></i><i
+                                            class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i class="far fa-star"></i><i
+                                            class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i class="far fa-star"></i><i
+                                            class="far fa-star"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Removability (5000 hours)</td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Super UV</td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i><i
+                                            class="far fa-star"></i><i class="far fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
+                                <td align="center"><span class="txt-l"><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="far fa-star"></i></span></td>
                             </tr>
                             </tbody>
                         </table>

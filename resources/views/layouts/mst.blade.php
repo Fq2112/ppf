@@ -453,8 +453,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="col-xs-4 w3_agileits_header_text">
-                <h3><a href="tel:+6281615007777"><i class="fa fa-phone fa-flip-horizontal"></i>&ensp;+62 816 1500
-                        7777</a></h3>
+                <h3><a href="tel:+62817597777"><i class="fa fa-phone fa-flip-horizontal"></i>&ensp;+62 817 597 777</a></h3>
             </div>
             <div class="col-xs-4 agileinfo_social_icons">
                 <ul class="agileits_social_list">
@@ -502,8 +501,8 @@
             <div data-aos="fade-down" class="col-md-3 agileits_w3layouts_footer_grid">
                 <h3>Call Us</h3>
                 <ul>
-                    <li><span>Phone :</span> <a href="tel:+6281615007777">+62 816 1500 7777</a></li>
-                    <li><span>WhatsApp :</span> <a href="https://wa.me/6281615007777" target="_blank">081615007777</a>
+                    <li><span>Phone :</span> <a href="tel:+62817597777">+62 817 597 777</a></li>
+                    <li><span>WhatsApp :</span> <a href="https://wa.me/62817597777" target="_blank">+62 817 597 777</a>
                     </li>
                 </ul>
             </div>
@@ -807,7 +806,7 @@
         });
 
         var options = {
-            whatsapp: "+6281615007777",
+            whatsapp: "+62817597777",
             email: "sindhu@ppf.co.id",
             call_to_action: "Contact us",
             button_color: "#e31b23",
