@@ -87,6 +87,42 @@
             background-color: #fff;
         }
 
+        .div-image {
+            opacity: 0.8;
+            width: 100%;
+            line-height: 120px;
+            background-position: center center;
+            background-color: gray;
+            background-size: cover;
+            color: #fff;
+            display: inline-block;
+            margin-right: 1em;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 800;
+            font-size: larger;
+            text-shadow: 4px 4px 5px rgba(0, 0, 0, 1);
+        }
+
+        .div-image:hover {
+            opacity: 1;
+        }
+
+        .radio-img > input {
+            display: none;
+        }
+
+        .radio-img > .div-image {
+            cursor: pointer;
+            border: 2px solid #ccc;
+        }
+
+        .radio-img > input:checked + .div-image {
+            border: 2px solid #E31B23;
+            color: #E31B23;
+            opacity: 1;
+        }
+
         @media (max-width: 1080px) {
             h3.w3l-title.warranty-title:after {
                 left: 53%;
@@ -143,12 +179,12 @@
                 <div class="col-md-9 agile-about-left">
                     <h3 data-aos="fade-right" class="w3l-title warranty-title">Warranty Request</h3>
                     <h5 data-aos="fade-right" style="text-align: justify">Feel free to get a warranty for the Avery
-                        Dennison&reg; Supreme Protection&trade; Film installed on your automobile!</h5>
-                    <p data-aos="fade-down" align="justify">Avery Dennison Supreme Protection Film ("Avery Dennison
-                        SPF-XI") has a limited warranty from date of purchase of your automobile. The film is warranted
-                        to be free from defects in manufacturing and workmanship and against peeling, yellowing,
-                        bubbling, or cracking of the film from UV exposure for 3 years as the original purchaser owns
-                        and operates the automobile on which the Product is installed.</p>
+                        Dennison&reg; Supreme&trade; PPF Series installed on your automobile!</h5>
+                    <p data-aos="fade-down" align="justify">Avery Dennison&reg; Supreme&trade; PPF Series has a limited
+                        warranty from date of purchase of your automobile. The film is warranted to be free from defects
+                        in manufacturing and workmanship and against peeling, yellowing, bubbling, or cracking of the
+                        film from UV exposure for 3 years as the original purchaser owns and operates the automobile on
+                        which the Product is installed.</p>
                 </div>
                 <div data-aos="fade-left" class="col-md-3 agile-about-right">
                     <div data-aos="zoom-out" class="content-area" style="margin-top: 1em">
@@ -168,7 +204,7 @@
                                         </defs>
                                     </svg>
                                     <span class="button--bubble__container ld ld-breath">
-                    <a href="{{asset('storage/pds-supreme-protection-film-spf-xi.pdf')}}" class="button button--bubble">
+                    <a href="{{route('download.data-sheet',['file' => 'supreme-ppf-warranty-terms-and-conditions-1.0-AP-rev_1-oct-2020.pdf'])}}" class="button button--bubble">
                         <strong><i class="fa fa-file-pdf"></i>&ensp;DATASHEET</strong></a>
                     <span class="button--bubble__effect-container">
                         <span class="circle top-left"></span>
@@ -191,220 +227,304 @@
                 <div class="col-md-12 agile-about-left">
                     <form id="form-warranty" action="{{route('submit.warranty')}}" method="post">
                         @csrf
-                        <hr data-aos="fade-down" class="hr-text" data-content="CUSTOMER">
+                        <hr data-aos="fade-down" class="hr-text" data-content="INSTALLER INFORMATION">
                         <div data-aos="fade-down" class="row form-group">
                             <div class="col-md-6">
-                                <label for="fname">First Name <span class="required">*</span></label>
+                                <label for="installer_company">Company Name <span class="required">*</span></label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="fname" type="text" class="form-control" name="fname"
-                                           placeholder="First name" required>
+                                    <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                                    <input id="installer_company" type="text" class="form-control"
+                                           name="installer_company" placeholder="Company name" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="lname">Last Name <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="lname" type="text" class="form-control" name="lname"
-                                           placeholder="Last name" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-aos="fade-down" class="row form-group">
-                            <div class="col-md-6">
-                                <label for="email">Email <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input id="email" type="email" class="form-control" name="email"
-                                           placeholder="Email" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="phone">Phone <span class="required">*</span></label>
+                                <label for="installer_phone">Phone Number</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                    <input id="phone" placeholder="Phone number" type="text" maxlength="13"
-                                           class="form-control" name="phone" required
+                                    <input id="installer_phone" placeholder="Phone number" type="text"
+                                           class="form-control" name="installer_phone"
                                            onkeypress="return numberOnly(event, false)">
                                 </div>
                             </div>
                         </div>
                         <div data-aos="fade-down" class="row form-group">
-                            <div class="col-md-12">
-                                <label for="address">Address <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-map-marked-alt"></i></span>
-                                    <textarea id="address" class="form-control" name="address" rows="3" required
-                                              placeholder="Address" style="resize:vertical; background:#fff"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr data-aos="fade-down" class="hr-text" data-content="AUTHORIZED INSTALLER">
-                        <div data-aos="fade-down" class="row form-group">
                             <div class="col-md-6">
-                                <label for="installer_name">Installer Name <span class="required">*</span></label>
+                                <label for="contact_person">Contact Person <span class="required">*</span></label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-tools"></i></span>
-                                    <input id="installer_name" type="text" class="form-control" name="installer_name"
-                                           placeholder="Installer name" required>
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="contact_person" placeholder="Contact person" type="text"
+                                           class="form-control" name="contact_person" required>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="installed_by">Installed By <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
-                                    <input id="installed_by" type="text" class="form-control" placeholder="Installed by"
-                                           name="installed_by" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-aos="fade-down" class="row form-group">
                             <div class="col-md-6">
                                 <label for="installer_email">Installer Email <span class="required">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input id="installer_email" type="email" class="form-control" name="installer_email"
-                                           placeholder="Installer email" required>
+                                    <input id="installer_email" type="email" class="form-control"
+                                           name="installer_email" placeholder="Installer email" required>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="installer_phone">Installer Phone <span class="required">*</span></label>
+                        </div>
+                        <div data-aos="fade-down" class="row form-group">
+                            <div class="col-md-4">
+                                <label for="installer_city">City / Suburb <span class="required">*</span></label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                    <input id="installer_phone" placeholder="Installer phone number" type="text"
-                                           maxlength="13" class="form-control" name="installer_phone" required
-                                           onkeypress="return numberOnly(event, false)">
+                                    <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                    <input id="installer_city" placeholder="City or suburb" type="text"
+                                           class="form-control" name="installer_city" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="installer_state">State / Territory <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-city"></i></span>
+                                    <input id="installer_state" placeholder="State or territory" type="text"
+                                           class="form-control" name="installer_state" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="installer_country">Country <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                                    <select id="installer_country" class="form-control selectpicker"
+                                            name="installer_country" data-live-search="true"
+                                            title="-- Select Country --" required>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Botswana">Botswana</option>
+                                        <option value="Cambodia">Cambodia</option>
+                                        <option value="India">India</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Laos">Laos</option>
+                                        <option value="Malaysia">Malaysia</option>
+                                        <option value="Myanmar">Myanmar</option>
+                                        <option value="Namibia">Namibia</option>
+                                        <option value="New Zealand">New Zealand</option>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="Philippines">Philippines</option>
+                                        <option value="Singapore">Singapore</option>
+                                        <option value="South Africa">South Africa</option>
+                                        <option value="Sri Lanka">Sri Lanka</option>
+                                        <option value="Thailand">Thailand</option>
+                                        <option value="Vietnam">Vietnam</option>
+                                        <option value="Zimbabwe">Zimbabwe</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr data-aos="fade-down" class="hr-text" data-content="PRODUCT DETAILS">
+                        <div data-aos="fade-down" class="row form-group">
+                            <div class="col-md-12">
+                                <label for="product">Supreme&trade; PPF Series Product <span class="required">*</span></label>
+                                <div id="product">
+                                    <label class="radio-img">
+                                        <input type="radio" name="product" value="Supreme&trade; PPF X5">
+                                        <div class="div-image" style="background-image: url('{{asset('images/home/supreme-ppf-x5.jpg')}}')">
+                                            Supreme&trade; PPF X5
+                                        </div>
+                                    </label>
+                                    <label class="radio-img">
+                                        <input type="radio" name="product" value="Supreme&trade; PPF X3">
+                                        <div class="div-image" style="background-image: url('{{asset('images/home/supreme-ppf-x3.jpg')}}')">
+                                            Supreme&trade; PPF X3
+                                        </div>
+                                    </label>
+                                    <label class="radio-img">
+                                        <input type="radio" name="product" value="Supreme&trade; PPF Matte">
+                                        <div class="div-image" style="background-image: url('{{asset('images/home/supreme-ppf-matte.jpg')}}')">
+                                            Supreme&trade; PPF Matte
+                                        </div>
+                                    </label>
+                                    <label class="radio-img">
+                                        <input type="radio" name="product" value="Supreme&trade; neo Black">
+                                        <div class="div-image" style="background-image: url('{{asset('images/home/supreme-ppf-neo-black.jpg')}}')">
+                                            Supreme&trade; neo Black
+                                        </div>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                         <div data-aos="fade-down" class="row form-group">
                             <div class="col-md-6">
-                                <label for="installation_date">Date of Installation <span
+                                <label for="lot_number">Lot Number <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
+                                    <input id="lot_number" type="text" class="form-control" name="lot_number"
+                                           placeholder="Lot number" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="production_date">Production Date <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-calendar-day"></i></span>
+                                    <input id="production_date" type="text" class="form-control datepicker" required
+                                           name="production_date" placeholder="yyyy-mm-dd" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr data-aos="fade-down" class="hr-text" data-content="VEHICLE DETAILS">
+                        <div data-aos="fade-down" class="row form-group">
+                            <div class="col-md-6">
+                                <label for="vehicle_year">Vehicle Year <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
+                                    <input id="vehicle_year" type="text" class="form-control yearpicker"
+                                           name="vehicle_year" placeholder="yyyy" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="vehicle_model">Vehicle Model <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-trademark"></i></span>
+                                    <input id="vehicle_model" type="text" class="form-control"
+                                           name="vehicle_model" placeholder="Vehicle model" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="fade-down" class="row form-group">
+                            <div class="col-md-4">
+                                <label for="vehicle_make">Vehicle Make <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-registered"></i></span>
+                                    <input id="vehicle_make" type="text" class="form-control" name="vehicle_make"
+                                           placeholder="Vehicle make" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="vehicle_vin">V.I.N. / Immatriculation <span
                                         class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
+                                    <input id="vehicle_vin" type="text" class="form-control"
+                                           name="vehicle_vin" placeholder="e.g.: 1HGCG1658WA067709" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="installation_date">Installation Date <span class="required">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-calendar-day"></i></span>
                                     <input id="installation_date" type="text" class="form-control datepicker" required
                                            name="installation_date" placeholder="yyyy-mm-dd" autocomplete="off">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="installation_location">Location of Installation <span
-                                        class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-map-marker-alt"></i></span>
-                                    <input id="installation_location" type="text" class="form-control"
-                                           name="installation_location" placeholder="Installation location"
-                                           autocomplete="off" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr data-aos="fade-down" class="hr-text" data-content="AUTOMOBILE">
-                        <div data-aos="fade-down" class="row form-group">
-                            <div class="col-md-6">
-                                <label for="automobile_make">Automobile Make <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-registered"></i></span>
-                                    <input id="automobile_make" type="text" class="form-control" name="automobile_make"
-                                           placeholder="Automobile make" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="automobile_model">Automobile Model <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-trademark"></i></span>
-                                    <input id="automobile_model" type="text" class="form-control"
-                                           name="automobile_model" placeholder="Automobile model" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-aos="fade-down" class="row form-group">
-                            <div class="col-md-6">
-                                <label for="automobile_year">Automobile Year <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-calendar-alt"></i></span>
-                                    <input id="automobile_year" type="text" class="form-control yearpicker"
-                                           name="automobile_year" placeholder="yyyy" autocomplete="off" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="automobile_color">Automobile Color <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-palette"></i></span>
-                                    <input id="automobile_color" type="text" class="form-control"
-                                           name="automobile_color" placeholder="Automobile color" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-aos="fade-down" class="row form-group">
-                            <div class="col-md-3">
-                                <label for="automobile_vin">V.I.N. / Immatriculation <span
-                                        class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
-                                    <input id="automobile_vin" type="text" class="form-control"
-                                           name="automobile_vin" placeholder="e.g.: 1HGCG1658WA067709" required>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="roll_lot_number">Roll Lot Number <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
-                                    <input id="roll_lot_number" type="text" class="form-control"
-                                           name="roll_lot_number" placeholder="Roll lot number" required>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="roll_fwo_number">Roll FWO Number <span class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
-                                    <input id="roll_fwo_number" type="text" class="form-control"
-                                           name="roll_fwo_number" placeholder="Roll FWO number" required>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="template_pattern_number">Template Pattern Number <span
-                                        class="required">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
-                                    <input id="template_pattern_number" type="text" class="form-control"
-                                           name="template_pattern_number" placeholder="Template pattern number"
-                                           required>
-                                </div>
-                            </div>
                         </div>
                         <div data-aos="fade-down" class="row form-group">
                             <div class="col-md-12">
-                                <label for="areas_protected">Area(s) Protected <span class="required">*</span></label>
+                                <label for="protection_area">Protection Area(s) <span class="required">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-car"></i></span>
-                                    <select id="areas_protected" class="form-control selectpicker" multiple required
-                                            name="areas_protected[]" data-live-search="true" data-actions-box="true"
+                                    <select id="protection_area" class="form-control selectpicker" multiple required
+                                            name="protection_area[]" data-live-search="true" data-actions-box="true"
                                             title="-- Select Areas --" data-selected-text-format="count > 5">
-                                        <option value="A-Pillar">A-Pillar</option>
-                                        <option value="Bumper">Bumper</option>
-                                        <option value="Fender">Fender</option>
-                                        <option value="Grille">Grille</option>
-                                        <option value="Hood-Full">Hood-Full</option>
-                                        <option value="Hood-Partial">Hood-Partial</option>
-                                        <option value="Mirrors">Mirrors</option>
-                                        <option value="Roof">Roof</option>
+                                        <option value="Bonnet Partial Protection">Bonnet Partial Protection</option>
+                                        <option value="Bonnet Full Protection">Bonnet Full Protection</option>
+                                        <option value="Door Cup Protection">Door Cup Protection</option>
+                                        <option value="Front Bumper Partial Protection">Front Bumper Partial Protection</option>
+                                        <option value="Front Guards Protection">Front Guards Protection</option>
+                                        <option value="Front Bumper Full Protection">Front Bumper Full Protection</option>
+                                        <option value="Headlight Protection">Headlight Protection</option>
+                                        <option value="Mirror Protection">Mirror Protection</option>
+                                        <option value="Partial Wrap - Front Protection (Bumper, Bonnet, Guards)">Partial Wrap - Front Protection (Bumper, Bonnet, Guards)</option>
+                                        <option value="Rear Bumper - Partial Protection">Rear Bumper - Partial Protection</option>
+                                        <option value="Rear Bumper - Full Protection">Rear Bumper - Full Protection</option>
+                                        <option value="Tailgate Protection (Top of rear bumper)">Tailgate Protection (Top of rear bumper)</option>
+                                        <option value="Taillight Protection">Taillight Protection</option>
+                                        <option value="Whole car - Full Protection">Whole car - Full Protection</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                     <span class="input-group-addon"><i class="fa fa-shield-alt"></i></span>
                                 </div>
                             </div>
                         </div>
 
-                        <hr data-aos="fade-down" class="hr-text" data-content="ADDITIONAL">
+                        <hr data-aos="fade-down" class="hr-text" data-content="CUSTOMER INFORMATION">
                         <div data-aos="fade-down" class="row form-group">
-                            <div class="col-md-12">
-                                <label for="comments">Comments</label>
+                            <div class="col-md-6">
+                                <label for="purchaser_name">Purchaser Full Name <span class="required">*</span></label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-comments"></i></span>
-                                    <textarea id="comments" class="form-control" name="comments" rows="5"
-                                              placeholder="Write something here&hellip;"
-                                              style="resize:vertical; background:#fff"></textarea>
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input id="purchaser_name" type="text" class="form-control" name="purchaser_name"
+                                           placeholder="Purchaser name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="purchaser_company">Company (if applicable)</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                                    <input id="purchaser_company" type="text" class="form-control"
+                                           name="purchaser_company" placeholder="Company (if applicable)">
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="fade-down" class="row form-group">
+                            <div class="col-md-6">
+                                <label for="purchaser_email">Email <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    <input id="purchaser_email" type="email" class="form-control"
+                                           name="purchaser_email" placeholder="Purchaser email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="purchaser_phone">Phone Number</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input id="purchaser_phone" placeholder="Phone number" type="text"
+                                           class="form-control" name="purchaser_phone"
+                                           onkeypress="return numberOnly(event, false)">
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="fade-down" class="row form-group">
+                            <div class="col-md-4">
+                                <label for="purchaser_city">City / Suburb <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-map-signs"></i></span>
+                                    <input id="purchaser_city" placeholder="City or suburb" type="text"
+                                           class="form-control" name="purchaser_city" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="purchaser_state">State / Territory <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-city"></i></span>
+                                    <input id="purchaser_state" placeholder="State or territory" type="text"
+                                           class="form-control" name="purchaser_state" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="purchaser_country">Country <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                                    <select id="purchaser_country" class="form-control selectpicker"
+                                            name="purchaser_country" data-live-search="true"
+                                            title="-- Select Country --" required>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Botswana">Botswana</option>
+                                        <option value="Cambodia">Cambodia</option>
+                                        <option value="India">India</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Laos">Laos</option>
+                                        <option value="Malaysia">Malaysia</option>
+                                        <option value="Myanmar">Myanmar</option>
+                                        <option value="Namibia">Namibia</option>
+                                        <option value="New Zealand">New Zealand</option>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="Philippines">Philippines</option>
+                                        <option value="Singapore">Singapore</option>
+                                        <option value="South Africa">South Africa</option>
+                                        <option value="Sri Lanka">Sri Lanka</option>
+                                        <option value="Thailand">Thailand</option>
+                                        <option value="Vietnam">Vietnam</option>
+                                        <option value="Zimbabwe">Zimbabwe</option>
+                                        <option value="Other">Other</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -437,6 +557,8 @@
                 todayHighlight: true,
                 todayBtn: true
             });
+
+            $(".radio-img").css('width', Math.ceil($("#product").width() / 4 - 4));
         });
 
         function initialize() {
@@ -445,6 +567,15 @@
         }
 
         google.maps.event.addDomListener(window, 'load', initialize);
+
+        $("#form-warranty").on('submit', function (e) {
+            e.preventDefault();
+            if(!$("input[name='product']:checked").val()) {
+                swal('ATTENTION!', 'Please select one of the Supreme™ PPF Series Product.', 'warning');
+            } else {
+                $(this)[0].submit();
+            }
+        });
 
         @if(session('warranty'))
         swal('Successfully submitted!', '{{ session('warranty') }}', 'success');

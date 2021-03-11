@@ -405,7 +405,7 @@
                             <thead>
                             <tr>
                                 <th class="hide"></th>
-                                <th class="bg-red default">Avery Dennison SPF-XI</th>
+                                <th class="bg-red default">Avery Dennison&reg; Supreme&trade; PPF Series</th>
                                 <th class="bg-gray">Major Brand 1</th>
                                 <th class="bg-gray">Major Brand 2</th>
                                 <th class="bg-gray">High-end Luxury Brand</th>

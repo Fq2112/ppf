@@ -19,9 +19,10 @@
         </ul>
     </li>
     <li class="m_nav_item {{Illuminate\Support\Facades\Request::is('warranty*') ? 'active' : ''}}" id="moble_nav_item_3">
-        <a href="https://graphicsap.averydennison.com/en/home/contact/register-supreme-ppf-warranty.html"
-           target="_blank" class="link link--kumya">
-            <i class="fa fa-shield-alt" aria-hidden="true"></i><span data-letters="Warranty">Warranty</span></a></li>
+        {{--<a href="https://graphicsap.averydennison.com/en/home/contact/register-supreme-ppf-warranty.html"
+           target="_blank" class="link link--kumya">--}}
+            <a href="{{route('show.warranty')}}" class="link link--kumya">
+                <i class="fa fa-shield-alt" aria-hidden="true"></i><span data-letters="Warranty">Warranty</span></a></li>
     <li class="m_nav_item {{Illuminate\Support\Facades\Request::is('gallery*') ? 'active' : ''}}" id="moble_nav_item_4">
         <a href="{{route('show.gallery')}}" class="link link--kumya">
             <i class="fa fa-photo-video" aria-hidden="true"></i><span data-letters="Gallery">Gallery</span></a></li>

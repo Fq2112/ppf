@@ -1,7 +1,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scaleable=no">
-    <title>Warranty Request: Avery Dennison® Supreme Protection™ Film</title>
+    <title>Warranty Request: Avery Dennison® {{$product}}</title>
     <style type="text/css">
         /*Bootstrap*/
         .alert {
@@ -435,123 +435,108 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <hr data-aos="fade-down" class="hr-text" data-content="CUSTOMER">
+                                                <hr data-aos="fade-down" class="hr-text" data-content="INSTALLER INFORMATION">
                                                 <table border="0" cellpadding="10" cellspacing="0"
                                                        style="margin: 0 auto;text-align: justify">
                                                     <tr>
-                                                        <th>Name</th>
+                                                        <th>Company Name</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$name}}</td>
+                                                        <td>{{$installer_company}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Email</th>
+                                                        <th>Phone Number</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td><a href="mailto:{{$email}}"
-                                                               style="text-transform: none">{{$email}}</a></td>
+                                                        <td>
+                                                            @if(!is_null($installer_phone))
+                                                            <a href="tel:{{$installer_phone}}"
+                                                               style="text-transform: none">{{$installer_phone}}</a>
+                                                            @else
+                                                                (empty)
+                                                            @endif
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Phone</th>
+                                                        <th>Contact Person</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td><a href="tel:{{$phone}}"
-                                                               style="text-transform: none">{{$phone}}</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Address</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$address}}</td>
-                                                    </tr>
-                                                </table>
-
-                                                <hr data-aos="fade-down" class="hr-text"
-                                                    data-content="AUTHORIZED INSTALLER">
-                                                <table border="0" cellpadding="10" cellspacing="0"
-                                                       style="margin: 0 auto;text-align: justify">
-                                                    <tr>
-                                                        <th>Installer Name</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$installer_name}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Installed By</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$installed_by}}</td>
+                                                        <td>{{$contact_person}}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Installer Email</th>
                                                         <td>&nbsp;:&nbsp;</td>
                                                         <td><a href="mailto:{{$installer_email}}"
-                                                               style="text-transform: none">{{$installer_email}}</a>
-                                                        </td>
+                                                               style="text-transform: none">{{$installer_email}}</a></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Installer Phone</th>
+                                                        <th>City / Suburb</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td><a href="tel:{{$installer_phone}}"
-                                                               style="text-transform: none">{{$installer_phone}}</a>
-                                                        </td>
+                                                        <td>{{$installer_city}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Date of Installation</th>
+                                                        <th>State / Territory</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{\Carbon\Carbon::parse($installation_date)->format('j F Y')}}</td>
+                                                        <td>{{$installer_state}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Location of Installation</th>
+                                                        <th>Country</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$installation_location}}</td>
+                                                        <td>{{$installer_country}}</td>
                                                     </tr>
                                                 </table>
 
-                                                <hr data-aos="fade-down" class="hr-text" data-content="AUTOMOBILE">
+                                                <hr data-aos="fade-down" class="hr-text" data-content="PRODUCT DETAILS">
                                                 <table border="0" cellpadding="10" cellspacing="0"
                                                        style="margin: 0 auto;text-align: justify">
                                                     <tr>
-                                                        <th>Automobile Make</th>
+                                                        <th>Supreme&trade; PPF Series Product</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$automobile_make}}</td>
+                                                        <td>{{$product}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Automobile Model</th>
+                                                        <th>Lot Number</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$automobile_model}}</td>
+                                                        <td>{{$lot_number}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Automobile Year</th>
+                                                        <th>Production Date</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$automobile_year}}</td>
+                                                        <td>{{\Carbon\Carbon::parse($production_date)->format('j F Y')}}</td>
+                                                    </tr>
+                                                </table>
+
+                                                <hr data-aos="fade-down" class="hr-text" data-content="VEHICLE DETAILS">
+                                                <table border="0" cellpadding="10" cellspacing="0"
+                                                       style="margin: 0 auto;text-align: justify">
+                                                    <tr>
+                                                        <th>Vehicle Year</th>
+                                                        <td>&nbsp;:&nbsp;</td>
+                                                        <td>{{$vehicle_year}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Automobile Color</th>
+                                                        <th>Vehicle Model</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$automobile_color}}</td>
+                                                        <td>{{$vehicle_model}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Vehicle Make</th>
+                                                        <td>&nbsp;:&nbsp;</td>
+                                                        <td>{{$vehicle_make}}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>V.I.N. / Immatriculation</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$automobile_vin}}</td>
+                                                        <td>{{$vehicle_vin}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Roll Lot Number</th>
+                                                        <th>Installation Date</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$roll_lot_number}}</td>
+                                                        <td>{{\Carbon\Carbon::parse($installation_date)->format('j F Y')}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Roll FWO Number</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$roll_fwo_number}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Template Pattern Number</th>
-                                                        <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$template_pattern_number}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Area{{count($areas_protected) > 1 ? 's' : ''}} Protected
-                                                        </th>
+                                                        <th>Protection Area(s)</th>
                                                         <td>&nbsp;:&nbsp;</td>
                                                         <td>
                                                             <ul style="list-style: none; margin-left: -2.5em">
-                                                                @foreach($areas_protected as $area)
+                                                                @foreach($protection_area as $area)
                                                                     <li>{{$area}}</li>
                                                                 @endforeach
                                                             </ul>
@@ -559,13 +544,51 @@
                                                     </tr>
                                                 </table>
 
-                                                <hr data-aos="fade-down" class="hr-text" data-content="ADDITIONAL">
+                                                <hr data-aos="fade-down" class="hr-text" data-content="CUSTOMER INFORMATION">
                                                 <table border="0" cellpadding="10" cellspacing="0"
                                                        style="margin: 0 auto;text-align: justify">
                                                     <tr>
-                                                        <th>Comments</th>
+                                                        <th>Purchaser Full Name</th>
                                                         <td>&nbsp;:&nbsp;</td>
-                                                        <td>{{$comments != "" ? $comments : '(empty)'}}</td>
+                                                        <td>{{$purchaser_name}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Company (if applicable)</th>
+                                                        <td>&nbsp;:&nbsp;</td>
+                                                        <td>{{$purchaser_company != "" ? $purchaser_company : '(empty)'}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Email</th>
+                                                        <td>&nbsp;:&nbsp;</td>
+                                                        <td><a href="mailto:{{$purchaser_email}}"
+                                                               style="text-transform: none">{{$purchaser_email}}</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Phone Number</th>
+                                                        <td>&nbsp;:&nbsp;</td>
+                                                        <td>
+                                                            @if(!is_null($purchaser_phone))
+                                                                <a href="tel:{{$purchaser_phone}}"
+                                                                   style="text-transform: none">{{$purchaser_phone}}</a>
+                                                            @else
+                                                                (empty)
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>City / Suburb</th>
+                                                        <td>&nbsp;:&nbsp;</td>
+                                                        <td>{{$purchaser_city}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>State / Territory</th>
+                                                        <td>&nbsp;:&nbsp;</td>
+                                                        <td>{{$purchaser_state}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Country</th>
+                                                        <td>&nbsp;:&nbsp;</td>
+                                                        <td>{{$purchaser_country}}</td>
                                                     </tr>
                                                 </table>
                                             </td>

@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Gallery;
 use App\Models\Installers;
 use App\Models\Country;
+use App\Models\Warranty;
 use Illuminate\Support\Facades\Response;
 use Vinkla\Instagram\Instagram;
 use Illuminate\Http\Request;
@@ -70,33 +71,36 @@ class PPFController extends Controller
 
     public function submitWarranty(Request $request)
     {
-        $data = array(
-            'name' => $request->fname.' '.$request->lname,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'installer_name' => $request->installer_name,
-            'installed_by' => $request->installed_by,
-            'installer_email' => $request->installer_email,
-            'installer_phone' => $request->installer_phone,
-            'installation_date' => $request->installation_date,
-            'installation_location' => $request->installation_location,
-            'automobile_make' => $request->automobile_make,
-            'automobile_model' => $request->automobile_model,
-            'automobile_year' => $request->automobile_year,
-            'automobile_color' => $request->automobile_color,
-            'automobile_vin' => $request->automobile_vin,
-            'roll_lot_number' => $request->roll_lot_number,
-            'roll_fwo_number' => $request->roll_fwo_number,
-            'template_pattern_number' => $request->template_pattern_number,
-            'areas_protected' => $request->areas_protected,
-            'comments' => $request->comments,
-        );
+        $data = Warranty::create([
+            "installer_company" => $request->installer_company,
+            "installer_phone" => $request->installer_phone,
+            "contact_person" => $request->contact_person,
+            "installer_email" => $request->installer_email,
+            "installer_city" => $request->installer_city,
+            "installer_state" => $request->installer_state,
+            "installer_country" => $request->installer_country,
+            "product" => $request->product,
+            "lot_number" => $request->lot_number,
+            "production_date" => $request->production_date,
+            "vehicle_year" => $request->vehicle_year,
+            "vehicle_model" => $request->vehicle_model,
+            "vehicle_make" => $request->vehicle_make,
+            "vehicle_vin" => $request->vehicle_vin,
+            "installation_date" => $request->installation_date,
+            "protection_area" => $request->protection_area,
+            "purchaser_name" => $request->purchaser_name,
+            "purchaser_company" => $request->purchaser_company,
+            "purchaser_email" => $request->purchaser_email,
+            "purchaser_phone" => $request->purchaser_phone,
+            "purchaser_city" => $request->purchaser_city,
+            "purchaser_state" => $request->purchaser_state,
+            "purchaser_country" => $request->purchaser_country,
+        ])->toArray();
 
         Mail::send('emails.warranty-request', $data, function ($message) use ($data) {
-            $message->from($data['email'], $data['name']);
+            $message->from($data['purchaser_email'], $data['purchaser_name']);
             $message->to('warranty@ppf.co.id');
-            $message->subject('Warranty Request: Avery Dennison® Supreme Protection™ Film');
+            $message->subject('Warranty Request: Avery Dennison® '.$data['product']);
         });
 
         return back()->with('warranty', 'Warranty registration successful! Please wait for further information, we will contact you as soon as possible.');
