@@ -99,7 +99,7 @@ class PPFController extends Controller
 
         Mail::send('emails.warranty-request', $data, function ($message) use ($data) {
             $message->from($data['purchaser_email'], $data['purchaser_name']);
-            $message->to('warranty@ppf.co.id');
+            $message->to(['warranty@ppf.co.id','sindhu@ppf.co.id']);
             $message->subject('Warranty Request: Avery Dennison® '.$data['product']);
         });
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    
+
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>@yield('title')</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -40,7 +40,9 @@
 @php
     $role = Auth::user();
     $contacts = \App\Models\Contact::where('created_at', '>=', today()->subDays('3')->toDateTimeString())
-    ->orderByDesc('id')->get()
+    ->orderByDesc('id')->get();
+    $warranties = \App\Models\Warranty::where('created_at', '>=', today()->subDays('3')->toDateTimeString())
+    ->orderByDesc('id')->get();
 @endphp
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
@@ -89,6 +91,51 @@
                             <div class="dropdown-footer text-center">
                                 <a href="{{route('admin.inbox')}}">More Messages<i
                                         class="fas fa-chevron-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown dropdown-list-toggle">
+                        <a href="javascript:void(0)" data-toggle="dropdown"
+                           class="nav-link nav-link-lg message-toggle {{count($warranties) > 0 ? 'beep' : ''}}">
+                            <i class="far fa-bell"></i></a>
+                        <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                            <div class="dropdown-header">Notifications</div>
+                            <div class="dropdown-list-content dropdown-list-message">
+                                @if(count($warranties) > 0)
+                                    @foreach($warranties as $row)
+                                        @php $product = explode(' ', $row->product, 3); @endphp
+                                        <a href="{{route('table.warranty', ['lot' => $row->lot_number])}}"
+                                           class="dropdown-item">
+                                            <div class="dropdown-item-avatar" style="height: 40px">
+                                                <img src="{{asset('images/home/supreme-ppf-'.str_replace(' ','-',$product[2]).'.jpg')}}"
+                                                     class="rounded-circle" alt="Product" style="height: 100%">
+                                            </div>
+                                            <div class="dropdown-item-desc">
+                                                <b># {{$row->lot_number}}</b>
+                                                <p>Warranty request for <b>{{$row->product}}</b>,
+                                                    from <b>{{$row->purchaser_name}}</b>,
+                                                    installed by <b>{{$row->installer_company}}</b></p>
+                                                <div class="time">
+                                                    {{\Carbon\Carbon::parse($row->created_at)->diffForHumans()}}
+                                                </div>
+                                            </div>
+                                        </a>
+                                    @endforeach
+                                @else
+                                    <a class="dropdown-item">
+                                        <div class="dropdown-item-avatar">
+                                            <img src="{{asset('images/searchPlace.png')}}" class="img-fluid">
+                                        </div>
+                                        <div class="dropdown-item-desc">
+                                            <p>There seems to be none of the notification was found this 3 days&hellip;</p>
+                                        </div>
+                                    </a>
+                                @endif
+                            </div>
+                            <div class="dropdown-footer text-center">
+                                <a href="{{route('table.warranty')}}">View More<i class="fas fa-chevron-right ml-2"></i>
                                 </a>
                             </div>
                         </div>

@@ -70,13 +70,37 @@ Route::group(['namespace' => 'Pages\Admins', 'prefix' => 'scott.royce', 'middlew
 
     });
 
+    Route::group(['prefix' => 'warranty-requests', 'middleware' => 'root'], function () {
+
+        Route::get('/', [
+            'uses' => 'AdminController@showWarrantyTable',
+            'as' => 'table.warranty'
+        ]);
+
+        Route::get('{id}/detail', [
+            'uses' => 'AdminController@detailWarranty',
+            'as' => 'detail.warranty'
+        ]);
+
+        Route::get('{id}/delete', [
+            'uses' => 'AdminController@deleteWarranty',
+            'as' => 'delete.warranty'
+        ]);
+
+        Route::post('deletes', [
+            'uses' => 'AdminController@massDeleteWarranty',
+            'as' => 'massDelete.warranty'
+        ]);
+
+    });
+
     Route::group(['prefix' => 'inbox', 'middleware' => 'root'], function () {
 
         Route::get('/', [
             'uses' => 'AdminController@showInbox',
             'as' => 'admin.inbox'
         ]);
-        
+
         Route::get('{id}/view', [
             'uses' => 'AdminController@viewMail',
             'as' => 'admin.view.mail'

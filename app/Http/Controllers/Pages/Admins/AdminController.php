@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Blog;
 use App\Models\Gallery;
 use App\Models\Installers;
+use App\Models\Warranty;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -40,6 +41,39 @@ class AdminController extends Controller
             'blog', 'period', 'latest'));
     }
 
+    public function showWarrantyTable(Request $request)
+    {
+        $warranty = Warranty::all();
+        $find = $request->lot;
+
+        return view('pages.admins.warranty-table', compact('warranty','find'));
+    }
+
+    public function detailWarranty($id)
+    {
+        return Warranty::find(decrypt($id));
+    }
+
+    public function deleteWarranty($id)
+    {
+        $warranty = Warranty::find(decrypt($id));
+        $warranty->delete();
+
+        return back()->with('success', 'Warranty request [# '.$warranty->lot_number.'] is successfully deleted!');
+    }
+
+    public function massDeleteWarranty(Request $request)
+    {
+        $warranty = Warranty::whereIn('id', explode(",", $request->installer_ids))->get();
+        foreach ($warranty as $installer) {
+            $installer->delete();
+        }
+        $message = count($warranty) > 1 ? count($warranty) . ' warranty requests are ' :
+            count($warranty) . ' warranty request is ';
+
+        return back()->with('success', $message . 'successfully deleted!');
+    }
+
     public function showInbox(Request $request)
     {
         $contacts = Contact::orderByDesc('id')->get();
@@ -52,10 +86,10 @@ class AdminController extends Controller
 
         return view('pages.admins.inbox', compact('contacts', 'findMessage'));
     }
-    
-    public function viewMail(Request $request) 
+
+    public function viewMail(Request $request)
     {
-        return Contact::find($request->id);    
+        return Contact::find($request->id);
     }
 
     public function composeInbox(Request $request)

@@ -7,6 +7,10 @@
     </li>
 
     @if(Auth::user()->isRoot())
+        <li class="dropdown {{\Illuminate\Support\Facades\Request::is('scott.royce/warranty-requests*') ? 'active' : ''}}">
+            <a href="{{route('table.warranty')}}" class="nav-link">
+                <i class="fas fa-shield-alt"></i><span>Warranty</span></a>
+        </li>
         <li class="dropdown {{\Illuminate\Support\Facades\Request::is('scott.royce/inbox*') ? 'active' : ''}}">
             <a href="{{route('admin.inbox')}}" class="nav-link"><i class="fas fa-envelope"></i><span>Inbox</span></a>
         </li>
@@ -15,7 +19,7 @@
     <li class="menu-header">Data Master</li>
     <li class="dropdown {{\Illuminate\Support\Facades\Request::is('scott.royce/tables/admin-accounts*') ? 'active' : ''}}">
         <a href="{{route('table.admins')}}" class="nav-link">
-            <i class="fas fa-users"></i><span>Admin Accounts</span>
+            <i class="fas fa-users"></i><span>Accounts</span>
         </a>
     </li>
 
@@ -31,7 +35,7 @@
             </a>
         </li>
     @endif
-    
+
     <li class="dropdown {{\Illuminate\Support\Facades\Request::is('scott.royce/tables/blog*') ? 'active' : ''}}">
         <a href="javascript:void(0)" class="nav-link has-dropdown" data-toggle="dropdown">
             <i class="fas fa-blog"></i><span>Blog</span></a>
