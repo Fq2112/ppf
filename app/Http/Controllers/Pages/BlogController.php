@@ -21,7 +21,7 @@ class BlogController extends Controller
         $page = $request->page;
 
         \App\Models\Visitor::hit();
-        return view('pages.blog.index', compact('categories', 'blog', 'keyword', 'category', 'page'));
+        return view('pages.company.blog.index', compact('categories', 'blog', 'keyword', 'category', 'page'));
     }
 
     public function getDataBlog(Request $request)
@@ -80,7 +80,7 @@ class BlogController extends Controller
             });
 
             \App\Models\Visitor::hit();
-            return view('pages.blog.author', compact('user', 'latest', 'archive'));
+            return view('pages.company.blog.author', compact('user', 'latest', 'archive'));
 
         } else {
             $blog = Blog::where('user_id', $user->id)->whereYear('created_at', $year)
@@ -94,7 +94,7 @@ class BlogController extends Controller
                 'title' => $blog->title_uri]);
 
             \App\Models\Visitor::hit();
-            return view('pages.blog.detail', compact('user', 'blog', 'relates', 'uri'));
+            return view('pages.company.blog.detail', compact('user', 'blog', 'relates', 'uri'));
         }
     }
 }

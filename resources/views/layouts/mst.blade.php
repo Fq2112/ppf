@@ -530,7 +530,7 @@
             <div class="clearfix"></div>
         </div>
         <div class="agileits_w3layouts_logo logo2">
-            <a href="{{route('home')}}">
+            <a href="{{route('home-company')}}" target="_blank">
                 <img data-aos="zoom-out" id="logo2" src="{{asset('images/logo/red_horizontal.png')}}"
                      class="img-responsive" style="margin: 0 auto 1.5em auto"></a>
             <div data-aos="fade-up" class="w3social-icons">
@@ -550,7 +550,7 @@
 </div>
 <div class="wthree_copy_right">
     <div class="container">
-        <p>© {{now()->format('Y')}} Premier Autostyling. All rights reserved. {{--| Designed & Developed by
+        <p>© {{now()->format('Y')}} <a href="{{route('home-company')}}" target="_blank">{{env('APP_COMPANY')}}</a>. All rights reserved. {{--| Designed & Developed by
             <a href="http://rabbit-media.net" target="_blank">Rabbit Media</a>--}}</p>
     </div>
 </div>
@@ -577,10 +577,7 @@
     </div>
 </div>--}}
 
-@if(!\Illuminate\Support\Facades\Request::is('blog*'))
-    {{--    <a href="#" onclick="scrollToTop()" class="to-top" title="Go to top">Top</a>--}}
-    <div id="gotoTop" class="fa fa-arrow-up"></div>
-@endif
+<div id="gotoTop" class="fa fa-arrow-up"></div>
 <div class="myProgress">
     <div class="bar"></div>
 </div>

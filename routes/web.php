@@ -14,109 +14,118 @@
 Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
 
     Route::get('/', [
-        'uses' => 'PPFController@index',
-        'as' => 'home'
+        'uses' => 'CompanyController@index',
+        'as' => 'home-company'
     ]);
 
-    Route::group(['prefix' => 'product'], function () {
+    Route::group(['prefix' => 'ppf'], function () {
 
-        Route::group(['prefix' => 'overview'], function () {
+        Route::get('/', [
+            'uses' => 'PPFController@index',
+            'as' => 'home'
+        ]);
 
-            Route::get('supreme-ppf-x5', [
-                'uses' => 'PPFController@showSpfX5',
-                'as' => 'show.product.spf-x5'
-            ]);
+        Route::group(['prefix' => 'product'], function () {
 
-            Route::get('supreme-ppf-x3', [
-                'uses' => 'PPFController@showSpfX3',
-                'as' => 'show.product.spf-x3'
-            ]);
+            Route::group(['prefix' => 'overview'], function () {
 
-            Route::get('supreme-ppf-matte', [
-                'uses' => 'PPFController@showSpfMatte',
-                'as' => 'show.product.spf-matte'
-            ]);
+                Route::get('supreme-ppf-x5', [
+                    'uses' => 'PPFController@showSpfX5',
+                    'as' => 'show.product.spf-x5'
+                ]);
 
-            Route::get('supreme-ppf-neo-black', [
-                'uses' => 'PPFController@showSpfNeoBlack',
-                'as' => 'show.product.spf-neo-black'
+                Route::get('supreme-ppf-x3', [
+                    'uses' => 'PPFController@showSpfX3',
+                    'as' => 'show.product.spf-x3'
+                ]);
+
+                Route::get('supreme-ppf-matte', [
+                    'uses' => 'PPFController@showSpfMatte',
+                    'as' => 'show.product.spf-matte'
+                ]);
+
+                Route::get('supreme-ppf-neo-black', [
+                    'uses' => 'PPFController@showSpfNeoBlack',
+                    'as' => 'show.product.spf-neo-black'
+                ]);
+
+            });
+
+            Route::get('download/{file}', [
+                'uses' => 'PPFController@downloadFile',
+                'as' => 'download.data-sheet'
             ]);
 
         });
 
-        Route::get('download/{file}', [
-            'uses' => 'PPFController@downloadFile',
-            'as' => 'download.data-sheet'
-        ]);
+        Route::group(['prefix' => 'warranty'], function () {
 
-    });
+            Route::get('/', [
+                'uses' => 'PPFController@showWarranty',
+                'as' => 'show.warranty'
+            ]);
 
-    Route::group(['prefix' => 'warranty'], function () {
+            Route::post('submit', [
+                'uses' => 'PPFController@submitWarranty',
+                'as' => 'submit.warranty'
+            ]);
 
-        Route::get('/', [
-            'uses' => 'PPFController@showWarranty',
-            'as' => 'show.warranty'
-        ]);
+        });
 
-        Route::post('submit', [
-            'uses' => 'PPFController@submitWarranty',
-            'as' => 'submit.warranty'
-        ]);
+        Route::group(['prefix' => 'gallery'], function () {
 
-    });
+            Route::get('/', [
+                'uses' => 'PPFController@showGallery',
+                'as' => 'show.gallery'
+            ]);
 
-    Route::group(['prefix' => 'gallery'], function () {
+            Route::get('data', [
+                'uses' => 'PPFController@getDataGallery',
+                'as' => 'get.data.gallery'
+            ]);
 
-        Route::get('/', [
-            'uses' => 'PPFController@showGallery',
-            'as' => 'show.gallery'
-        ]);
+            Route::get('title', [
+                'uses' => 'PPFController@getTitleGallery',
+                'as' => 'get.title.gallery'
+            ]);
 
-        Route::get('data', [
-            'uses' => 'PPFController@getDataGallery',
-            'as' => 'get.data.gallery'
-        ]);
+        });
 
-        Route::get('title', [
-            'uses' => 'PPFController@getTitleGallery',
-            'as' => 'get.title.gallery'
-        ]);
+        Route::group(['prefix' => 'installers'], function () {
 
-    });
+            Route::get('/', [
+                'uses' => 'PPFController@showInstallers',
+                'as' => 'show.installers'
+            ]);
 
-    Route::group(['prefix' => 'installers'], function () {
+            Route::get('city', [
+                'uses' => 'PPFController@getCityInstallers',
+                'as' => 'get.city.installers'
+            ]);
 
-        Route::get('/', [
-            'uses' => 'PPFController@showInstallers',
-            'as' => 'show.installers'
-        ]);
+            Route::post('contact/submit', [
+                'uses' => 'PPFController@submitContactInstallers',
+                'as' => 'submit.contact.installers'
+            ]);
 
-        Route::get('city', [
-            'uses' => 'PPFController@getCityInstallers',
-            'as' => 'get.city.installers'
-        ]);
+            Route::post('certification/submit', [
+                'uses' => 'PPFController@submitCertification',
+                'as' => 'submit.certification'
+            ]);
 
-        Route::post('contact/submit', [
-            'uses' => 'PPFController@submitContactInstallers',
-            'as' => 'submit.contact.installers'
-        ]);
-
-        Route::post('certification/submit', [
-            'uses' => 'PPFController@submitCertification',
-            'as' => 'submit.certification'
-        ]);
+        });
 
     });
 
     Route::group(['prefix' => 'contact'], function () {
 
         Route::get('/', [
-            'uses' => 'PPFController@showContact',
+            'uses' => 'CompanyController@showContact',
             'as' => 'show.contact'
         ]);
 
         Route::post('submit', [
-            'uses' => 'PPFController@submitContact',
+            'uses' => 'CompanyController@submitContact',
             'as' => 'submit.contact'
         ]);
 

@@ -393,13 +393,12 @@
             <div class="w3-agileits-about-grids vertical-center">
                 <div class="col-md-5 agile-about-left">
                     <h3 data-aos="fade-right" class="w3l-title title">Welcome</h3>
-                    <h5 data-aos="fade-right" style="text-align: justify">Our Company, <b>Premier Autostyling</b>, is
+                    <h5 data-aos="fade-right" style="text-align: justify">Our Company, <b>{{env('APP_COMPANY')}}</b>, is
                         the one and only authorized distributor of <b>Avery Dennison</b> PPF (Paint Protection Film) in
                         <b>Indonesia</b>.</h5>
                     <p data-aos="fade-down" align="justify">The need for <b>PPF</b> products is now becoming a new trend
                         that continues to grow among premium, luxury, sporty, and dandy car lovers in Indonesia to
-                        maintain the durability of car paint and make the car look more luxurious. <b>Premier
-                            Autostyling</b> is the <b>Authorized Sole Distributor</b> of PPF brand <b>Avery
+                        maintain the durability of car paint and make the car look more luxurious. <b>{{env('APP_COMPANY')}}</b> is the <b>Authorized Sole Distributor</b> of PPF brand <b>Avery
                             Dennison</b> in Indonesia who has been appointed directly by the Principal based in
                         Singapore to be able to distribute optimally through cooperation with dealers in cities that
                         have a large number of product-user markets, such as Jakarta, Bandung, Semarang, Yogyakarta,
