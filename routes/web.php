@@ -18,6 +18,11 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
         'as' => 'home-company'
     ]);
 
+    Route::get('about-us', [
+        'uses' => 'CompanyController@aboutUs',
+        'as' => 'about-us'
+    ]);
+
     Route::group(['prefix' => 'ppf'], function () {
 
         Route::get('/', [

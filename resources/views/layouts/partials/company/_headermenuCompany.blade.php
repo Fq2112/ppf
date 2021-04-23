@@ -1,15 +1,6 @@
 <ul>
     <li class="{{request()->is('/*') ? 'current' : ''}}"><a href="{{route('home-company')}}"><div>Home</div></a></li>
-
-    <li>
-        <a href="#"><div>About</div></a>
-        <ul>
-            <li><a href="#"><div>Our Profile</div></a></li>
-            <li><a href="#"><div>Vision & Mission</div></a></li>
-            <li><a href="#"><div>Organization Chart</div></a></li>
-            <li><a href="#"><div>Gallery</div></a></li>
-        </ul>
-    </li>
+    <li class="{{request()->is('about-us*') ? 'current' : ''}}"><a href="{{route('about-us')}}"><div>About Us</div></a></li>
 
     <li>
         <a href="#"><div>Industrial Products</div></a>
