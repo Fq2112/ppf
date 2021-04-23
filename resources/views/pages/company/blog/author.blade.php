@@ -1,14 +1,14 @@
-@extends('layouts.mst')
-@section('title',  __('lang.blog.title').': '.$admin->username.' | '.__('lang.title'))
+@extends('layouts.mst_company')
+@section('title', 'Blog Author: '.$user->username.' | '.env('APP_COMPANY'))
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/blog-grid-list.css')}}">
-    <link rel="stylesheet" href="{{asset('css/blog-accordion.css')}}">
+    <link rel="stylesheet" href="{{asset('company/css/blog-grid-list.css')}}">
+    <link rel="stylesheet" href="{{asset('company/css/blog-accordion.css')}}">
     <style>
         #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-            color: #f89406 !important;
+            color: #e31b23 !important;
             background-color: #F9F9F9 !important;
             border-color: transparent transparent #f3f3f3;
-            border-bottom: 4px solid #f89406 !important;
+            border-bottom: 4px solid #e31b23 !important;
         }
 
         #tabs .nav-tabs .nav-link {
@@ -20,33 +20,33 @@
 
         #tabs .nav-tabs .nav-link span.badge-primary {
             color: #fff;
-            background-color: #f89406;
+            background-color: #e31b23;
         }
 
         #tabs .nav-tabs .nav-link span.badge-primary:hover, #tabs .nav-tabs .nav-link span.badge-primary:focus {
             color: #fff;
-            background-color: #cd7c06;
+            background-color: #ba181e;
         }
 
         #tabs .nav-tabs .nav-link span.badge-primary:focus, #tabs .nav-tabs .nav-link span.badge-primary.focus {
             outline: 0;
-            box-shadow: 0 0 0 0.2rem rgba(248, 148, 6, 0.5);
+            box-shadow: 0 0 0 0.2rem rgb(227, 27, 35);
         }
     </style>
 @endpush
 @section('content')
     <section id="page-title" class="page-title-parallax page-title-dark"
              data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;"
-             style="background-image:url('{{asset('images/banner/blog.jpg')}}');background-size:cover;padding:120px 0;">
+             style="background-image:url('{{asset('company/demos/car/images/banner/blog.jpg')}}');background-size:cover;padding:120px 0;">
         <div class="parallax-overlay"></div>
         <div class="container clearfix">
-            <h1>{{__('lang.blog.head')}}</h1>
-            <span>{{__('lang.blog.capt')}}</span>
+            <h1>Our Blog</h1>
+            <span>We're also provide you with a recent news related to print product things.</span>
             <ol class="breadcrumb text-uppercase">
                 <li class="breadcrumb-item">
-                    <a href="{{route('beranda')}}">{{__('lang.breadcrumb.home')}}</a></li>
-                <li class="breadcrumb-item"><a href="{{route('blog')}}">Blog</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{__('lang.breadcrumb.author')}}</li>
+                    <a href="{{route('home-company')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('show.blog')}}">Blog</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Author</li>
             </ol>
         </div>
     </section>
@@ -57,17 +57,17 @@
                 <div class="row clearfix">
                     <div class="col-md-9">
                         <img
-                            src="{{$admin->ava != "" ? asset('storage/admins/ava/'.$admin->ava) : asset('images/avatar.png')}}"
+                            src="{{$user->ava != "" ? asset('storage/users/ava/'.$user->ava) : asset('admins/img/avatar/avatar-'.rand(1,5).'.png')}}"
                             class="alignleft img-circle img-thumbnail notopmargin nobottommargin"
                             alt="Avatar" style="max-width: 84px;">
                         <div class="heading-block noborder">
-                            <h3>{{$admin->name}}</h3>
+                            <h3>{{$user->name}}</h3>
                             <ul class="entry-meta clearfix">
                                 <li><a href="{{\Illuminate\Support\Facades\URL::current()}}">
-                                        <i class="icon-user"></i> {{$admin->username}}</a></li>
+                                        <i class="icon-user"></i> {{$user->username}}</a></li>
                                 <li><i class="icon-blogger-b"></i>
-                                    {{$admin->getBlog->count() > 1 ? $admin->getBlog->count().' '.__('lang.blog.posts')
-                                    : $admin->getBlog->count().' '.__('lang.blog.post')}}
+                                    {{$user->getBlog->count() > 1 ? $user->getBlog->count().' posts'
+                                    : $user->getBlog->count().' post'}}
                                 </li>
                             </ul>
                         </div>
@@ -81,11 +81,11 @@
                                         <a class="nav-item nav-link show active" style="color: #495057" id="tabList-lp"
                                            data-toggle="tab" href="#tabContent-lp" role="tab"
                                            aria-controls="nav-lp" aria-selected="true">
-                                            <i class="icon-history"></i>&ensp;{{__('lang.blog.latest')}}</a>
+                                            <i class="icon-history"></i>&ensp;Latest Post</a>
                                         <a class="nav-item nav-link" style="color: #495057" id="tabList-ap"
                                            data-toggle="tab" href="#tabContent-ap" role="tab"
                                            aria-controls="nav-ap" aria-selected="true">
-                                            <i class="icon-archive"></i>&ensp;{{__('lang.blog.archive')}}</a>
+                                            <i class="icon-archive"></i>&ensp;Archived Post</a>
                                     </div>
                                 </nav>
                                 <div id="nav-tabContent" class="tab-content">
@@ -95,9 +95,9 @@
                                             @foreach($latest as $row)
                                                 @php
                                                     $date = \Carbon\Carbon::parse($row->created_at);
-                                                    $url = route('detail.blog', ['author' => $row->getAdmin->username,
+                                                    $url = route('detail.blog', ['author' => $row->getUser->username,
                                                     'y' => $date->format('Y'), 'm' => $date->format('m'),
-                                                    'd' => $date->format('d'), 'title' => $row->permalink]);
+                                                    'd' => $date->format('d'), 'title' => $row->title_uri]);
                                                 @endphp
                                                 <div class="blog-item">
                                                     <a href="{{$url}}">
@@ -111,8 +111,8 @@
                                                                 <span class="blog-date">
                                                                     <i class="icon-calendar3 ml-2 mr-2"></i>{{$date
                                                                     ->formatLocalized('%d %B %Y')}}</span><br>
-                                                                <sub class="blog-author">{{__('lang.blog.by')}}
-                                                                    <span>{{$admin->username}}</span></sub>
+                                                                <sub class="blog-author">by
+                                                                    <span>{{$user->username}}</span></sub>
                                                             </p>
                                                             <div class="title">{{$row->title}}</div>
                                                             <div class="rounded"></div>
@@ -140,9 +140,9 @@
                                                         @foreach($archive as $data)
                                                             @php
                                                                 $date = \Carbon\Carbon::parse($data->created_at);
-                                                                $url = route('detail.blog', ['author' => $data->getAdmin->username,
+                                                                $url = route('detail.blog', ['author' => $data->getUser->username,
                                                                 'y' => $date->format('Y'), 'm' => $date->format('m'),
-                                                                'd' => $date->format('d'), 'title' => $data->permalink]);
+                                                                'd' => $date->format('d'), 'title' => $data->title_uri]);
                                                             @endphp
                                                             <li>
                                                                 <a class="pt-3" href="{{$url}}">
@@ -168,41 +168,41 @@
 
                     <div class="col-md-3 clearfix">
                         <div class="fancy-title topmargin title-border">
-                            <h4 style="background-color: #F9F9F9">{{__('lang.blog.about')}}</h4>
+                            <h4 style="background-color: #F9F9F9">About Me</h4>
                         </div>
-                        @if($admin->about != "")
-                            <p align="justify">{{$admin->about}}</p>
+                        @if($user->about != "")
+                            <p align="justify">{{$user->about}}</p>
                         @else
-                            <p align="justify"><em>{{__('lang.blog.author-bio')}}</em></p>
+                            <p align="justify"><em>The author hasn't written anything yet...</em></p>
                         @endif
 
                         <div class="fancy-title topmargin title-border">
-                            <h4 style="background-color: #F9F9F9">{{__('lang.blog.follow')}}</h4>
+                            <h4 style="background-color: #F9F9F9">Follow Me</h4>
                         </div>
                         <a class="social-icon si-call si-small si-rounded si-light" title="Facebook"
-                           href="mailto:{{$admin->email}}">
+                           href="mailto:{{$user->email}}">
                             <i class="icon-envelope-alt"></i>
                             <i class="icon-envelope-alt"></i>
                         </a>
                         <a class="social-icon si-facebook si-small si-rounded si-light" title="Facebook" target="_blank"
-                           href="{{$admin->facebook != "" ? 'https://fb.com/'.$admin->facebook : '#'}}">
+                           href="{{$user->facebook != "" ? 'https://fb.com/'.$user->facebook : '#'}}">
                             <i class="icon-facebook"></i>
                             <i class="icon-facebook"></i>
                         </a>
                         <a class="social-icon si-twitter si-small si-rounded si-light" title="Twitter" target="_blank"
-                           href="{{$admin->twitter != "" ? 'https://twitter.com/'.$admin->twitter : '#'}}">
+                           href="{{$user->twitter != "" ? 'https://twitter.com/'.$user->twitter : '#'}}">
                             <i class="icon-twitter"></i>
                             <i class="icon-twitter"></i>
                         </a>
                         <a class="social-icon si-instagram si-small si-rounded si-light" title="Facebook"
                            target="_blank"
-                           href="{{$admin->instagram != "" ? 'https://instagram.com/'.$admin->instagram : '#'}}">
+                           href="{{$user->instagram != "" ? 'https://instagram.com/'.$user->instagram : '#'}}">
                             <i class="icon-instagram"></i>
                             <i class="icon-instagram"></i>
                         </a>
                         <a class="social-icon si-whatsapp si-small si-rounded si-light" title="Twitter" target="_blank"
-                           href="{{$admin->whatsapp != "" ? 'https://web.whatsapp.com/send?text=Halo, '.
-                           $admin->name.'!&phone='.$admin->whatsapp.'&abid='.$admin->whatsapp : '#'}}">
+                           href="{{$user->whatsapp != "" ? 'https://web.whatsapp.com/send?text=Halo, '.
+                           $user->name.'!&phone='.$user->whatsapp.'&abid='.$user->whatsapp : '#'}}">
                             <i class="icon-whatsapp"></i>
                             <i class="icon-whatsapp"></i>
                         </a>

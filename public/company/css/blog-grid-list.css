@@ -50,12 +50,12 @@
 .blog-item .blog-content .title {
     font-size: 21px;
     text-transform: uppercase;
-    color: #f89406;
+    color: #e31b23;
     font-weight: 600;
 }
 
 .blog-item .blog-content .blog-category {
-    color: #f89406;
+    color: #e31b23;
     text-transform: uppercase;
     margin-bottom: 1em;
     font-weight: 400;
@@ -76,7 +76,7 @@
 }
 
 .blog-item .blog-content .blog-category .blog-author span {
-    color: #f89406;
+    color: #e31b23;
 }
 
 .blog-item .blog-content .rounded {
@@ -98,7 +98,7 @@
 
 .blog-item a:hover > .item-arrow {
     /*padding-left: 40px;*/
-    color: #f89406;
+    color: #e31b23;
     left: 30px;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
@@ -108,7 +108,7 @@
     width: 70px;
     height: 5px;
     border-radius: 6px;
-    background-image: linear-gradient(to right, #f89406, #693406);
+    background-image: linear-gradient(to right, #e31b23, #b5171d);
     /* background: #2bb769; */
     margin-left: 0;
     margin-top: 10px;

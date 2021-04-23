@@ -92,7 +92,7 @@
 @if(Auth::check() && \Illuminate\Support\Facades\Request::is('scott.royce*'))
     <a href="{{route('admin.dashboard')}}">Redirect me to the Dashboard Page!</a>
 @else
-    <a href="{{route('home')}}">Redirect me to the Home Page!</a>
+    <a href="{{route('home-company')}}">Redirect me to the Home Page!</a>
 @endif
 <!-- jquery -->
 <script src="{{asset('js/jquery-2.1.4.min.js')}}"></script>

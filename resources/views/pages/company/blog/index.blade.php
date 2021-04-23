@@ -1,7 +1,7 @@
 @extends('layouts.mst_company')
 @section('title', 'Blog | '.env('APP_COMPANY'))
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/blog-grid-list.css')}}">
+    <link rel="stylesheet" href="{{asset('company/css/blog-grid-list.css')}}">
     <style>
         #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
             color: #e31b23 !important;
@@ -59,7 +59,7 @@
         <div class="content-wrap">
             <div class="container clearfix">
                 <form id="form-loadBlog">
-                    <input type="hidden" name="filter" id="category">
+                    <input type="hidden" name="category" id="category">
                     <div class="form-group has-feedback">
                         <input id="blog-keyword" type="text" name="q" class="form-control"
                                autocomplete="off" spellcheck="false" value="{{$keyword}}"
@@ -188,8 +188,13 @@
             $("#nav-tab a span").removeClass('badge-primary').addClass('badge-secondary');
             $("#nav-tabContent .tab-pane").addClass('show active');
 
-            $("#tabList-" + id).addClass('show active');
-            $("#tabList-" + id + " span").addClass('badge-primary').removeClass('badge-secondary');
+            if(id==null){
+                $("#tabList-all").addClass('show active');
+                $("#tabList-all span").addClass('badge-primary').removeClass('badge-secondary');
+            } else {
+                $("#tabList-" + id).addClass('show active');
+                $("#tabList-" + id + " span").addClass('badge-primary').removeClass('badge-secondary');
+            }
 
             $("#category").val(id);
             loadBlog();
@@ -231,27 +236,27 @@
                 hellip_next = $(this).closest('.hellip_next').prev().find('a').text();
 
             if (page > 0) {
-                $url = "{{url('/'.$app->getLocale().'/info/blog/data')}}" + '?page=' + page;
+                $url = "{{url('/blog/data')}}" + '?page=' + page;
             }
             if ($(this).hasClass('prev')) {
-                $url = "{{url('/'.$app->getLocale().'/info/blog/data')}}" + '?page=' + parseInt(active - 1);
+                $url = "{{url('/blog/data')}}" + '?page=' + parseInt(active - 1);
             }
             if ($(this).hasClass('next')) {
-                $url = "{{url('/'.$app->getLocale().'/info/blog/data')}}" + '?page=' + parseInt(+active + +1);
+                $url = "{{url('/blog/data')}}" + '?page=' + parseInt(+active + +1);
             }
             if ($(this).hasClass('hellip_prev')) {
-                $url = "{{url('/'.$app->getLocale().'/info/blog/data')}}" + '?page=' + parseInt(hellip_prev - 1);
+                $url = "{{url('/blog/data')}}" + '?page=' + parseInt(hellip_prev - 1);
                 page = parseInt(hellip_prev - 1);
             }
             if ($(this).hasClass('hellip_next')) {
-                $url = "{{url('/'.$app->getLocale().'/info/blog/data')}}" + '?page=' + parseInt(+hellip_next + +1);
+                $url = "{{url('/blog/data')}}" + '?page=' + parseInt(+hellip_next + +1);
                 page = parseInt(+hellip_next + +1);
             }
             if ($(this).hasClass('first')) {
-                $url = "{{url('/'.$app->getLocale().'/info/blog/data')}}" + '?page=1';
+                $url = "{{url('/blog/data')}}" + '?page=1';
             }
             if ($(this).hasClass('last')) {
-                $url = "{{url('/'.$app->getLocale().'/info/blog/data')}}" + '?page=' + last_page;
+                $url = "{{url('/blog/data')}}" + '?page=' + last_page;
             }
 
             clearTimeout(this.delay);
@@ -285,12 +290,12 @@
 
             $.each(data.data, function (i, val) {
                 $result +=
-                    '<div class="blog-item">' +
-                    '<a href="' + val.link + '"><div class="icon"><img src="' + val.thumbnail + '" alt="Thumbnail"></div>' +
+                    '<div class="col blog-item">' +
+                    '<a href="' + val._url + '"><div class="icon"><img src="' + val._thumbnail + '" alt="Thumbnail"></div>' +
                     '<div class="blog-content"><p class="blog-category">' + val.category + '<span class="blog-date">' +
                     '<i class="icon-calendar3 ml-2 mr-2"></i>' + val.date + '</span><br>' +
                     '<sub class="blog-author">by <span>' + val.author + '</span></sub></p>' +
-                    '<div class="title">' + val.title + '</div><div class="rounded"></div>' + val.content + '</div>' +
+                    '<div class="title">' + val.title + '</div><div class="rounded"></div>' + val._content + '</div>' +
                     '<div class="item-arrow"><i class="icon-long-arrow-alt-right" aria-hidden="true"></i></div></a></div>';
             });
             $("#blog").empty().append($result);
@@ -353,7 +358,7 @@
                 $page = '&page=' + page;
             }
             window.history.replaceState("", "", '{{url('/blog')}}?q=' +
-                $keyword.val() + '&filter=' + $("#category").val() + $page);
+                $keyword.val() + '&category=' + $("#category").val() + $page);
 
             setTimeout(function () {
                 $('.use-nicescroll').getNiceScroll().resize()

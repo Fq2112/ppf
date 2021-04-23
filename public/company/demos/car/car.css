@@ -387,7 +387,7 @@ img.wheel {
 
 /* Page Loader
 -----------------------------------------------------------------*/
-.css3-spinner { background-color: #e6e6e6; }
+/*.css3-spinner { background-color: #e6e6e6; }
 
 .css3-spinner > div {
 	margin-top: -65px;
@@ -397,7 +397,7 @@ img.wheel {
 	background-color: transparent;
 	-webkit-animation: none;
 	animation: none;
-}
+}*/
 
 /* Border Form Design
 ---------------------------------------------------------------------------- */

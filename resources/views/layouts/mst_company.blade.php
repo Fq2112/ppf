@@ -45,6 +45,20 @@
         .ares .tp-tab-content { margin-top: -4px; }
         .ares .tp-tab-content { padding: 15px 15px 15px 110px; }
         .ares .tp-tab-image { width: 80px;height: 80px; }
+
+        @if(!request()->is('blog*'))
+        .css3-spinner { background-color: #e6e6e6; }
+
+        .css3-spinner > div {
+            margin-top: -65px;
+            margin-left: -80px;
+            width: 160px;
+            height: 120px;
+            background-color: transparent;
+            -webkit-animation: none;
+            animation: none;
+        }
+        @endif
     </style>
     @stack('styles')
 </head>
@@ -174,6 +188,9 @@
 <script src="{{asset('company/js/jquery.js')}}"></script>
 <script src="{{asset('company/js/plugins.js')}}"></script>
 <script src="{{asset('company/demos/car/js/360rotator.js')}}"></script>
+<!-- Bootstrap Typeaheadjs Plugin -->
+<script src="{{asset('company/js/components/typehead.js')}}"></script>
+<script src="{{asset('company/js/components/underscore-min.js')}}"></script>
 <!-- Bootstrap Select Plugin -->
 <script src="{{asset('company/js/components/bs-select.js')}}"></script>
 <!-- SLIDER REVOLUTION 5.x SCRIPTS  -->

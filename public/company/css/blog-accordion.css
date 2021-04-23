@@ -53,24 +53,24 @@ ul.static-menu, .static-menu ul {
 }
 
 .static-menu li .link:hover, .static-menu li .static-link:hover, .static-menu li .link:hover > i, .static-menu li .static-link:hover > i {
-    color: #f89406;
+    color: #e31b23;
 }
 
 .static-menu li.open .link {
-    color: #f89406;
+    color: #e31b23;
 }
 
 .static-menu li.open i {
-    color: #f89406;
+    color: #e31b23;
 }
 
 .static-menu li .link:hover .badge, .static-menu li .static-link:hover .badge, .static-menu li .link:hover > .badge, .static-menu li .static-link:hover > .badge {
-    background: #f89406;
+    background: #e31b23;
     color: #fff;
 }
 
 .static-menu li.open .link .badge {
-    background: #f89406;
+    background: #e31b23;
     color: #fff;
 }
 
@@ -103,7 +103,7 @@ ul.static-menu, .static-menu ul {
 }
 
 .static-menu .sub-menu a:hover, .static-menu .sub-menu a:focus, .static-menu .sub-menu a:active {
-    background: #f89406;
+    background: #e31b23;
     color: #FFF;
 }
 

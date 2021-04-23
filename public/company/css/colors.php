@@ -267,6 +267,7 @@ color: <?php echo $color; ?> !important;
 }
 
 body::-webkit-scrollbar-thumb,
+.css3-spinner > div,
 .myProgress .bar {
 background-color: <?php echo $color; ?> !important;
 }

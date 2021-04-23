@@ -1,8 +1,8 @@
-@extends('layouts.mst')
-@section('title',  'Blog: '.$blog->title.' | '.__('lang.title'))
+@extends('layouts.mst_company')
+@section('title',  'Blog: '.$blog->title.' | '.env('APP_COMPANY'))
 @push('styles')
-    <link rel="stylesheet" href="{{asset('js/plugins/lightgallery/dist/css/lightgallery.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/play-button.css')}}">
+    <link rel="stylesheet" href="{{asset('company/js/plugins/lightgallery/dist/css/lightgallery.min.css')}}">
+    <link rel="stylesheet" href="{{asset('company/css/play-button.css')}}">
     <style>
         .lg-backdrop {
             z-index: 9999999;
@@ -16,15 +16,15 @@
 @section('content')
     <section id="page-title" class="page-title-parallax page-title-dark"
              data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;"
-             style="background-image:url('{{asset('images/banner/blog.jpg')}}');background-size:cover;padding:120px 0;">
+             style="background-image:url('{{asset('company/demos/car/images/banner/blog.jpg')}}');background-size:cover;padding:120px 0;">
         <div class="parallax-overlay"></div>
         <div class="container clearfix">
-            <h1>{{__('lang.blog.head')}}</h1>
-            <span>{{__('lang.blog.capt')}}</span>
+            <h1>Our Blog</h1>
+            <span>We're also provide you with a recent news related to print product things.</span>
             <ol class="breadcrumb text-uppercase">
                 <li class="breadcrumb-item">
-                    <a href="{{route('beranda')}}">{{__('lang.breadcrumb.home')}}</a></li>
-                <li class="breadcrumb-item"><a href="{{route('blog')}}">Blog</a></li>
+                    <a href="{{route('home-company')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('show.blog')}}">Blog</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Detail</li>
             </ol>
         </div>
@@ -41,9 +41,9 @@
                             </div>
                             <ul class="entry-meta clearfix">
                                 <li><i class="icon-calendar3"></i> {{$tgl->formatLocalized('%d %B %Y')}}</li>
-                                <li><a href="{{$uri_author}}"><i class="icon-user"></i> {{$admin->username}}</a></li>
+                                <li><a href="{{route('detail.blog', ['author' => $user->username])}}"><i class="icon-user"></i> {{$user->username}}</a></li>
                                 <li><i class="icon-tag"></i> <a
-                                        href="{{route('blog', ['filter' => $blog->category_id])}}">
+                                        href="{{route('show.blog', ['category' => $blog->category_id])}}">
                                         {{$blog->getBlogCategory->name}}</a></li>
                             </ul>
 
@@ -79,33 +79,33 @@
                                 <div class="clear"></div>
 
                                 <div class="si-share noborder clearfix">
-                                    <span>{{__('lang.blog.share-head')}}</span>
+                                    <span>Share this Post:</span>
                                     <div>
                                         <a class="social-icon si-borderless si-call"
-                                           href="mailto:?subject={{$blog->title}}&body={{__('lang.blog.share-capt').' '.$uri_blog}}">
+                                           href="mailto:?subject={{$blog->title}}&body=Hi, I thought you'd like this: {{$uri}}">
                                             <i class="icon-envelope-alt"></i>
                                             <i class="icon-envelope-alt"></i>
                                         </a>
                                         <a class="social-icon si-borderless si-whatsapp"
-                                           href="https://wa.me?text={{__('lang.blog.share-capt').' '.$uri_blog}}"
+                                           href="https://wa.me?text=Hi, I thought you'd like this: {{$uri}}"
                                            target="popup" onclick="shareBlog($(this).attr('href'))">
                                             <i class="icon-whatsapp"></i>
                                             <i class="icon-whatsapp"></i>
                                         </a>
                                         <a class="social-icon si-borderless si-facebook"
-                                           href="https://facebook.com/sharer/sharer.php?u={{$uri_blog}}"
+                                           href="https://facebook.com/sharer/sharer.php?u={{$uri}}"
                                            target="popup" onclick="shareBlog($(this).attr('href'))">
                                             <i class="icon-facebook"></i>
                                             <i class="icon-facebook"></i>
                                         </a>
                                         <a class="social-icon si-borderless si-linkedin"
-                                           href="https://linkedin.com/shareArticle?mini=true&url={{$uri_blog}}&title=&summary={{__('lang.blog.share-capt')}}&source="
+                                           href="https://linkedin.com/shareArticle?mini=true&url={{$uri}}&title=&summary=Hi, I thought you'd like this:&source="
                                            target="popup" onclick="shareBlog($(this).attr('href'))">
                                             <i class="icon-linkedin-in"></i>
                                             <i class="icon-linkedin-in"></i>
                                         </a>
                                         <a class="social-icon si-borderless si-twitter"
-                                           href="https://twitter.com/intent/tweet?text={{__('lang.blog.share-capt').' '.$uri_blog}}"
+                                           href="https://twitter.com/intent/tweet?text=Hi, I thought you'd like this: {{$uri}}"
                                            target="popup" onclick="shareBlog($(this).attr('href'))">
                                             <i class="icon-twitter"></i>
                                             <i class="icon-twitter"></i>
@@ -118,20 +118,20 @@
                         <div class="post-navigation clearfix">
                             @if(!is_null($prev))
                                 <div class="col_half nobottommargin">
-                                    <a href="{{route('detail.blog', ['author' => $prev->getAdmin->username,
+                                    <a href="{{route('detail.blog', ['author' => $prev->getUser->username,
                                     'y' => \Carbon\Carbon::parse($prev->created_at)->format('Y'),
                                     'm' => \Carbon\Carbon::parse($prev->created_at)->format('m'),
                                     'd' => \Carbon\Carbon::parse($prev->created_at)->format('d'),
-                                    'title' => $prev->permalink])}}">&lArr; {{$prev->title}}</a>
+                                    'title' => $prev->title_uri])}}">&lArr; {{$prev->title}}</a>
                                 </div>
                             @endif
                             @if(!is_null($next))
                                 <div class="col_half col_last tright nobottommargin">
-                                    <a href="{{route('detail.blog', ['author' => $next->getAdmin->username,
+                                    <a href="{{route('detail.blog', ['author' => $next->getUser->username,
                                     'y' => \Carbon\Carbon::parse($next->created_at)->format('Y'),
                                     'm' => \Carbon\Carbon::parse($next->created_at)->format('m'),
                                     'd' => \Carbon\Carbon::parse($next->created_at)->format('d'),
-                                    'title' => $next->permalink])}}">{{$next->title}} &rArr;</a>
+                                    'title' => $next->title_uri])}}">{{$next->title}} &rArr;</a>
                                 </div>
                             @endif
                         </div>
@@ -140,32 +140,32 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <strong>{{__('lang.blog.author')}} <a href="{{$uri_author}}">{{$admin->username}}</a>
+                                <strong>Posted by <a href="{{route('detail.blog', ['author' => $user->username])}}">{{$user->username}}</a>
                                 </strong>
                             </div>
                             <div class="card-body">
                                 <div class="author-image">
-                                    <img alt="Avatar" class="rounded-circle" src="{{$admin->ava != "" ?
-                                    asset('storage/admins/ava/'.$admin->ava) : asset('images/avatar.png') }}">
+                                    <img alt="Avatar" class="rounded-circle" src="{{$user->ava != "" ?
+                                    asset('storage/users/ava/'.$user->ava) : asset('admins/img/avatar/avatar-'.rand(1,5).'.png') }}">
                                 </div>
-                                @if($admin->about != "")
-                                    {{$admin->about}}
+                                @if($user->about != "")
+                                    {{$user->about}}
                                 @else
-                                    <em>{{__('lang.blog.author-bio')}}</em>
+                                    <em>The author hasn't written anything yet...</em>
                                 @endif
                             </div>
                         </div>
 
-                        @if(!is_null($relates))
+                        @if(count($relates) > 0)
                             <div class="line"></div>
-                            <h4>{{__('lang.blog.related')}}</h4>
+                            <h4>Related Posts:</h4>
                             <div id="portfolio" class="portfolio grid-container portfolio-masonry clearfix">
                                 @foreach($relates as $post)
                                     @php
-                                        $tgl = \Carbon\Carbon::parse($post->created_at);
-                                        $url = route('detail.blog', ['author' => $post->getAdmin->username, 'y' => $tgl->format('Y'),
-                                        'm' => $tgl->format('m'), 'd' => $tgl->format('d'), 'title' => $post->permalink]);
-                                        $url2 = route('detail.blog', ['author' => $post->getAdmin->username]);
+                                        $date = \Carbon\Carbon::parse($post->created_at);
+                                        $url = route('detail.blog', ['author' => $post->getUser->username,
+                                        'y' => $date->format('Y'), 'm' => $date->format('m'), 'd' => $date->format('d'),
+                                        'title' => $post->title_uri]);
                                     @endphp
                                     <article class="portfolio-item">
                                         <div class="portfolio-image">
@@ -191,8 +191,8 @@
                                                 <a href="{{$url}}">{{\Illuminate\Support\Str::words($post->title,3,'...')}}</a>
                                             </h3>
                                             <span><i
-                                                    class="icon-calendar3"></i> {{$tgl->formatLocalized('%d %b %Y')}}&ensp;/&ensp;
-                                                <a href="{{$url2}}"><i class="icon-user"></i> {{$post->getAdmin->username}}</a></span>
+                                                    class="icon-calendar3"></i> {{$date->formatLocalized('%d %b %Y')}}&ensp;/&ensp;
+                                                <a href="{{$url2}}"><i class="icon-user"></i> {{$user->username}}</a></span>
                                         </div>
                                     </article>
                                 @endforeach
@@ -205,13 +205,13 @@
                     <div class="sidebar-widgets-wrap">
                         <div id="subscriber" class="widget subscribe-widget clearfix">
                             <div class="fancy-title title-border">
-                                <h4 style="background-color: #F9F9F9">{{__('lang.blog.widget-search')}}</h4>
+                                <h4 style="background-color: #F9F9F9">Search Blog</h4>
                             </div>
-                            <form action="{{route('blog')}}"
+                            <form action="{{route('show.blog')}}"
                                   class="notopmargin nobottommargin">
                                 <div class="input-group divcenter">
                                     <input id="blog-keyword" name="q" type="text" class="form-control"
-                                           placeholder="{{__('lang.blog.search')}}" required>
+                                           placeholder="Search..." required>
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="submit"><i class="icon-search"></i>
                                         </button>
@@ -222,11 +222,11 @@
 
                         <div class="widget widget_categories notopborder pt-0 clearfix">
                             <div class="fancy-title title-border">
-                                <h4 style="background-color: #F9F9F9">{{__('lang.blog.widget-category')}}</h4>
+                                <h4 style="background-color: #F9F9F9">Blog Categories</h4>
                             </div>
                             <ul>
                                 @foreach(\App\Models\BlogCategory::orderBy('name')->get() as $row)
-                                    <li><a href="{{route('blog', ['filter' => $row->id])}}">
+                                    <li><a href="{{route('show.blog', ['category' => $row->id])}}">
                                             {{$row->name}}</a><span class="hover-span">({{count($row->getBlog)}})</span>
                                     </li>
                                 @endforeach
@@ -249,7 +249,7 @@
 
         var $keyword = $("#blog-keyword"), blog_fetchQuery = null, blog_fetchResultsCallback = null,
             blog_fetchResults = _.debounce(function () {
-                $.get('{{route('get.cari-judul.blog')}}?title=' + blog_fetchQuery, function (data) {
+                $.get('{{route('get.title.blog')}}?title=' + blog_fetchQuery, function (data) {
                     if (blog_fetchResultsCallback) {
                         blog_fetchResultsCallback(data);
                     }
@@ -269,7 +269,7 @@
                     blog_fetchResults();
                 },
                 templates: {
-                    empty: '<div class="tt-empty text-center">{{__('lang.header.search')}}</div>',
+                    empty: '<div class="tt-empty text-center">Search...</div>',
                     pending: '<div class="tt-pending"><div class="css3-spinner" style="position: absolute; z-index:auto;"><div class="css3-spinner-bounce1"></div><div class="css3-spinner-bounce2"></div><div class="css3-spinner-bounce3"></div></div></div>',
                     suggestion: function (data) {
                         return '<div>' + data.title + '</div>'

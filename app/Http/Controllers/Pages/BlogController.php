@@ -26,7 +26,7 @@ class BlogController extends Controller
 
     public function getDataBlog(Request $request)
     {
-        if ($request->category == 'all') {
+        if (is_null($request->category)) {
             $blog = Blog::where('title', 'LIKE', '%' . $request->q . '%')
                 ->orderByDesc('id')->paginate(12)->toArray();
         } else {
@@ -45,7 +45,7 @@ class BlogController extends Controller
             $arr = array(
                 'author' => $user->username,
                 'category' => BlogCategory::where('id', $row['category_id'])->first()->name,
-                'date' => Carbon::parse($row['created_at'])->formatLocalized('%b %d, %Y'),
+                'date' => Carbon::parse($row['created_at'])->format('j F Y'),
                 '_thumbnail' => asset('storage/blog/thumbnail/'.$row['thumbnail']),
                 '_url' => $url,
                 '_content' => Str::words($row['content'], 20, '...') . '</p>'
@@ -60,13 +60,21 @@ class BlogController extends Controller
 
     public function getTitleBlog(Request $request)
     {
-        $blogs = Blog::where('title', 'LIKE', '%' . $request->title . '%')->get();
+        $blog = Blog::where('title', 'LIKE', '%' . $request->title . '%')->orderByDesc('id')->get();
 
-        foreach ($blogs as $blog) {
-            $blog->label = $blog->getBlogCategory->name . ' - ' . $blog->title;
+        foreach ($blog as $index => $row) {
+            $tgl = Carbon::parse($row->created_at);
+            $blog[$index] = [
+                'category_id' => $row->category_id,
+                'title' => $row->title,
+                'link' => route('detail.blog', ['author' => $row->getUser->username,
+                    'y' => $tgl->format('Y'), 'm' => $tgl->format('m'), 'd' => $tgl->format('d'),
+                    'title' => $row->title_uri]),
+                'thumbnail' => asset('storage/blog/thumbnail/' . $row->thumbnail),
+            ];
         }
 
-        return $blogs;
+        return $blog;
     }
 
     public function showDetailBlog($author, $year = null, $month = null, $date = null, $title = null)
@@ -87,6 +95,8 @@ class BlogController extends Controller
                 ->whereMonth('created_at', $month)->whereDay('created_at', $date)
                 ->where('title_uri', $title)->firstOrFail();
             $relates = Blog::where('category_id', $blog->category_id)->wherenotin('id', [$blog->id])->orderByDesc('id')->get();
+            $prev = is_null($blog->prev()) ? null : $blog->prev();
+            $next = is_null($blog->next()) ? null : $blog->next();
 
             $tgl = Carbon::parse($blog->created_at);
             $uri = route('detail.blog', ['author' => $user->username, 'y' => $tgl->format('Y'),
@@ -94,7 +104,8 @@ class BlogController extends Controller
                 'title' => $blog->title_uri]);
 
             \App\Models\Visitor::hit();
-            return view('pages.company.blog.detail', compact('user', 'blog', 'relates', 'uri'));
+            return view('pages.company.blog.detail', compact('user', 'blog', 'relates',
+                'uri', 'tgl','prev','next'));
         }
     }
 }
