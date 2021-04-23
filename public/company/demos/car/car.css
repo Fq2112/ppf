@@ -486,8 +486,8 @@ textarea.border-form-control {
 	/* Primary Menu Header size */
 	#header { border-bottom: 1px solid #e7e7e7 }
 
-	#logo { float: right; }
-	#primary-menu { float: left; }
+	#logo { float: left; }
+	#primary-menu { float: right; }
 
 	#header.transparent-header + #slider,
 	#header.transparent-header + #page-title.page-title-parallax,

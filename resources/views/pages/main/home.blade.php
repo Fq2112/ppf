@@ -394,7 +394,7 @@
                 <div class="col-md-5 agile-about-left">
                     <h3 data-aos="fade-right" class="w3l-title title">Welcome</h3>
                     <h5 data-aos="fade-right" style="text-align: justify">Our Company, <b>{{env('APP_COMPANY')}}</b>, is
-                        the one and only authorized distributor of <b>Avery Dennison</b> PPF (Paint Protection Film) in
+                        the authorized distributor channel of <b>Avery Dennison</b> PPF (Paint Protection Film) in
                         <b>Indonesia</b>.</h5>
                     <p data-aos="fade-down" align="justify">The need for <b>PPF</b> products is now becoming a new trend
                         that continues to grow among premium, luxury, sporty, and dandy car lovers in Indonesia to

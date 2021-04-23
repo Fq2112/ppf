@@ -46,7 +46,7 @@
         .ares .tp-tab-content { padding: 15px 15px 15px 110px; }
         .ares .tp-tab-image { width: 80px;height: 80px; }
 
-        @if(!request()->is('blog*'))
+        @if(!request()->is('*blog*'))
         .css3-spinner { background-color: #e6e6e6; }
 
         .css3-spinner > div {
@@ -61,6 +61,8 @@
         @endif
     </style>
     @stack('styles')
+
+    <script src='https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit' async defer></script>
 </head>
 
 <body class="stretched side-push-panel use-nicescroll"
@@ -74,19 +76,24 @@
     <div class="side-panel-wrap">
         <div class="widget clearfix">
             <a href="{{route('home-company')}}">
-                <img src="{{asset('company/demos/car/images/logo@2x.png')}}" alt="Logo" height="50"></a>
-            <p>It has always been, and will always be, about quality. We're passionate about ethically sourcing the finest coffee beans, roasting them with great care. We'd like to hear your message!</p>
+                <img src="{{asset('company/demos/car/images/logotype-red-168x100.png')}}" alt="Logo" height="50"></a>
+            <p>Every single comment or critics that you gave will make us be a better company, so feel free to get in touch with us!</p>
             <div class="widget quick-contact-widget form-widget noborder notoppadding clearfix">
-                <h4>Quick Contact</h4>
+                <h4>Drop Us a Line</h4>
                 <div class="form-result"></div>
-                <form id="quick-contact-form" name="quick-contact-form" action="include/form.php" method="post" class="quick-contact-form nobottommargin">
-                    <div class="form-process"></div>
-                    <input type="text" class="required sm-form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
-                    <input type="text" class="required sm-form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
-                    <textarea class="required sm-form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
-                    <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
-                    <input type="hidden" name="prefix" value="quick-contact-form-">
-                    <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="button button-small button-3d nomargin" value="submit">Send Email</button>
+                <form id="quick-contact-form" name="quick-contact-form" action="{{route('submit.contact')}}"
+                      method="post" class="quick-contact-form nobottommargin no-ajax">
+                    @csrf
+                    <input type="text" class="sm-form-control input-block-level" id="quick-contact-form-name"
+                           name="name_qc" placeholder="Full Name" required>
+                    <input type="email" class="sm-form-control email input-block-level" id="quick-contact-form-email"
+                           name="email_qc" placeholder="Email Address" required>
+                    <textarea class="required sm-form-control input-block-level short-textarea"
+                              id="quick-contact-form-message" name="message_qc" rows="4" cols="30"
+                              placeholder="Message" required></textarea>
+                    <div id="recaptcha-quick-contact" class="g-recaptcha mb-2"></div>
+                    <button type="submit" id="quick-contact-form-submit"
+                            class="button button-small button-3d nomargin" disabled>Send Message</button>
                 </form>
             </div>
         </div>
@@ -102,9 +109,9 @@
 
                 <div id="logo">
                     <a href="{{route('home-company')}}" class="standard-logo">
-                        <img src="{{asset('company/demos/car/images/logo.png')}}" alt="Logo"></a>
+                        <img src="{{asset('company/demos/car/images/logotype-red-84x50.png')}}" alt="Logo"></a>
                     <a href="{{route('home-company')}}" class="retina-logo">
-                        <img src="{{asset('company/demos/car/images/logo@2x.png')}}" alt="Logo"></a>
+                        <img src="{{asset('company/demos/car/images/logotype-red-168x100.png')}}" alt="Logo"></a>
                 </div>
 
                 <nav id="primary-menu" class="with-arrows clearfix">
@@ -123,55 +130,61 @@
             <div class="footer-widgets-wrap clearfix" style="padding: 30px;">
                 <div class="row clearfix">
                     <div class="col-lg-6">
-                        <div class="col_one_fourth">
-                            <div class="widget widget_links clearfix">
-                                <h4>Hire</h4>
-                                <ul>
-                                    <li><a href="#">Documentation</a></li>
-                                    <li><a href="#">Feedback</a></li>
-                                    <li><a href="#">Plugins</a></li>
-                                </ul>
-                            </div>
+                        <div class="col_half">
+                            <address class="nobottommargin">
+                                <abbr title="Headquarters" style="display: inline-block;margin-bottom: 7px;"><strong>Head Office:</strong></abbr><br>
+                                <div style="color: #999">
+                                    Raya Kenjeran 469 Surabaya<br>
+                                    East Java, Indonesia 60134<br><br>
+                                    <abbr title="Phone Number"><strong>Phone:</strong></abbr> <a href="tel:+62817597777">+62 817-597-777</a><br>
+                                    <abbr title="Whatsapp Number"><strong>Whatsapp:</strong></abbr> <a href="http://wa.me/62817597777" target="_blank">+62 817-597-777</a><br>
+                                    <abbr title="Email Address"><strong>Email:</strong></abbr> <a href="mailto:{{env('MAIL_USERNAME')}}">{{env('MAIL_USERNAME')}}</a>
+                                </div>
+                            </address>
                         </div>
-                        <div class="col_one_fourth">
-                            <div class="widget widget_links clearfix">
-                                <h4>Community</h4>
-                                <ul>
-                                    <li><a href="#">Documentation</a></li>
-                                    <li><a href="#">Feedback</a></li>
-                                    <li><a href="#">Plugins</a></li>
-                                    <li><a href="#">Support Forums</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col_one_fourth">
-                            <div class="widget widget_links clearfix">
-                                <h4>Learn</h4>
-                                <ul>
-                                    <li><a href="#">Documentation</a></li>
-                                    <li><a href="#">Feedback</a></li>
-                                    <li><a href="#">Plugins</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col_one_fourth col_last">
-                            <div class="widget widget_links clearfix">
-                                <h4>About</h4>
-                                <ul>
-                                    <li><a href="#">Documentation</a></li>
-                                    <li><a href="#">Feedback</a></li>
-                                    <li><a href="#">Plugins</a></li>
-                                </ul>
-                            </div>
+                        <div class="col_half col_last">
+                            <address class="nobottommargin">
+                                <abbr title="Headquarters" style="display: inline-block;margin-bottom: 7px;"><strong>Representative Office Jakarta:</strong></abbr><br>
+                                <div style="color: #999">
+                                    Raya Kenjeran 469 Surabaya<br>
+                                    East Java, Indonesia 60134<br><br>
+                                    <abbr title="Phone Number"><strong>Phone:</strong></abbr> <a href="tel:+62817597777">+62 817-597-777</a><br>
+                                    <abbr title="Whatsapp Number"><strong>Whatsapp:</strong></abbr> <a href="http://wa.me/62817597777" target="_blank">+62 817-597-777</a><br>
+                                    <abbr title="Email Address"><strong>Email:</strong></abbr> <a href="mailto:{{env('MAIL_USERNAME')}}">{{env('MAIL_USERNAME')}}</a>
+                                </div>
+                            </address>
                         </div>
                     </div>
 
                     <div class="col-lg-5 fright tright col_last">
-                        <img src="{{asset('company/demos/car/images/logo-footer.png')}}" alt="" height="50"><br>
-                        <div style="color: #444">
+                        <a href="{{route('home-company')}}">
+                            <img src="{{asset('company/demos/car/images/logotype-full-white.png')}}"
+                                 class="img-fluid mb-3" alt="logo" width="200">
+                        </a>
+                        <div style="color: #999">
                             <span>&copy; {{now()->format('Y')}} <a href="{{route('home-company')}}">{{env('APP_COMPANY')}}</a>. All Rights Reserved.</span><div class="clear"></div>
-                            <p style="margin-top: 10px;">Our Company, {{env('APP_COMPANY')}}, is the one and only
-                                authorized distributor of Avery Dennison&reg; in Indonesia.</p>
+                            <p class="mt-2 mb-0">Our Company, {{env('APP_COMPANY')}}, is the authorized distributor
+                                channel of Avery Dennison&reg; in Indonesia.</p>
+                            <a href="https://facebook.com/AveryDennisonCorporation" target="_blank"
+                               class="fright social-icon si-small si-rounded mt-3 si-facebook">
+                                <i class="icon-facebook"></i>
+                                <i class="icon-facebook"></i>
+                            </a>
+                            <a href="https://twitter.com/AveryDennison" target="_blank"
+                               class="fright social-icon si-small si-rounded mt-3 si-twitter">
+                                <i class="icon-twitter"></i>
+                                <i class="icon-twitter"></i>
+                            </a>
+                            <a href="https://instagram.com/averydennison.id" target="_blank"
+                               class="fright social-icon si-small si-rounded mt-3 si-instagram">
+                                <i class="icon-instagram"></i>
+                                <i class="icon-instagram"></i>
+                            </a>
+                            <a href="https://youtube.com/AveryDennisonVideo" target="_blank"
+                               class="fright social-icon si-small si-rounded mt-3 si-youtube">
+                                <i class="icon-youtube"></i>
+                                <i class="icon-youtube"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -181,6 +194,9 @@
 </div>
 <!-- Go To Top -->
 <div id="gotoTop" class="icon-angle-up"></div>
+<div class="myProgress">
+    <div class="bar"></div>
+</div>
 <!-- Contact Button -->
 <div id="contact-me" class="icon-line-mail side-panel-trigger bgcolor"></div>
 
@@ -214,8 +230,8 @@
 <!-- Footer Scripts -->
 <script src="{{asset('company/js/functions.js')}}"></script>
 @include('layouts.partials.company._scriptsCompany')
-@include('layouts.partials.company._alertCompany')
-@include('layouts.partials.company._confirmCompany')
+@include('layouts.partials._alert')
+@include('layouts.partials._confirm')
 @stack('scripts')
 </body>
 </html>

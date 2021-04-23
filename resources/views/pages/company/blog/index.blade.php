@@ -3,6 +3,10 @@
 @push('styles')
     <link rel="stylesheet" href="{{asset('company/css/blog-grid-list.css')}}">
     <style>
+        .css3-spinner > div {
+            background-color: #E31B23 !important;
+        }
+
         #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
             color: #e31b23 !important;
             background-color: #F9F9F9 !important;

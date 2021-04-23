@@ -1213,10 +1213,11 @@
                  style="background: #FFF url('{{asset('company/demos/car/images/footer-bg.jpg')}}') center bottom no-repeat; background-size: cover; height: 770px">
                 <div class="divcenter dark center clearfix" style="max-width: 570px">
                     <div class="heading-block dark bottommargin-sm noborder">
-                        <h2 class="nott t500">Raise Your Heart</h2>
-                        <p style="color: #DDD; margin-top: 10px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse ipsa necessitatibus rem facere perspiciatis neque laborum est, illum commodi sunt, nobis voluptas.</p>
+                        <blockquote class="quote">
+                            <p style="color:#DDD;">We believe that if you have the right people, your business will do well. A key strength of our business has always been the talent of our people and their ability to forge strong relationships, which is reflected by the loyalty of our clients. We are proud to have a strong and positive culture which allows our people to thrive and deliver the best service possible.</p>
+                            <footer class="blockquote-footer" style="color:#aaa;">David Cobb.</footer>
+                        </blockquote>
                     </div>
-                    <a href="#" class="uppercase t700 ls2" style="color: #FFF; font-size: 12px; border-bottom: 1px solid #FFF">Request a Quote</a> &rarr;
                 </div>
             </div>
         </div>

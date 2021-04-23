@@ -501,8 +501,8 @@
             <div data-aos="fade-down" class="col-md-3 agileits_w3layouts_footer_grid">
                 <h3>Call Us</h3>
                 <ul>
-                    <li><span>Phone :</span> <a href="tel:+62817597777">+62 817 597 777</a></li>
-                    <li><span>WhatsApp :</span> <a href="https://wa.me/62817597777" target="_blank">+62 817 597 777</a>
+                    <li><span>Phone :</span> <a href="tel:+62817597777">+62 817-597-777</a></li>
+                    <li><span>WhatsApp :</span> <a href="https://wa.me/62817597777" target="_blank">+62 817-597-777</a>
                     </li>
                 </ul>
             </div>
@@ -513,8 +513,8 @@
             <div data-aos="fade-down" class="col-md-3 agileits_w3layouts_footer_grid">
                 <h3>Write Us</h3>
                 <ul>
-                    <li><span>Email :</span> <a href="mailto:info@ppf.co.id"
-                                                style="text-transform: none">info@ppf.co.id</a></li>
+                    <li><span>Email :</span> <a href="mailto:{{env('MAIL_USERNAME')}}"
+                                                style="text-transform: none">{{env('MAIL_USERNAME')}}</a></li>
                     <li><span>Enquiry :</span> <a href="mailto:sindhu@ppf.co.id" style="text-transform: none">sindhu@ppf.co.id</a>
                     </li>
                 </ul>

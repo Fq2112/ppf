@@ -79,7 +79,6 @@
             background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
         }
     </style>
-    <script src='https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit' async defer></script>
 @endpush
 @section('content')
     <section id="page-title" class="page-title-dark" style="padding: 160px 0;">
@@ -271,33 +270,5 @@
         }
 
         google.maps.event.addDomListener(window, 'load', init);
-
-        var recaptcha_contact, recaptchaCallback = function () {
-            recaptcha_contact = grecaptcha.render(document.getElementById('recaptcha-contact'), {
-                'sitekey': '{{env('reCAPTCHA_v2_SITEKEY')}}',
-                'callback': 'enable_btnContact',
-                'expired-callback': 'disabled_btnContact'
-            });
-        };
-
-        function enable_btnContact() {
-            $("#template-contactform-submit").removeAttr('disabled');
-        }
-
-        function disabled_btnContact() {
-            $("#template-contactform-submit").attr('disabled', 'disabled');
-        }
-
-        $("#template-contactform").on("submit", function (e) {
-            if (grecaptcha.getResponse(recaptcha_contact).length === 0) {
-                e.preventDefault();
-                swal('ATTENTION!', 'Please confirm us that you\'re not a robot by clicking in ' +
-                    'the reCAPTCHA dialog-box.', 'warning');
-            }
-        });
-
-        @if(session('contact'))
-        swal('Successfully sent a message!', '{{ session('contact') }}', 'success');
-        @endif
     </script>
 @endpush

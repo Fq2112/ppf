@@ -168,30 +168,58 @@
                 $(this).find('video').get(0).pause();
             }
         });
+
+        @if(session('contact'))
+        swal('Successfully sent a message!', '{{ session('contact') }}', 'success');
+        @endif
     });
 
-    var recaptcha_contact, recaptchaCallback = function () {
-        recaptcha_contact = grecaptcha.render(document.getElementById('recaptcha-contact'), {
-            'sitekey': '{{env('reCAPTCHA_v2_SITEKEY')}}',
-            'callback': 'enable_btnContact',
-            'expired-callback': 'disabled_btnContact'
-        });
+    var recaptchaCallback = function () {
+        if ( $('#recaptcha-contact').length ) {
+            grecaptcha.render('recaptcha-contact', {
+                'sitekey': '{{env('reCAPTCHA_v2_SITEKEY')}}',
+                'callback': 'enable_btnContact',
+                'expired-callback': 'disabled_btnContact'
+            });
+        }
+        if ( $('#recaptcha-quick-contact').length ) {
+            grecaptcha.render('recaptcha-quick-contact', {
+                'sitekey': '{{env('reCAPTCHA_v2_SITEKEY')}}',
+                'callback': 'enable_btnQuickContact',
+                'expired-callback': 'disabled_btnQuickContact'
+            });
+        }
     };
 
     function enable_btnContact() {
-        $("#btn_contact").removeAttr('disabled');
+        $("#template-contactform-submit").removeAttr('disabled');
     }
 
     function disabled_btnContact() {
-        $("#btn_contact").attr('disabled', 'disabled');
+        $("#template-contactform-submit").attr('disabled', 'disabled');
     }
 
-    $("#form-contact").on("submit", function (e) {
+    function enable_btnQuickContact() {
+        $("#quick-contact-form-submit").removeAttr('disabled');
+    }
+
+    function disabled_btnQuickContact() {
+        $("#quick-contact-form-submit").attr('disabled', 'disabled');
+    }
+
+    $("#template-contactform").on("submit", function (e) {
         if (grecaptcha.getResponse(recaptcha_contact).length === 0) {
             e.preventDefault();
-            swal('{{__('lang.alert.warning')}}', '{{__('lang.alert.recaptcha')}}', 'warning');
-        } else {
-            return true;
+            swal('ATTENTION!', 'Please confirm us that you\'re not a robot by clicking in ' +
+                'the reCAPTCHA dialog-box.', 'warning');
+        }
+    });
+
+    $("#quick-contact-form").on("submit", function (e) {
+        if (grecaptcha.getResponse(recaptcha_quick_contact).length === 0) {
+            e.preventDefault();
+            swal('ATTENTION!', 'Please confirm us that you\'re not a robot by clicking in ' +
+                'the reCAPTCHA dialog-box.', 'warning');
         }
     });
 

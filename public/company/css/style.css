@@ -2770,7 +2770,7 @@ body.side-panel-left.side-push-panel.stretched #header.sticky-header .container 
 	width: 330px;
 	height: 100%;
 	overflow: auto;
-	padding: 50px 70px 50px 40px;
+	padding: 1em 70px 1em 40px;
 }
 
 body.device-touch #side-panel .side-panel-wrap { overflow-y: scroll; }

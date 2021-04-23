@@ -322,3 +322,5 @@ span.twitter-typeahead {
     width: 10%;
     transition: background 0.15s ease;
 }
+
+.dark .footer-widgets-wrap a:hover { color: #E31B23; }
