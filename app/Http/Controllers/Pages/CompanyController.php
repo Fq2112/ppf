@@ -14,10 +14,17 @@ class CompanyController extends Controller
         \App\Models\Visitor::hit();
         return view('pages.company.home-company');
     }
+
     public function aboutUs()
     {
         \App\Models\Visitor::hit();
         return view('pages.company.about-us');
+    }
+
+    public function wrappingTools()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.company.automotive.wrapping-tools');
     }
 
     public function showContact()

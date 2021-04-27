@@ -178,25 +178,25 @@
                             <span>&copy; {{now()->format('Y')}} <a href="{{route('home-company')}}">{{env('APP_COMPANY')}}</a>. All Rights Reserved.</span><div class="clear"></div>
                             <p class="mt-2 mb-0">Our Company, {{env('APP_COMPANY')}}, is the authorized distributor
                                 channel of Avery Dennison&reg; in Indonesia.</p>
-                            <a href="https://facebook.com/AveryDennisonCorporation" target="_blank"
-                               class="fright social-icon si-small si-rounded mt-3 si-facebook">
-                                <i class="icon-facebook"></i>
-                                <i class="icon-facebook"></i>
-                            </a>
-                            <a href="https://twitter.com/AveryDennison" target="_blank"
-                               class="fright social-icon si-small si-rounded mt-3 si-twitter">
-                                <i class="icon-twitter"></i>
-                                <i class="icon-twitter"></i>
+                            <a href="https://youtube.com/AveryDennisonVideo" target="_blank"
+                               class="fright social-icon si-small si-rounded mt-3 si-youtube">
+                                <i class="icon-youtube"></i>
+                                <i class="icon-youtube"></i>
                             </a>
                             <a href="https://instagram.com/averydennison.id" target="_blank"
                                class="fright social-icon si-small si-rounded mt-3 si-instagram">
                                 <i class="icon-instagram"></i>
                                 <i class="icon-instagram"></i>
                             </a>
-                            <a href="https://youtube.com/AveryDennisonVideo" target="_blank"
-                               class="fright social-icon si-small si-rounded mt-3 si-youtube">
-                                <i class="icon-youtube"></i>
-                                <i class="icon-youtube"></i>
+                            <a href="https://twitter.com/AveryDennison" target="_blank"
+                               class="fright social-icon si-small si-rounded mt-3 si-twitter">
+                                <i class="icon-twitter"></i>
+                                <i class="icon-twitter"></i>
+                            </a>
+                            <a href="https://facebook.com/AveryDennisonCorporation" target="_blank"
+                               class="fright social-icon si-small si-rounded mt-3 si-facebook">
+                                <i class="icon-facebook"></i>
+                                <i class="icon-facebook"></i>
                             </a>
                         </div>
                     </div>

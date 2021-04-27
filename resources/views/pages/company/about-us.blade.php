@@ -96,7 +96,7 @@
         <div class="parallax-overlay"></div>
         <div class="container clearfix">
             <h1>About Us</h1>
-            <span>Want to know more about us? Scroll it down :)</span>
+            <span>Want to know more about us? Scroll it down!</span>
             <ol class="breadcrumb text-uppercase">
                 <li class="breadcrumb-item"><a href="{{route('home-company')}}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{url()->current()}}">Info</a></li>
@@ -106,18 +106,27 @@
     </section>
 
     <section id="content">
-        <div class="content-wrap">
+        <div class="content-wrap pb-0">
             <div class="container clearfix">
                 <div class="fancy-title title-dotted-border title-center mb-4">
-                    <h4>{{__('lang.feature.head')}}</h4>
+                    <h4>Why Choose Us?</h4>
                 </div>
                 <div class="col_one_fourth --custom">
                     <div class="feature-box fbox-center fbox-border fbox-effect noborder">
                         <div class="fbox-icon">
-                            <a href="#"><i class="icon-money-bill-wave"></i></a>
+                            <a href="#"><i class="icon-registered"></i></a>
                         </div>
-                        <h3>{{__('lang.feature.price-t')}}</h3>
-                        <p>{{__('lang.feature.price-st')}}</p>
+                        <h3>ORIGINALITY GUARANTEE</h3>
+                        <p>Has a unique holographic emblem sticker that is not easily imitated</p>
+                    </div>
+                </div>
+                <div class="col_one_fourth --custom">
+                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-shield-alt"></i></a>
+                        </div>
+                        <h3>DURABILITY GUARANTEE</h3>
+                        <p>Has an outstanding durability and weathering protection up to 7 years</p>
                     </div>
                 </div>
                 <div class="col_one_fourth --custom">
@@ -125,26 +134,17 @@
                         <div class="fbox-icon">
                             <a href="#"><i class="icon-gem"></i></a>
                         </div>
-                        <h3>{{__('lang.feature.guarantee-t')}}</h3>
-                        <p>{{__('lang.feature.guarantee-st')}}</p>
-                    </div>
-                </div>
-                <div class="col_one_fourth --custom">
-                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
-                        <div class="fbox-icon">
-                            <a href="#"><i class="icon-drafting-compass"></i></a>
-                        </div>
-                        <h3>{{__('lang.feature.design-t')}}</h3>
-                        <p>{{__('lang.feature.design-st')}}</p>
+                        <h3>LUXURY & PREMIUM</h3>
+                        <p>Has a luxurious and premium quality appearance to the vehicle unit</p>
                     </div>
                 </div>
                 <div class="col_one_fourth --custom col_last">
                     <div class="feature-box fbox-center fbox-border fbox-effect noborder">
                         <div class="fbox-icon">
-                            <a href="#"><i class="icon-shipping-fast"></i></a>
+                            <a href="#"><i class="icon-toolbox"></i></a>
                         </div>
-                        <h3>{{__('lang.feature.shipping-t')}}</h3>
-                        <p>{{__('lang.feature.shipping-st')}}</p>
+                        <h3>EASE APPLICATION</h3>
+                        <p>Has a great conformability and optimal adhesive tack</p>
                     </div>
                 </div>
             </div>
@@ -153,115 +153,56 @@
                  style="background: url('{{asset('images/world_map.png')}}') no-repeat center center; background-size: 100%;">
                 <div class="col_half">
                     <div class="heading-block fancy-title nobottomborder title-bottom-border">
-                        <h4>{!! __('lang.about.vision-head') !!}</h4>
+                        <h4>Our <span>Vision</span></h4>
                     </div>
-                    <p>{{__('lang.about.vision-capt')}}</p>
+                    <p class="mb-0">Become the most trusted and popular company.</p>
                 </div>
                 <div class="col_half col_last">
                     <div class="heading-block fancy-title nobottomborder title-bottom-border">
-                        <h4>{!! __('lang.about.mission-head') !!}</h4>
+                        <h4>Our <span>Mission</span></h4>
                     </div>
-                    <p>{{__('lang.about.mission-capt')}}</p>
-                </div>
-            </div>
-
-            <div class="section nomargin">
-                <div class="container clearfix">
-                    <div class="col_one_fourth nobottommargin center" data-animate="bounceIn">
-                        <i class="i-plain i-xlarge divcenter icon-handshake1"></i>
-                        <div class="counter counter-lined">
-                            <span data-from="0" data-to="100" data-refresh-interval="50" data-speed="2500"></span>+
-                        </div>
-                        <h5>{{__('lang.about.client')}}</h5>
-                    </div>
-
-                    <div class="col_one_fourth nobottommargin center" data-animate="bounceIn" data-delay="200">
-                        <i class="i-plain i-xlarge divcenter nobottommargin icon-grin-beam1"></i>
-                        <div class="counter counter-lined">
-                            <span data-from="0" data-to="21" data-refresh-interval="50" data-speed="2500"></span>K+
-                        </div>
-                        <h5>{{__('lang.about.customer')}}</h5>
-                    </div>
-
-                    <div class="col_one_fourth nobottommargin center" data-animate="bounceIn" data-delay="400">
-                        <i class="i-plain i-xlarge divcenter nobottommargin icon-paper-plane1"></i>
-                        <div class="counter counter-lined">
-                            <span data-from="0" data-to="95" data-refresh-interval="50" data-speed="2500"></span>%
-                        </div>
-                        <h5>{{__('lang.about.order')}}</h5>
-                    </div>
-
-                    <div class="col_one_fourth nobottommargin center col_last" data-animate="bounceIn" data-delay="600">
-                        <i class="i-plain i-xlarge divcenter nobottommargin icon-picture"></i>
-                        <div class="counter counter-lined">
-                            <span data-from="0" data-to="2100" data-refresh-interval="50" data-speed="2500"></span>+
-                        </div>
-                        <h5>{{__('lang.about.design')}}</h5>
-                    </div>
+                    <ul class="mb-0" style="margin-left: 1.25em">
+                        <li>Provide the solution products for consumers with a high quality and best prices</li>
+                        <li>Being the fulfilment of Consumer demands as guideline company mission</li>
+                        <li>Be trusted partner to customers as well as principal</li>
+                    </ul>
                 </div>
             </div>
 
             <div id="about" class="row align-items-stretch clearfix">
                 <div class="col-md-5 col-padding"
-                     style="background: url('{{asset('images/team.jpg')}}') center center no-repeat; background-size: cover;"></div>
+                     style="background: url('{{asset('company/demos/car/images/about.jpg')}}') center center no-repeat; background-size: cover;"></div>
                 <div class="col-md-7 col-padding">
                     <div class="heading-block mb-4">
-                        <span class="before-heading color">{{env('APP_TITLE')}}</span>
-                        <h4>{{__('lang.subtitle')}}</h4>
+                        <span class="before-heading color">The Professional's Choice</span>
+                        <h4>It's all about detail</h4>
                     </div>
                     <div class="row clearfix">
                         <div class="col-lg-12">
-                            {!! __('lang.about.desc') !!}
-                            <blockquote class="quote">
-                                <p>An idea that is developed and put into action is more important than an idea that
-                                    exists only as an idea.</p>
-                                <footer class="blockquote-footer">Dr. Edward de Bono, de Bono Group LLC.</footer>
-                            </blockquote>
-                            <a href="https://fb.com/pages/Premiere-Digital-Printing/164943546903733" target="_blank"
-                               class="social-icon inline-block si-small si-light si-rounded si-facebook">
-                                <i class="icon-facebook"></i>
-                                <i class="icon-facebook"></i>
-                            </a>
-                            <a href="https://instagram.com/premierprintingsby" target="_blank"
-                               class="social-icon inline-block si-small si-light si-rounded si-instagram">
-                                <i class="icon-instagram"></i>
-                                <i class="icon-instagram"></i>
-                            </a>
-                            <a href="https://api.whatsapp.com/send?phone=62817597777&text=&source=&data="
-                               target="_blank"
-                               class="social-icon inline-block si-small si-light si-rounded si-whatsapp">
-                                <i class="icon-whatsapp"></i>
-                                <i class="icon-whatsapp"></i>
-                            </a>
-                            <a href="mailto:{{env('MAIL_USERNAME')}}"
-                               class="social-icon inline-block si-small si-light si-rounded si-call">
-                                <i class="icon-envelope-alt"></i>
-                                <i class="icon-envelope-alt"></i>
-                            </a>
+                            <p>As part of Premier Group, {{env('APP_COMPANY')}} is the Authorized distributor channel
+                                of self adhesive and associated accessories of Avery Dennison in Automotive Industries.
+                                We place high standards on everything we sell. As a trade-only company we understand
+                                our customer and respect their business.</p>
+                            <p>Our culture and values are at the heart of everything we do. We value a personal
+                                approach to our work, driven by trusted and talented people. We also have a strong
+                                sense of corporate responsibility, aiming to manage the impact of our business on
+                                people, suppliers, communities and the environment.</p>
+                            <p>We put our clients first and focus on delivering the right solutions. We are driven by
+                                our clients’ success, developing long-term relationships and achieving high levels of
+                                client satisfaction. We have proudly served our clients for over a century, taking the
+                                time to understand their individual circumstances and delivering tailored solutions.</p>
+                            <p>We have high-quality people who deliver excellent service. Our success is based on the
+                                quality and commitment of our employees and partners. Their continued development and
+                                our ability to attract and retain the best people is at the forefront of the people
+                                programmes we have in place and are enhancing. We strive to create a rewarding and
+                                fulfilling work environment, providing career development and training opportunities
+                                while promoting an appropriate work/life balance</p>
+                            <p>We are trustworthy and act with integrity. Our approach to working with our clients
+                                means our people spend more time developing strong relationships, built on trust and
+                                understanding. We value our excellent reputation, and are committed to maintaining
+                                the highest level of ethical standards in the conduct of our business affairs.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="section p-0 m-0 text-center clearfix">
-                <div class="container fancy-title title-dotted-border title-center mt-5 mb-0">
-                    <h4 style="background-color: #f9f9f9">{{__('lang.client.head')}}</h4>
-                </div>
-                <div id="oc-clients-full" class="owl-carousel owl-carousel-full image-carousel carousel-widget mb-5"
-                     data-margin="30" data-nav="true" data-pagi="false" data-autoplay="5000" data-items-xs="3"
-                     data-items-sm="3" data-items-md="5" data-items-lg="6" data-items-xl="7">
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/1.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/2.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/3.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/4.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/5.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/6.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/7.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/8.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/9.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/10.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/11.png')}}" alt=""></a></div>
-                    <div class="oc-item"><a href="#"><img src="{{asset('images/clients/12.png')}}" alt=""></a></div>
                 </div>
             </div>
         </div>

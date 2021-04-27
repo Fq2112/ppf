@@ -275,6 +275,10 @@
         return s.join(dec);
     }
 
+    function goToSection(id) {
+        $(".one-page-menu ul li a[data-href='#"+id+"']").click();
+    }
+
     var title = document.getElementsByTagName("title")[0].innerHTML;
     (function titleScroller(text) {
         document.title = text;
@@ -315,6 +319,10 @@
             autohidemode: 'leave',
             zindex: 9999999,
         });
+
+        if(window.location.hash) {
+            $(".one-page-menu ul li a[data-href='#"+window.location.hash.substr(1)+"']").click();
+        }
 
         var options = {
             whatsapp: "+62817597777",

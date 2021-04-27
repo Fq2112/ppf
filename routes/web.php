@@ -122,6 +122,20 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
 
     });
 
+    Route::group(['prefix' => 'automotive'], function () {
+
+        Route::get('window-films', [
+            'uses' => 'CompanyController@windowFilms',
+            'as' => 'show.window-films'
+        ]);
+
+        Route::get('wrapping-tools', [
+            'uses' => 'CompanyController@wrappingTools',
+            'as' => 'show.wrapping-tools'
+        ]);
+
+    });
+
     Route::group(['prefix' => 'contact'], function () {
 
         Route::get('/', [
