@@ -46,6 +46,63 @@
         .ares .tp-tab-content { padding: 15px 15px 15px 110px; }
         .ares .tp-tab-image { width: 80px;height: 80px; }
 
+
+
+        .content-area {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .custom-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            background: rgba(0, 0, 0, .7);
+            opacity: 0;
+            transition: all 400ms ease-in-out;
+            height: 100%;
+        }
+
+        .custom-overlay:hover {
+            opacity: 1;
+        }
+
+        .custom-text {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+
+        .content-area img {
+            transition: transform .5s ease;
+        }
+
+        .content-area:hover img {
+            transform: scale(1.2);
+        }
+
+        .lg-backdrop {
+            z-index: 99999999;
+        }
+
+        .lg-outer {
+            z-index: 100000000;
+        }
+
+        .lg-sub-html h4 {
+            color: #eee;
+        }
+
+        .lg-sub-html p {
+            color: #bbb;
+        }
+
         @if(!request()->is('*blog*'))
         .css3-spinner { background-color: #e6e6e6; }
 

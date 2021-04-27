@@ -102,10 +102,10 @@
                 </ul>
             </li>
             <li>
-                <a href="#">Window Films</a>
+                <a href="{{route('show.window-films')}}">Window Films</a>
                 <ul>
-                    <li><a href="#">Stealth&trade; Series</a></li>
-                    <li><a href="#">Nero&trade; Ceramic Series</a></li>
+                    <li><a href="{{route('show.window-films.stealth')}}">Stealth&trade; Series</a></li>
+                    <li><a href="{{route('show.window-films.nero')}}">Nero Ceramic&trade; Series</a></li>
                 </ul>
             </li>
             <li>
@@ -145,8 +145,6 @@
         </ul>
     </li>
 
-    <li class="{{request()->is('blog*') ? 'current' : ''}}">
-        <a href="{{route('show.blog')}}">Blog</a></li>
-    <li class="{{request()->is('contact*') ? 'current' : ''}}">
-        <a href="{{route('show.contact')}}">Contact</a></li>
+    <li class="{{request()->is('blog*') ? 'current' : ''}}"><a href="{{route('show.blog')}}">Blog</a></li>
+    <li class="{{request()->is('contact*') ? 'current' : ''}}"><a href="{{route('show.contact')}}">Contact</a></li>
 </ul>

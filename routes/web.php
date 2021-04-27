@@ -124,10 +124,24 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
 
     Route::group(['prefix' => 'automotive'], function () {
 
-        Route::get('window-films', [
-            'uses' => 'CompanyController@windowFilms',
-            'as' => 'show.window-films'
-        ]);
+        Route::group(['prefix' => 'window-films'], function () {
+
+            Route::get('/', [
+                'uses' => 'CompanyController@windowFilms',
+                'as' => 'show.window-films'
+            ]);
+
+            Route::get('stealth-series', [
+                'uses' => 'CompanyController@windowFilmsStealth',
+                'as' => 'show.window-films.stealth'
+            ]);
+
+            Route::get('nero-ceramic-series', [
+                'uses' => 'CompanyController@windowFilmsNero',
+                'as' => 'show.window-films.nero'
+            ]);
+
+        });
 
         Route::get('wrapping-tools', [
             'uses' => 'CompanyController@wrappingTools',

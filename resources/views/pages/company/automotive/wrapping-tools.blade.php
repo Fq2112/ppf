@@ -2,6 +2,10 @@
 @section('title', 'Automotive: Wrapping Tools | '.env('APP_COMPANY'))
 @push('styles')
     <style>
+        .product-title h3 {
+            text-transform: uppercase;
+        }
+
         @media (min-width: 992px) {
 
             #page-menu-wrap { background-color: var(--light); }
@@ -17,13 +21,13 @@
     </style>
 @endpush
 @section('content')
-    <section id="page-title" class="page-title-parallax page-title-dark"
+    <section id="page-title" class="page-title-parallax page-title-dark page-title-center"
              data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;"
              style="background-image:url('{{asset('company/demos/car/images/accessories/page-title.jpg')}}');background-size:cover;padding:120px 0;">
         <div class="parallax-overlay"></div>
         <div class="container clearfix">
             <h1>Wrapping Tools</h1>
-            <span>Squeegees, Knives, Cutters, Spare Blades, Liquids, etc.</span>
+            <span>A complete list of accessories and vinyl installation tools to help you achieve a professional end result no matter what your application</span>
             <ol class="breadcrumb text-uppercase">
                 <li class="breadcrumb-item"><a href="{{route('home-company')}}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{url()->current()}}">Automotive</a></li>
@@ -33,19 +37,19 @@
     </section>
 
     <div id="page-menu">
-			<div id="page-menu-wrap" class="not-dark shadow-sm">
-				<div class="container clearfix">
-					<nav class="one-page-menu fnone d-xl-flex d-lg-flex justify-content-xl-center justify-content-lg-center" data-easing="easeInOutExpo" data-offset="120">
-						<ul>
-							<li><a href="#" data-href="#squeegees" data-highlight="yellow"><div>Squeegees</div></a></li>
-							<li><a href="#" data-href="#knives" data-highlight="yellow"><div>Knives, Cutters, Spare Blade & Others</div></a></li>
-							<li><a href="#" data-href="#liquids" data-highlight="yellow"><div>Liquids</div></a></li>
-						</ul>
-					</nav>
-                    <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
-				</div>
-			</div>
-		</div>
+        <div id="page-menu-wrap" class="not-dark shadow-sm">
+            <div class="container clearfix">
+                <nav class="one-page-menu fnone d-xl-flex d-lg-flex justify-content-xl-center justify-content-lg-center" data-easing="easeInOutExpo" data-offset="120">
+                    <ul>
+                        <li><a href="#" data-href="#squeegees" data-highlight="yellow"><div>Squeegees</div></a></li>
+                        <li><a href="#" data-href="#knives" data-highlight="yellow"><div>Knives, Cutters, Spare Blade & Others</div></a></li>
+                        <li><a href="#" data-href="#liquids" data-highlight="yellow"><div>Liquids</div></a></li>
+                    </ul>
+                </nav>
+                <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
+            </div>
+        </div>
+    </div>
 
     <section id="content" class="clearfix">
 			<div class="content-wrap">
@@ -307,5 +311,5 @@
 					</div>
 				</div>
 			</div>
-		</section>
+    </section>
 @endsection

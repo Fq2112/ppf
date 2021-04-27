@@ -27,6 +27,18 @@ class CompanyController extends Controller
         return view('pages.company.automotive.wrapping-tools');
     }
 
+    public function windowFilms()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.company.automotive.window-films.index');
+    }
+
+    public function windowFilmsStealth()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.company.automotive.window-films.stealth-series');
+    }
+
     public function showContact()
     {
         \App\Models\Visitor::hit();
