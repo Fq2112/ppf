@@ -21,10 +21,10 @@ class CompanyController extends Controller
         return view('pages.company.about-us');
     }
 
-    public function wrappingTools()
+    public function tapes()
     {
         \App\Models\Visitor::hit();
-        return view('pages.company.automotive.wrapping-tools');
+        return view('pages.company.industrials.tapes');
     }
 
     public function windowFilms()
@@ -37,6 +37,18 @@ class CompanyController extends Controller
     {
         \App\Models\Visitor::hit();
         return view('pages.company.automotive.window-films.stealth-series');
+    }
+
+    public function windowFilmsNero()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.company.automotive.window-films.nero-ceramic-series');
+    }
+
+    public function wrappingTools()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.company.automotive.wrapping-tools');
     }
 
     public function showContact()

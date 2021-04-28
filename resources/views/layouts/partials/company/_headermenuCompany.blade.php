@@ -6,7 +6,7 @@
         <a href="#"><div>Industrial Products</div></a>
         <ul>
             <li>
-                <a href="#">Tapes</a>
+                <a href="{{route('show.tapes')}}">Tapes</a>
                 <ul>
                     <li><a href="#">Packaging, Bundling, Reinforcing</a></li>
                     <li>

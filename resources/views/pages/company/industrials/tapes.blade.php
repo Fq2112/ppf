@@ -1,5 +1,5 @@
 @extends('layouts.mst_company')
-@section('title', 'Automotive: Wrapping Tools | '.env('APP_COMPANY'))
+@section('title', 'Industrials: Tapes | '.env('APP_COMPANY'))
 @push('styles')
     <style>
         .product-title h3 {
@@ -13,12 +13,12 @@
              style="background-image:url('{{asset('company/demos/car/images/accessories/page-title.jpg')}}');background-size:cover;padding:120px 0;">
         <div class="parallax-overlay"></div>
         <div class="container clearfix">
-            <h1>Wrapping Tools</h1>
+            <h1>Tapes</h1>
             <span>A complete list of accessories and vinyl installation tools to help you achieve a professional end result no matter what your application</span>
             <ol class="breadcrumb text-uppercase">
                 <li class="breadcrumb-item"><a href="{{route('home-company')}}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{url()->current()}}">Automotive</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Wrapping Tools</li>
+                <li class="breadcrumb-item active" aria-current="page">Tapes</li>
             </ol>
         </div>
     </section>

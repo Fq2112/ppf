@@ -1,5 +1,5 @@
 @extends('layouts.mst_company')
-@section('title', 'Automotive: Window Films - STEALTH™ SERIES | '.env('APP_COMPANY'))
+@section('title', 'Automotive: Window Films - NERO CERAMIC™ SERIES | '.env('APP_COMPANY'))
 @push('styles')
     <style>
         .product-title h3 {
@@ -56,13 +56,13 @@
              style="background-image:url('{{asset('company/demos/car/images/accessories/footer.jpg')}}');background-size:cover;padding:120px 0;">
         <div class="parallax-overlay"></div>
         <div class="container clearfix">
-            <h1>STEALTH&trade; Series</h1>
-            <span>NR Pro Series Non-Reflective Film</span>
+            <h1>NERO CERAMIC&trade; Series</h1>
+            <span>NR Nano Ceramic IR Series Non-Reflective Film</span>
             <ol class="breadcrumb text-uppercase">
                 <li class="breadcrumb-item"><a href="{{route('home-company')}}">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Automotive</a></li>
                 <li class="breadcrumb-item"><a href="{{url()->current()}}">Window Films</a></li>
-                <li class="breadcrumb-item active" aria-current="page">STEALTH&trade; Series</li>
+                <li class="breadcrumb-item active" aria-current="page">NERO CERAMIC&trade; Series</li>
             </ol>
         </div>
     </section>
@@ -70,7 +70,7 @@
     <div id="page-menu">
         <div id="page-menu-wrap">
             <div class="container clearfix">
-                <div class="menu-title text-uppercase"><span>STEALTH&trade;</span> Series</div>
+                <div class="menu-title text-uppercase"><span>NERO CERAMIC&trade;</span> Series</div>
                 <nav class="one-page-menu text-uppercase">
                     <ul>
                         <li><a href="#" data-href="#features"><div>Features</div></a></li>
@@ -90,26 +90,25 @@
                     <div class="col-md-7">
                         <div id="features" class="page-section">
                             <h3 class="mb-3">Overview</h3>
-                            <p align="justify">Avery Dennison&reg; STEALTH&trade; Series ( NR Pro Series ) automotive window films
-                                are non-reflective, color-stable and weather durable films in a warm graphite tone.
-                                Using sophisticated nanotechnology, NR Pro Series delivers long lasting, great looks
-                                and impressive solar performance along with optimal shrink capabilities and zero
-                                electronic signal interference.</p>
+                            <p align="justify">Avery Dennison&reg; NERO CERAMIC&trade; Series ( NR Nano Ceramic IR Series )
+                                automotive window films are constructed with advanced durable inorganic ceramic
+                                nano particles. NR Nano Ceramic IR Series delivers phenomenal solar protection with
+                                long lasting color stability for exceptional protection and appearance. Its high
+                                optical clarity and deep graphic color tone upgrades vehicle aesthetics for a stunning
+                                looking and comfortable ride.</p>
                             <div class="row clearfix">
                                 <div class="col-md-6">
                                     <ul class="ul-product">
-                                        <li>Exceptional aesthetics, no-fade warm graphite color</li>
-                                        <li>Broad range of light transmission levels</li>
-                                        <li>Premium heat rejection and up to 94% glare reduction, with minimal reflective effect</li>
-                                        <li>Utilizes nanotechnology with a fusion of nano particles, to ensure high performance, durability and long-lasting color</li>
+                                        <li>High optical clarity and deep graphite color tone upgrades vehicle appearance to a high standard</li>
+                                        <li>Premium performance delivering excellent IR rejection and up to 93% glare reduction with minimal reflective effect</li>
+                                        <li>Blocks 99+% of harmful UV</li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
                                     <ul class="ul-product">
+                                        <li>Zero interference of electronic equipment (metal free)</li>
+                                        <li>Specially designed high performance adhesive for professional installation and clean removal</li>
                                         <li>Easy to install with excellent dot matrix fitting and optimal shrink capabilities</li>
-                                        <li>Stylish car upgrade without any signal interference (metal free)</li>
-                                        <li>Darker tints provide privacy for passengers and contents, for added peace of mind</li>
-                                        <li>Blocks 99%+ of harmful UV for ultimate driver comfort</li>
                                     </ul>
                                 </div>
                             </div>
@@ -121,15 +120,15 @@
                                 <tbody>
                                 <tr>
                                     <td style="vertical-align: middle" scope="row" class="text-black-50">Technology</td>
-                                    <td style="vertical-align: middle" class="tright t600">Nanotechnology UV Stable Dye</td>
+                                    <td style="vertical-align: middle" class="tright t600">Nanotechnology<br>Nano ceramic+IR<br>UV Stable Dye<br>Metal-Free</td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: middle" scope="row" class="text-black-50">Color Tone</td>
-                                    <td style="vertical-align: middle" class="tright t600">Graphite</td>
+                                    <td style="vertical-align: middle" class="tright t600">Deep Graphite</td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: middle" scope="row" class="text-black-50">Construction</td>
-                                    <td class="tright t600">2-Ply Weatherable</td>
+                                    <td style="vertical-align: middle" class="tright t600">Weatherable</td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: middle" scope="row" class="text-black-50">Thickness</td>
@@ -155,61 +154,69 @@
                                     <th rowspan="2" colspan="2" scope="col" class="text-uppercase" style="vertical-align:middle">Film</th>
                                     <th rowspan="2" scope="col" class="text-uppercase" style="vertical-align:middle">Ultraviolet Block</th>
                                     <th colspan="2" scope="col" class="text-uppercase" style="vertical-align:middle">Visible Light</th>
+                                    <th rowspan="2" scope="col" class="text-uppercase" style="vertical-align:middle">Glare Reduction</th>
                                 </tr>
                                 <tr>
                                     <th style="vertical-align:middle">Transmitted</th>
-                                    <th style="vertical-align:middle">Reflected (Exterior)</th>
+                                    <th style="vertical-align:middle">Reflected<br>(Exterior)</th>
                                 </tr>
                                 </thead>
                                 <tbody class="text-center">
                                 <tr>
-                                    <td style="vertical-align:middle">NR Pro 05</td>
-                                    <td style="vertical-align:middle">R058P0A</td>
-                                    <td style="vertical-align:middle">&gt; 99%</td>
-                                    <td style="vertical-align:middle">6%</td>
-                                    <td style="vertical-align:middle">7%</td>
+                                    <td style="vertical-align: middle">NR Nano Ceramic IR 05</td>
+                                    <td style="vertical-align: middle">R058P0IR</td>
+                                    <td style="vertical-align: middle;">&gt; 99%</td>
+                                    <td style="vertical-align: middle">6%</td>
+                                    <td style="vertical-align: middle">7%</td>
+                                    <td style="vertical-align: middle;">93%</td>
                                 </tr>
                                 <tr>
-                                    <td style="vertical-align:middle">NR Pro 15</td>
-                                    <td style="vertical-align:middle">R058P9A</td>
+                                    <td style="vertical-align:middle">NR Nano Ceramic IR 15</td>
+                                    <td style="vertical-align:middle">R058P9IR</td>
                                     <td style="vertical-align:middle">&gt; 99%</td>
-                                    <td style="vertical-align:middle">16%</td>
+                                    <td style="vertical-align:middle">17%</td>
                                     <td style="vertical-align:middle">7%</td>
+                                    <td style="vertical-align:middle">82%</td>
                                 </tr>
                                 <tr>
-                                    <td style="vertical-align:middle">NR Pro 20</td>
-                                    <td style="vertical-align:middle">R058P6A</td>
+                                    <td style="vertical-align:middle">NR Nano Ceramic IR 20</td>
+                                    <td style="vertical-align:middle">R058P6IR</td>
                                     <td style="vertical-align:middle">&gt; 99%</td>
-                                    <td style="vertical-align:middle">22%</td>
+                                    <td style="vertical-align:middle">20%</td>
                                     <td style="vertical-align:middle">7%</td>
+                                    <td style="vertical-align:middle">78%</td>
                                 </tr>
                                 <tr>
-                                    <td style="vertical-align:middle">NR Pro 30</td>
-                                    <td style="vertical-align:middle">R058P8A</td>
+                                    <td style="vertical-align:middle">NR Nano Ceramic IR 30</td>
+                                    <td style="vertical-align:middle">R058P8IR</td>
                                     <td style="vertical-align:middle">&gt; 99%</td>
-                                    <td style="vertical-align:middle">32%</td>
+                                    <td style="vertical-align:middle">30%</td>
                                     <td style="vertical-align:middle">7%</td>
+                                    <td style="vertical-align:middle">66%</td>
                                 </tr>
                                 <tr>
-                                    <td style="vertical-align:middle">NR Pro 35</td>
-                                    <td style="vertical-align:middle">R058P5A</td>
+                                    <td style="vertical-align:middle">NR Nano Ceramic IR 35</td>
+                                    <td style="vertical-align:middle">R058P5IR</td>
                                     <td style="vertical-align:middle">&gt; 99%</td>
-                                    <td style="vertical-align:middle">37%</td>
+                                    <td style="vertical-align:middle">35%</td>
+                                    <td style="vertical-align:middle">7%</td>
+                                    <td style="vertical-align:middle">60%</td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align:middle">NR Nano Ceramic IR 40</td>
+                                    <td style="vertical-align:middle">R058P4IR</td>
+                                    <td style="vertical-align:middle">&gt; 99%</td>
+                                    <td style="vertical-align:middle">40%</td>
+                                    <td style="vertical-align:middle">7%</td>
+                                    <td style="vertical-align:middle">54%</td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align:middle">NR Nano Ceramic IR 50</td>
+                                    <td style="vertical-align:middle">R058P7IR</td>
+                                    <td style="vertical-align:middle">&gt; 99%</td>
+                                    <td style="vertical-align:middle">48%</td>
                                     <td style="vertical-align:middle">8%</td>
-                                </tr>
-                                <tr>
-                                    <td style="vertical-align:middle">NR Pro 40</td>
-                                    <td style="vertical-align:middle">R058P4A</td>
-                                    <td style="vertical-align:middle">&gt; 99%</td>
-                                    <td style="vertical-align:middle">42%</td>
-                                    <td style="vertical-align:middle">8%</td>
-                                </tr>
-                                <tr>
-                                    <td style="vertical-align:middle">NR Pro 50</td>
-                                    <td style="vertical-align:middle">R058P7A</td>
-                                    <td style="vertical-align:middle">&gt; 99%</td>
-                                    <td style="vertical-align:middle">52%</td>
-                                    <td style="vertical-align:middle">8%</td>
+                                    <td style="vertical-align:middle">45%</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -221,11 +228,11 @@
                              data-pagi="false" data-thumbs="true">
                             <div class="flexslider">
                                 <div class="slider-wrap">
-                                    <div class="slide" data-thumb="{{asset('company/images/automotive/window-films/stealth-series.png')}}">
-                                        <img src="{{asset('company/images/automotive/window-films/stealth-series.png')}}" alt="Image">
+                                    <div class="slide" data-thumb="{{asset('company/images/automotive/window-films/nero-ceramic-series.png')}}">
+                                        <img src="{{asset('company/images/automotive/window-films/nero-ceramic-series.png')}}" alt="Image">
                                     </div>
-                                    <div class="slide" data-thumb="{{asset('company/images/automotive/window-films/stealth-2.jpg')}}">
-                                        <img src="{{asset('company/images/automotive/window-films/stealth-2.jpg')}}" alt="Image">
+                                    <div class="slide" data-thumb="{{asset('company/images/automotive/window-films/nero-2.jpg')}}">
+                                        <img src="{{asset('company/images/automotive/window-films/nero-2.jpg')}}" alt="Image">
                                     </div>
                                     <div class="slide" data-thumb="{{asset('company/images/automotive/window-films/stealth-3.jpg')}}">
                                         <img src="{{asset('company/images/automotive/window-films/stealth-3.jpg')}}" alt="Image">
@@ -244,9 +251,9 @@
 
                         <div class="card shadow-sm">
                             <div class="card-body text-uppercase">
-                                <h3 class="card-title">STEALTH&trade; Series - Datasheet</h3>
-                                <p>( PDF 1,23 MB )</p>
-                                <a href="{{route('download.data-sheet',['file' => 'po-stealth-series.pdf'])}}"
+                                <h3 class="card-title">NERO CERAMIC&trade; Series - Datasheet</h3>
+                                <p>( PDF 1,17 MB )</p>
+                                <a href="{{route('download.data-sheet',['file' => 'po-nero-ceramic-series.pdf'])}}"
                                    class="button button-rounded nomargin button-large btn-block side-panel-trigger center nott">
                                     <i class="icon-cloud-download mr-2"></i>DOWNLOAD</a>
                             </div>

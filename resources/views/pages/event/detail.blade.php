@@ -1,51 +1,11 @@
-@extends('layouts.mst')
-@section('title', 'Event: '.$title.' | '.env('APP_TITLE'))
+@extends('layouts.mst_company')
+@section('title', 'Event: '.$title.' | '.env('APP_COMPANY'))
 @push('styles')
     <link rel="stylesheet" href="{{asset('css/share-button.css')}}">
     <link rel="stylesheet" href="{{asset('css/ig-feed.css')}}">
     <style>
-        .banner-2 {
-            background: url({{asset('images/banner/blog_2.jpg')}});
-        }
-
-        .what-grid1 {
-            padding: 0 1.5em .5em 0;
-        }
-
-        h3.w3l-title.servi-title:after {
-            left: 14%;
-        }
-
-        .what-grid1 {
-            padding-left: 0;
-        }
-
-        .blog-category span {
+        .product-title h3 {
             text-transform: uppercase;
-        }
-
-        .blog-category span:before {
-            content: '\f073';
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-
-        .blog-category a, .blog-author a {
-            color: #E31B23;
-            text-decoration: none;
-            transition: all .3s ease-in-out;
-        }
-
-        .blog-category a:hover, .blog-category a:focus, .blog-category a:active,
-        .blog-author a:hover, .blog-author a:focus, .blog-author a:active {
-            color: #9b1219;
-            text-decoration: none;
-        }
-
-        .blog-content p {
-            color: #666;
         }
 
         .share {
@@ -71,32 +31,40 @@
     </style>
 @endpush
 @section('content')
-    <!-- detail-blog -->
-    <div class="what-w3ls">
-        <div class="container">
-            <h3 data-aos="fade-right" class="w3l-title servi-title">Event</h3>
-            <div data-toggle="tooltip" data-placement="left" title="Share on" class="share">
-                <a class="fab no email"
-                   href="mailto:?subject={{$title}}&body=Hi, I thought you'd like this: {{url()->current()}}"></a>
-                <a class="fab no whatsapp" href="whatsapp://send?text=Hi, I thought you'd like this: {{url()->current()}}"></a>
-                <a class="fab no facebook" href="https://facebook.com/sharer/sharer.php?u={{url()->current()}}"
-                   target="popup" onclick="shareBlog($(this).attr('href'))"></a>
-                <a class="fab no linkedin" href="https://linkedin.com/shareArticle?mini=true&url={{url()->current()}}"
-                   target="popup" onclick="shareBlog($(this).attr('href'))"></a>
-                <a class="fab no twitter"
-                   href="https://twitter.com/intent/tweet?text=Hi, I thought you'd like this: {{url()->current()}}"
-                   target="popup" onclick="shareBlog($(this).attr('href'))"></a>
-            </div>
-            <div class="what-grids">
-                <div class="col-md-12 what-grid1">
-                    <div data-aos="zoom-out" class="content-area">
-                        <video class="img-thumbnail" src="{{asset('storage/event/'.$video)}}" autoplay controls></video>
-                    </div>
+    <section id="page-title" class="page-title-parallax page-title-dark page-title-center"
+             data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;"
+             style="background-image:url('{{asset('company/demos/car/images/banner/users.jpg')}}');background-size:cover;padding:120px 0;">
+        <div class="parallax-overlay"></div>
+        <div class="container clearfix">
+            <h1>Event</h1>
+            <span>{{$title}}</span>
+            <ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a href="{{route('home-company')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{url()->current()}}">Event</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$title}}</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="content" class="clearfix">
+        <div class="content-wrap">
+            <div class="container">
+                <div data-toggle="tooltip" data-placement="left" title="Share on" class="share">
+                    <a class="fab no email"
+                       href="mailto:?subject={{$title}}&body=Hi, I thought you'd like this: {{url()->current()}}"></a>
+                    <a class="fab no whatsapp" href="whatsapp://send?text=Hi, I thought you'd like this: {{url()->current()}}"></a>
+                    <a class="fab no facebook" href="https://facebook.com/sharer/sharer.php?u={{url()->current()}}"
+                       target="popup" onclick="shareBlog($(this).attr('href'))"></a>
+                    <a class="fab no linkedin" href="https://linkedin.com/shareArticle?mini=true&url={{url()->current()}}"
+                       target="popup" onclick="shareBlog($(this).attr('href'))"></a>
+                    <a class="fab no twitter"
+                       href="https://twitter.com/intent/tweet?text=Hi, I thought you'd like this: {{url()->current()}}"
+                       target="popup" onclick="shareBlog($(this).attr('href'))"></a>
                 </div>
-                <div class="clearfix"></div>
+                <video class="img-thumbnail" src="{{asset('storage/event/'.$video)}}" autoplay controls></video>
             </div>
         </div>
-    </div>
+    </section>
 @endsection
 @push('scripts')
     <script>

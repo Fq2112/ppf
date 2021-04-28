@@ -23,6 +23,19 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
         'as' => 'about-us'
     ]);
 
+    Route::group(['prefix' => 'industrials'], function () {
+
+        Route::group(['prefix' => 'tapes'], function () {
+
+            Route::get('/', [
+                'uses' => 'CompanyController@tapes',
+                'as' => 'show.tapes'
+            ]);
+
+        });
+
+    });
+
     Route::group(['prefix' => 'ppf'], function () {
 
         Route::get('/', [
