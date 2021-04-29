@@ -25,14 +25,25 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function () {
 
     Route::group(['prefix' => 'industrials'], function () {
 
-        Route::group(['prefix' => 'tapes'], function () {
+        Route::get('tapes', [
+            'uses' => 'CompanyController@tapes',
+            'as' => 'show.tapes'
+        ]);
 
-            Route::get('/', [
-                'uses' => 'CompanyController@tapes',
-                'as' => 'show.tapes'
-            ]);
+        Route::get('adhesives', [
+            'uses' => 'CompanyController@adhesives',
+            'as' => 'show.adhesives'
+        ]);
 
-        });
+        Route::get('abrasives', [
+            'uses' => 'CompanyController@abrasives',
+            'as' => 'show.abrasives'
+        ]);
+
+        Route::get('matic-case-sealers', [
+            'uses' => 'CompanyController@maticCaseSealers',
+            'as' => 'show.matic-case-sealers'
+        ]);
 
     });
 

@@ -8,72 +8,72 @@
             <li>
                 <a href="{{route('show.tapes')}}">Tapes</a>
                 <ul>
-                    <li><a href="#">Packaging, Bundling, Reinforcing</a></li>
+                    <li><a href="{{route('show.tapes')}}#pbr" onclick="goToSection('pbr')">Packaging, Bundling, Reinforcing</a></li>
                     <li>
-                        <a href="#">Bonding</a>
+                        <a href="{{route('show.tapes')}}#bonding" onclick="goToSection('bonding')">Bonding</a>
                         <ul>
-                            <li><a href="#">VHB Tapes</a></li>
-                            <li><a href="#">Double Coated Foam</a></li>
-                            <li><a href="#">Double Coated Tapes</a></li>
-                            <li><a href="#">Removable / Repositionable Tapes</a></li>
-                            <li><a href="#">Adhesive Transfer Tapes</a></li>
+                            <li><a href="{{route('show.tapes')}}#bonding" onclick="goToSection('bonding')">VHB Tapes</a></li>
+                            <li><a href="{{route('show.tapes')}}#bonding" onclick="goToSection('bonding')">Double Coated Foam</a></li>
+                            <li><a href="{{route('show.tapes')}}#bonding" onclick="goToSection('bonding')">Double Coated Tapes</a></li>
+                            <li><a href="{{route('show.tapes')}}#bonding" onclick="goToSection('bonding')">Removable / Repositionable Tapes</a></li>
+                            <li><a href="{{route('show.tapes')}}#bonding" onclick="goToSection('bonding')">Adhesive Transfer Tapes</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Surface Protection, Masking & Specialty</a>
+                        <a href="{{route('show.tapes')}}#spms" onclick="goToSection('spms')">Surface Protection, Masking & Specialty</a>
                         <ul>
-                            <li><a href="#">Bumpon Protection</a></li>
-                            <li><a href="#">Clean Walk Mat</a></li>
-                            <li><a href="#">Duck Tape and Cloth Tape</a></li>
-                            <li><a href="#">Masking Tape</a></li>
-                            <li><a href="#">Repulpable Tape</a></li>
-                            <li><a href="#">Sandblast Stencil Products & Impact Stripping Tapes</a></li>
-                            <li><a href="#">Specialty Tapes</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Adhesives</a>
-                <ul>
-                    <li>
-                        <a href="#">Scotch-Weld Structural</a>
-                        <ul>
-                            <li><a href="#">Scotch Weld Epoxy, Acrylic, Urethane Adhesive</a></li>
-                            <li><a href="#">Scotch Weld Instant Adhesive</a></li>
-                            <li><a href="#">Scotch Polyurethane Reactive Adhesive</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Non-Structural</a>
-                        <ul>
-                            <li><a href="#">Industrial Adhesive, Rubber and Insulation</a></li>
-                            <li><a href="#">Scotch Hot Meld Adhesive and Aplicators</a></li>
-                            <li><a href="#">Sealant</a></li>
-                            <li><a href="#">Aerosol Adhesive</a></li>
-                            <li><a href="#">Aerosol Chemical</a></li>
+                            <li><a href="{{route('show.tapes')}}#spms" onclick="goToSection('spms')">Bumpon Protection</a></li>
+                            <li><a href="{{route('show.tapes')}}#spms" onclick="goToSection('spms')">Clean Walk Mat</a></li>
+                            <li><a href="{{route('show.tapes')}}#spms" onclick="goToSection('spms')">Duck Tape and Cloth Tape</a></li>
+                            <li><a href="{{route('show.tapes')}}#spms" onclick="goToSection('spms')">Masking Tape</a></li>
+                            <li><a href="{{route('show.tapes')}}#spms" onclick="goToSection('spms')">Repulpable Tape</a></li>
+                            <li><a href="{{route('show.tapes')}}#spms" onclick="goToSection('spms')">Sandblast Stencil Products & Impact Stripping Tapes</a></li>
+                            <li><a href="{{route('show.tapes')}}#spms" onclick="goToSection('spms')">Specialty Tapes</a></li>
                         </ul>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#">Abrasives</a>
+                <a href="{{route('show.adhesives')}}">Adhesives</a>
                 <ul>
-                    <li><a href="#">Coated Abrasive Product</a></li>
-                    <li><a href="#">Micro-Finishing Product</a></li>
-                    <li><a href="#">Surface Conditioning Product-Scotch Brite</a></li>
+                    <li>
+                        <a href="{{route('show.adhesives')}}#sws" onclick="goToSection('sws')">Scotch-Weld Structural</a>
+                        <ul>
+                            <li><a href="{{route('show.adhesives')}}#sws" onclick="goToSection('sws')">Scotch Weld Epoxy, Acrylic, Urethane Adhesive</a></li>
+                            <li><a href="{{route('show.adhesives')}}#sws" onclick="goToSection('sws')">Scotch Weld Instant Adhesive</a></li>
+                            <li><a href="{{route('show.adhesives')}}#sws" onclick="goToSection('sws')">Scotch Polyurethane Reactive Adhesive</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{{route('show.adhesives')}}#ns" onclick="goToSection('ns')">Non-Structural</a>
+                        <ul>
+                            <li><a href="{{route('show.adhesives')}}#ns" onclick="goToSection('ns')">Industrial Adhesive, Rubber and Insulation</a></li>
+                            <li><a href="{{route('show.adhesives')}}#ns" onclick="goToSection('ns')">Scotch Hot Meld Adhesive and Aplicators</a></li>
+                            <li><a href="{{route('show.adhesives')}}#ns" onclick="goToSection('ns')">Sealant</a></li>
+                            <li><a href="{{route('show.adhesives')}}#ns" onclick="goToSection('ns')">Aerosol Adhesive</a></li>
+                            <li><a href="{{route('show.adhesives')}}#ns" onclick="goToSection('ns')">Aerosol Chemical</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
-                <a href="#">Matic Case Sealers</a>
+                <a href="{{route('show.abrasives')}}">Abrasives</a>
                 <ul>
-                    <li><a href="#">Manual Adjustable, Semi-Automatic</a></li>
-                    <li><a href="#">Manual Adjustable, Automatic Flap Folding</a></li>
-                    <li><a href="#">Self-Adjustable Random, Semi-Automatic</a></li>
-                    <li><a href="#">Self-Adjustable Random, Fully Automatic</a></li>
-                    <li><a href="#">Accuglide&trade; Taping Heads</a></li>
-                    <li><a href="#">Options Case Sealer</a></li>
-                    <li><a href="#">SCOTCH&reg; BOX Sealing Tape</a></li>
+                    <li><a href="{{route('show.abrasives')}}#cap" onclick="goToSection('cap')">Coated Abrasive Product</a></li>
+                    <li><a href="{{route('show.abrasives')}}#mfp" onclick="goToSection('mfp')">Micro-Finishing Product</a></li>
+                    <li><a href="{{route('show.abrasives')}}#scpsb" onclick="goToSection('scpsb')">Surface Conditioning Product-Scotch Brite</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{{route('show.matic-case-sealers')}}">Matic Case Sealers</a>
+                <ul>
+                    <li><a href="{{route('show.matic-case-sealers')}}#masa" onclick="goToSection('masa')">Manual Adjustable, Semi-Automatic</a></li>
+                    <li><a href="{{route('show.matic-case-sealers')}}#maaff" onclick="goToSection('maaff')">Manual Adjustable, Automatic Flap Folding</a></li>
+                    <li><a href="{{route('show.matic-case-sealers')}}#sarsa" onclick="goToSection('sarsa')">Self-Adjustable Random, Semi-Automatic</a></li>
+                    <li><a href="{{route('show.matic-case-sealers')}}#sarfa" onclick="goToSection('sarfa')">Self-Adjustable Random, Fully Automatic</a></li>
+                    <li><a href="{{route('show.matic-case-sealers')}}#ath" onclick="goToSection('ath')">Accuglide&trade; Taping Heads</a></li>
+                    <li><a href="{{route('show.matic-case-sealers')}}#ocs" onclick="goToSection('ocs')">Options Case Sealer</a></li>
+                    <li><a href="{{route('show.matic-case-sealers')}}#sbst" onclick="goToSection('sbst')">SCOTCH&reg; BOX Sealing Tape</a></li>
                 </ul>
             </li>
         </ul>

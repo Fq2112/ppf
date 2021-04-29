@@ -27,6 +27,24 @@ class CompanyController extends Controller
         return view('pages.company.industrials.tapes');
     }
 
+    public function adhesives()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.company.industrials.adhesives');
+    }
+
+    public function abrasives()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.company.industrials.abrasives');
+    }
+
+    public function maticCaseSealers()
+    {
+        \App\Models\Visitor::hit();
+        return view('pages.company.industrials.matic-case-sealers');
+    }
+
     public function windowFilms()
     {
         \App\Models\Visitor::hit();

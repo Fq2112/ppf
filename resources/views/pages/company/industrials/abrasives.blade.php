@@ -1,5 +1,5 @@
 @extends('layouts.mst_company')
-@section('title', 'Industrials: Tapes | '.env('APP_COMPANY'))
+@section('title', 'Industrials: Abrasives | '.env('APP_COMPANY'))
 @push('styles')
     <style>
         .product-title h3 {
@@ -13,12 +13,12 @@
              style="background-image:url('{{asset('company/demos/car/images/accessories/page-title.jpg')}}');background-size:cover;padding:120px 0;">
         <div class="parallax-overlay"></div>
         <div class="container clearfix">
-            <h1>Tapes</h1>
+            <h1>Abrasives</h1>
             <span></span>
             <ol class="breadcrumb text-uppercase">
                 <li class="breadcrumb-item"><a href="{{route('home-company')}}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{url()->current()}}">Industrials</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tapes</li>
+                <li class="breadcrumb-item active" aria-current="page">Abrasives</li>
             </ol>
         </div>
     </section>
@@ -26,12 +26,12 @@
     <div id="page-menu">
         <div id="page-menu-wrap">
             <div class="container clearfix">
-                <div class="menu-title text-uppercase"><span>Tapes</span></div>
+                <div class="menu-title text-uppercase"><span>Abrasives</span></div>
                 <nav class="one-page-menu text-uppercase">
                     <ul>
-                        <li><a href="#" data-href="#pbr" data-highlight="yellow"><div>Packaging, Bundling, Reinforcing</div></a></li>
-                        <li><a href="#" data-href="#bonding" data-highlight="yellow"><div>Bonding</div></a></li>
-                        <li><a href="#" data-href="#spms" data-highlight="yellow"><div>Surface Protection, Masking & Specialty</div></a></li>
+                        <li><a href="#" data-href="#cap" data-highlight="yellow"><div>Coated Abrasive Product</div></a></li>
+                        <li><a href="#" data-href="#mfp" data-highlight="yellow"><div>Micro-Finishing Product</div></a></li>
+                        <li><a href="#" data-href="#scpsb" data-highlight="yellow"><div>Surface Conditioning Product-Scotch Brite</div></a></li>
                     </ul>
                 </nav>
                 <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
@@ -42,9 +42,9 @@
     <section id="content" class="clearfix">
 			<div class="content-wrap">
 				<div class="container">
-					<div id="pbr" class="page-section">
+					<div id="cap" class="page-section">
 						<div class="heading-block center section nobottomborder py-5 mt-0">
-							<h3 class="highlight-me px-2 d-inline-block">Packaging, Bundling, Reinforcing</h3>
+							<h3 class="highlight-me px-2 d-inline-block">Coated Abrasive Product</h3>
 							<p class="mb-0">{{\Faker\Factory::create()->paragraph}}</p>
 						</div>
 						<div id="oc-wheel" class="owl-carousel shop-carousel carousel-widget" data-margin="30"
@@ -65,9 +65,9 @@
 						</div>
 					</div>
 
-                    <div id="bonding" class="page-section">
+                    <div id="mfp" class="page-section">
                         <div class="heading-block section nobottomborder py-5 center">
-                            <h3 class="highlight-me px-2 d-inline-block">Bonding</h3>
+                            <h3 class="highlight-me px-2 d-inline-block">Micro-Finishing Product</h3>
 							<p class="mb-0">{{\Faker\Factory::create()->paragraph}}</p>
                         </div>
 						<div id="oc-wheel" class="owl-carousel shop-carousel carousel-widget" data-margin="30"
@@ -88,9 +88,9 @@
 						</div>
                     </div>
 
-                    <div id="spms" class="page-section">
+                    <div id="scpsb" class="page-section">
                         <div class="heading-block section nobottomborder py-5 center">
-                            <h3 class="highlight-me px-2 d-inline-block">Surface Protection, Masking & Specialty</h3>
+                            <h3 class="highlight-me px-2 d-inline-block">Surface Conditioning Product-Scotch Brite</h3>
 							<p class="mb-0">{{\Faker\Factory::create()->paragraph}}</p>
                         </div>
 						<div id="oc-wheel" class="owl-carousel shop-carousel carousel-widget" data-margin="30"
